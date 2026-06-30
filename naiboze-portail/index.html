@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NAIBOZE — Portail Rapport Confidentiel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#142849;--navy-deep:#0d1c34;--navy-soft:#1f3864;
+  --gold:#c8a96a;--gold-soft:#e3d2ab;--cream:#f7f4ef;--paper:#fbfaf7;
+  --ink:#1a2233;--muted:#6b7280;--line:#e7e2d8;
+  --crit-high:#a23b3b;--crit-med:#c9883b;--crit-low:#5a7d5a;
+  --shadow:0 18px 50px -20px rgba(13,28,52,.35);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:600;letter-spacing:.2px;line-height:1.15}
+.eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.muted{color:var(--muted)}
+button{font-family:inherit;cursor:pointer}
+.logo{font-family:'Cormorant Garamond';font-weight:600;letter-spacing:.42em;font-size:20px;text-transform:uppercase}
+.logo .dot{color:var(--gold)}
+
+/* ACCESS */
+#access{position:fixed;inset:0;z-index:100;background:radial-gradient(120% 90% at 50% -10%, #1f3864 0%, var(--navy) 45%, var(--navy-deep) 100%);color:#f3efe7;display:flex;align-items:center;justify-content:center;padding:24px;transition:opacity .8s ease, visibility .8s;overflow-y:auto}
+#access.hidden{opacity:0;visibility:hidden}
+.access-frame{width:100%;max-width:440px;text-align:center;position:relative;z-index:2;padding:30px 0}
+.access-frame .logo{font-size:26px;color:#fff;margin-bottom:6px}
+.access-tag{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:40px}
+.lock-ring{width:64px;height:64px;border:1px solid rgba(200,169,106,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 26px;color:var(--gold)}
+.access-frame h1{font-size:30px;color:#fff;margin-bottom:10px}
+.access-frame p.sub{font-size:14px;color:#b9c2d4;margin-bottom:30px;font-weight:300}
+.key-field input{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(200,169,106,.35);border-radius:10px;padding:16px 18px;color:#fff;font-size:15px;letter-spacing:.18em;text-align:center;font-family:'Inter';transition:.25s;margin-bottom:14px}
+.key-field input::placeholder{color:#7f8aa3}
+.key-field input:focus{outline:none;border-color:var(--gold);background:rgba(255,255,255,.07)}
+.btn-access{width:100%;background:var(--gold);color:var(--navy-deep);border:none;border-radius:10px;padding:16px;font-weight:600;font-size:14px;letter-spacing:.05em;transition:.25s}
+.btn-access:hover{background:#d8bd83;transform:translateY(-1px)}
+#keyError{color:#e6a4a4;font-size:12.5px;margin-top:12px;min-height:18px}
+.demo-box{margin-top:26px;border:1px dashed rgba(200,169,106,.4);border-radius:12px;padding:16px 18px;text-align:left}
+.demo-box .dt{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:10px}
+.demo-key{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;cursor:pointer;transition:.18s}
+.demo-key:hover{background:rgba(255,255,255,.05)}
+.demo-key .dk-name{font-size:12.5px;color:#cdd6e6;flex:1}
+.demo-key .dk-code{font-size:11px;color:var(--gold-soft);letter-spacing:.1em}
+.confidential-note{margin-top:34px;font-size:11.5px;color:#8e98ad;line-height:1.7;border-top:1px solid rgba(255,255,255,.08);padding-top:22px;font-weight:300}
+.confidential-note strong{color:#c3ccdd;font-weight:500}
+
+/* APP */
+#app{opacity:0;transition:opacity .8s ease .2s;display:none}
+#app.show{opacity:1;display:block}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(20,40,73,.97);backdrop-filter:blur(10px);color:#fff;border-bottom:1px solid rgba(200,169,106,.25)}
+.topbar-inner{max-width:1180px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:20px}
+.topbar .logo{color:#fff;font-size:17px}
+.topbar .client-chip{margin-left:auto;display:flex;align-items:center;gap:14px;font-size:12.5px;color:#c3ccdd;flex-wrap:wrap;justify-content:flex-end}
+.client-chip .ref{padding:5px 12px;border:1px solid rgba(200,169,106,.4);border-radius:30px;letter-spacing:.12em;color:var(--gold-soft)}
+.score-pill{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.06);padding:6px 8px 6px 16px;border-radius:30px}
+.score-pill b{font-family:'Cormorant Garamond';font-size:20px;color:#fff;line-height:1}
+.score-pill .o{font-size:13px;color:#8e98ad}
+.score-pill .badge{background:var(--gold);color:var(--navy-deep);font-size:11px;font-weight:700;padding:4px 9px;border-radius:20px}
+.logout{background:none;border:1px solid rgba(255,255,255,.2);color:#aeb8cd;font-size:11px;padding:6px 12px;border-radius:20px}
+.logout:hover{border-color:var(--gold);color:#fff}
+
+.layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:228px 1fr}
+.sidenav{position:sticky;top:62px;align-self:start;height:calc(100vh - 62px);padding:34px 22px 34px 28px;border-right:1px solid var(--line)}
+.sidenav .nav-title{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;font-weight:600}
+.sidenav a{display:flex;align-items:center;gap:11px;padding:9px 12px;border-radius:8px;font-size:13.5px;color:#475066;text-decoration:none;margin-bottom:2px;transition:.18s;font-weight:500}
+.sidenav a .n{font-family:'Cormorant Garamond';font-size:13px;color:var(--gold);width:16px}
+.sidenav a:hover{background:var(--paper);color:var(--navy)}
+.sidenav a.active{background:var(--navy);color:#fff}
+.sidenav a.active .n{color:var(--gold-soft)}
+.sidenav .sign{margin-top:28px;padding-top:20px;border-top:1px solid var(--line);font-size:11px;color:var(--muted);line-height:1.7}
+
+.content{padding:54px 56px 120px;min-width:0}
+section.block{margin-bottom:92px;scroll-margin-top:80px}
+.sec-head{margin-bottom:30px}
+.sec-head h2{font-size:34px;color:var(--navy);margin:6px 0 8px}
+.sec-head p.lead{font-size:15px;color:var(--muted);max-width:640px;font-weight:300}
+.rule{height:1px;background:linear-gradient(90deg,var(--gold) 0,var(--gold) 46px,var(--line) 46px);margin-bottom:4px}
+
+.synth-grid{display:grid;grid-template-columns:300px 1fr;gap:38px;align-items:center}
+.gauge-card{background:var(--navy);border-radius:18px;padding:36px 30px;color:#fff;text-align:center;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.gauge-card::after{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 50% 0,rgba(200,169,106,.18),transparent 70%)}
+.gauge-card>*{position:relative;z-index:1}
+.gauge{width:170px;height:170px;margin:6px auto 18px;position:relative}
+.gauge svg{transform:rotate(-90deg)}
+.gauge .val{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.gauge .val b{font-family:'Cormorant Garamond';font-size:54px;line-height:1;color:#fff}
+.gauge .val span{font-size:12px;color:var(--gold-soft);letter-spacing:.1em}
+.gauge-card .verdict-label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-soft)}
+.gauge-card .verdict-val{font-family:'Cormorant Garamond';font-size:22px;margin-top:4px}
+.kpi-row{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:22px}
+.kpi{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.kpi .k{font-family:'Cormorant Garamond';font-size:40px;color:var(--navy);line-height:1}
+.kpi .k small{font-size:18px;color:var(--gold)}
+.kpi .lbl{font-size:12.5px;color:var(--muted);margin-top:4px}
+.verdict-box{background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:12px;padding:24px 26px}
+.verdict-box h4{font-size:21px;color:var(--navy);margin-bottom:8px}
+.verdict-box p{font-size:14.5px;color:#3c465c;font-weight:300}
+
+.mission-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:26px}
+.mission-cell{background:#fff;border:1px solid var(--line);border-radius:13px;padding:22px}
+.mission-cell .ic{color:var(--gold);margin-bottom:12px;font-size:22px}
+.mission-cell h4{font-size:18px;color:var(--navy);margin-bottom:5px}
+.mission-cell p{font-size:13px;color:var(--muted);font-weight:300}
+.method-strip{background:var(--navy);border-radius:14px;padding:26px 30px;color:#cdd6e6;display:flex;gap:34px;flex-wrap:wrap}
+.method-strip .mi{flex:1;min-width:170px}
+.method-strip .mi .eyebrow{margin-bottom:6px;display:block}
+.method-strip .mi p{font-size:13px;font-weight:300}
+.method-strip .mi b{color:#fff;font-weight:500}
+
+.timeline{position:relative;margin-top:14px}
+.timeline-track{display:flex;justify-content:space-between;position:relative;padding:0 4px}
+.timeline-track::before{content:"";position:absolute;top:21px;left:24px;right:24px;height:2px;background:var(--line)}
+.tl-step{position:relative;z-index:2;flex:1;text-align:center;cursor:pointer;padding:0 4px}
+.tl-dot{width:44px;height:44px;border-radius:50%;background:#fff;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-family:'Cormorant Garamond';font-size:17px;font-weight:600;transition:.22s;color:var(--navy)}
+.tl-step:hover .tl-dot{border-color:var(--gold);transform:translateY(-3px)}
+.tl-step.sel .tl-dot{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tl-step .tl-name{font-size:12px;font-weight:500;color:#3c465c;line-height:1.3}
+.tl-step .tl-score{display:inline-block;margin-top:6px;font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px}
+.s-good{background:#e9f0e6;color:var(--crit-low)}
+.s-mid{background:#f7eddc;color:var(--crit-med)}
+.s-bad{background:#f3e1e1;color:var(--crit-high)}
+.tl-detail{margin-top:34px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px 34px;box-shadow:var(--shadow);min-height:150px}
+.tl-detail .dh{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.tl-detail .dh h3{font-size:24px;color:var(--navy)}
+.tl-detail .dh .big-score{margin-left:auto;font-family:'Cormorant Garamond';font-size:38px;color:var(--navy)}
+.tl-detail .dh .big-score small{font-size:17px;color:var(--gold)}
+.tl-detail p{font-size:14px;color:#3c465c;font-weight:300;margin-bottom:14px}
+.tl-detail .link-constat{font-size:12.5px;color:var(--gold);font-weight:600;text-decoration:none;border-bottom:1px solid var(--gold-soft);padding-bottom:1px;cursor:pointer}
+
+.constat{background:#fff;border:1px solid var(--line);border-radius:16px;margin-bottom:20px;overflow:hidden;display:grid;grid-template-columns:6px 1fr}
+.crit-high .crit-bar{background:var(--crit-high)} .crit-med .crit-bar{background:var(--crit-med)} .crit-low .crit-bar{background:var(--crit-low)}
+.constat .body{padding:24px 28px}
+.constat .top{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.constat .cid{font-family:'Cormorant Garamond';font-size:14px;color:var(--gold);letter-spacing:.1em}
+.constat h3{font-size:21px;color:var(--navy)}
+.crit-tag{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:20px}
+.crit-high .crit-tag{background:#f3e1e1;color:var(--crit-high)} .crit-med .crit-tag{background:#f7eddc;color:var(--crit-med)} .crit-low .crit-tag{background:#e9f0e6;color:var(--crit-low)}
+.constat .stage-tag{margin-left:auto;font-size:11px;color:var(--muted);background:var(--paper);padding:4px 11px;border-radius:20px;border:1px solid var(--line)}
+.constat-fields{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:6px}
+.cf{padding:16px 22px 4px 0}
+.cf:not(:last-child){border-right:1px solid var(--line);padding-right:22px}
+.cf:nth-child(2),.cf:nth-child(3){padding-left:22px}
+.cf .cf-l{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:5px}
+.cf p{font-size:13px;color:#3c465c;font-weight:300}
+.constat .observed{font-size:14px;color:#2b3447;margin-bottom:8px}
+.media-chip{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:var(--navy);background:var(--cream);border:1px solid var(--line);padding:5px 11px;border-radius:8px;margin-top:14px;text-decoration:none;font-weight:500;cursor:pointer}
+.media-chip:hover{border-color:var(--gold)}
+
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.media-card{background:var(--navy);border-radius:14px;overflow:hidden;position:relative;aspect-ratio:4/3;cursor:pointer;box-shadow:var(--shadow)}
+.media-card .thumb{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(150deg,#22406e,#0d1c34)}
+.media-card .thumb svg{color:rgba(227,210,171,.5);width:46px;height:46px}
+.media-card .blur-grid{position:absolute;inset:0;opacity:.14;background-image:repeating-linear-gradient(45deg,#fff 0 2px,transparent 2px 10px)}
+.media-card .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;background:rgba(200,169,106,.92);display:flex;align-items:center;justify-content:center;z-index:2}
+.media-card .meta{position:absolute;left:0;right:0;bottom:0;padding:14px 16px;background:linear-gradient(transparent,rgba(13,28,52,.92));color:#fff;z-index:2}
+.media-card .meta .t{font-size:13px;font-weight:600}
+.media-card .meta .s{font-size:11px;color:#aeb8cd;display:flex;align-items:center;gap:8px;margin-top:3px}
+.media-card .type-tag{position:absolute;top:12px;left:12px;z-index:2;font-size:10px;letter-spacing:.12em;text-transform:uppercase;background:rgba(13,28,52,.7);color:var(--gold-soft);padding:4px 9px;border-radius:6px;font-weight:600}
+.media-card .lock{position:absolute;top:12px;right:12px;z-index:2;color:var(--gold-soft)}
+.gallery-note{margin-top:20px;display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--muted);background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:14px 18px}
+.gallery-note svg{color:var(--gold);flex-shrink:0}
+
+.ff-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:36px}
+.ff-col{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 28px}
+.ff-col h3{font-size:21px;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.ff-col.pos h3{color:var(--crit-low)} .ff-col.neg h3{color:var(--crit-high)}
+.ff-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line);font-size:13.5px;color:#3c465c;font-weight:300}
+.ff-item:last-child{border-bottom:none}
+.ff-item .mk{flex-shrink:0;margin-top:3px}
+.pos .mk{color:var(--crit-low)} .neg .mk{color:var(--crit-high)}
+.ff-item b{font-weight:600;color:#2b3447}
+
+.matrix-wrap{background:var(--navy);border-radius:18px;padding:34px 38px;color:#fff;box-shadow:var(--shadow)}
+.matrix-wrap h3{color:#fff;font-size:22px;margin-bottom:4px}
+.matrix-wrap .mh-sub{font-size:13px;color:#aeb8cd;margin-bottom:26px;font-weight:300}
+.matrix{display:grid;grid-template-columns:54px 1fr;gap:10px}
+.m-ylabel{writing-mode:vertical-rl;transform:rotate(180deg);text-align:center;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);align-self:center}
+.m-cells{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,90px);gap:8px}
+.m-cell{border-radius:10px;position:relative;padding:8px}
+.m-cell .pt{display:inline-flex;align-items:center;gap:6px;background:rgba(13,28,52,.55);border:1px solid rgba(200,169,106,.5);padding:3px 8px;border-radius:20px;font-size:10.5px;font-weight:600;color:#fff;margin:2px}
+.zone-lo{background:rgba(90,125,90,.22)} .zone-md{background:rgba(201,136,59,.22)} .zone-hi{background:rgba(162,59,59,.28)}
+.m-xlabels{grid-column:2;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-soft);text-align:center}
+.m-xtitle{grid-column:2;text-align:center;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);margin-top:6px}
+
+.reco-tabs{display:inline-flex;background:var(--paper);border:1px solid var(--line);border-radius:30px;padding:5px;margin-bottom:26px}
+.reco-tabs button{border:none;background:transparent;padding:9px 22px;border-radius:24px;font-size:13px;font-weight:600;color:var(--muted);transition:.2s}
+.reco-tabs button.active{background:var(--navy);color:#fff}
+.reco-list{display:none;flex-direction:column;gap:14px}
+.reco-list.active{display:flex}
+.reco{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 26px;display:grid;grid-template-columns:46px 1fr auto;gap:20px;align-items:center}
+.reco .prio{width:46px;height:46px;border-radius:12px;background:var(--navy);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Cormorant Garamond'}
+.reco .prio b{font-size:20px;line-height:1}.reco .prio span{font-size:8px;letter-spacing:.1em;color:var(--gold-soft)}
+.reco .rmid h4{font-size:18px;color:var(--navy);margin-bottom:4px}
+.reco .rmid p{font-size:13px;color:var(--muted);font-weight:300}
+.reco .rmid .links{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
+.reco .rmid .links a{font-size:11px;color:var(--gold);font-weight:600;text-decoration:none;border:1px solid var(--gold-soft);padding:2px 9px;border-radius:20px;cursor:pointer}
+.reco .reffort{text-align:right}
+.reco .reffort .lbl{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.reco .reffort .dots{margin-top:5px}
+.reco .reffort .dots i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--line);margin-left:3px}
+.reco .reffort .dots i.on{background:var(--gold)}
+.reco .reffort .impact{margin-top:9px;font-size:11px;font-weight:600;color:var(--crit-low)}
+
+.foot{border-top:1px solid var(--line);padding:34px 56px;max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:18px;color:var(--muted);font-size:11.5px;margin-left:228px;flex-wrap:wrap}
+.foot .logo{font-size:14px;color:var(--navy)}
+.foot .sep{margin-left:auto}
+
+#lb{position:fixed;inset:0;z-index:120;background:rgba(8,16,30,.92);display:none;align-items:center;justify-content:center;padding:30px;backdrop-filter:blur(4px)}
+#lb.open{display:flex}
+.lb-card{max-width:560px;width:100%;background:var(--navy);border:1px solid rgba(200,169,106,.3);border-radius:18px;overflow:hidden;color:#fff;position:relative}
+.lb-card .lb-vid{aspect-ratio:16/9;background:linear-gradient(150deg,#22406e,#0d1c34);display:flex;align-items:center;justify-content:center;position:relative}
+.lb-card .lb-vid .blur-grid{position:absolute;inset:0;opacity:.12;background-image:repeating-linear-gradient(45deg,#fff 0 2px,transparent 2px 10px)}
+.lb-card .lb-body{padding:24px 28px}
+.lb-card h3{font-size:22px;margin-bottom:8px}
+.lb-card p{font-size:13px;color:#aeb8cd;font-weight:300}
+.lb-close{position:absolute;top:14px;right:18px;color:#fff;font-size:26px;cursor:pointer;z-index:130;line-height:1}
+
+@media(max-width:980px){
+  .layout{grid-template-columns:1fr}.sidenav{display:none}.content{padding:36px 22px 90px}
+  .foot{margin-left:0;padding:30px 22px}
+  .synth-grid,.ff-grid{grid-template-columns:1fr}
+  .mission-grid,.gallery{grid-template-columns:1fr 1fr}
+  .sec-head h2{font-size:28px}
+  .reco{grid-template-columns:46px 1fr}.reco .reffort{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ACCÈS -->
+<div id="access">
+  <div class="access-frame">
+    <div class="logo">Naiboze<span class="dot">.</span></div>
+    <div class="access-tag">Audit d'expérience · Hôtellerie d'exception</div>
+    <div class="lock-ring"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+    <h1>Portail confidentiel</h1>
+    <p class="sub">Accès réservé. Saisissez la clé unique transmise à votre établissement pour consulter votre rapport.</p>
+    <div class="key-field"><input id="keyInput" type="text" placeholder="NBZ — • • • • — • • • • — • • • •"></div>
+    <button class="btn-access" onclick="tryEnter()">Accéder au rapport</button>
+    <div id="keyError"></div>
+    <div class="demo-box" id="demoBox" style="display:none">
+      <div class="dt">Clés de démonstration — cliquez pour tester</div>
+      <div id="demoKeys"></div>
+    </div>
+    <div class="confidential-note"><strong>Confidentialité absolue.</strong> Ce rapport et l'ensemble des éléments audiovisuels sont strictement personnels à votre établissement. Toute diffusion à un tiers est interdite. Chaque accès est horodaté et journalisé.</div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <div class="topbar"><div class="topbar-inner">
+    <div class="logo">Naiboze<span class="dot">.</span></div>
+    <div class="client-chip" id="clientChip"></div>
+  </div></div>
+  <div class="layout">
+    <nav class="sidenav">
+      <div class="nav-title">Rapport de mission</div>
+      <a href="#synthese" class="active"><span class="n">01</span> Synthèse exécutive</a>
+      <a href="#cadre"><span class="n">02</span> Cadre de la mission</a>
+      <a href="#parcours"><span class="n">03</span> Parcours client</a>
+      <a href="#constats"><span class="n">04</span> Constats détaillés</a>
+      <a href="#galerie"><span class="n">05</span> Galerie audiovisuelle</a>
+      <a href="#fofr"><span class="n">06</span> Forts / Frictions</a>
+      <a href="#reco"><span class="n">07</span> Recommandations</a>
+      <div class="sign" id="navSign"></div>
+    </nav>
+    <main class="content">
+      <section class="block" id="synthese"><div class="rule"></div><div class="sec-head"><span class="eyebrow">01 — Synthèse exécutive</span><h2 id="synthTitle"></h2><p class="lead" id="synthLead"></p></div><div class="synth-grid" id="synthGrid"></div></section>
+      <section class="block" id="cadre"><div class="rule"></div><div class="sec-head"><span class="eyebrow">02 — Cadre de la mission</span><h2>Périmètre & méthodologie</h2><p class="lead">Un audit immersif conduit dans des conditions réelles, en totale incognito, selon un scénario défini avec la direction.</p></div><div class="mission-grid" id="missionGrid"></div><div class="method-strip" id="methodStrip"></div></section>
+      <section class="block" id="parcours"><div class="rule"></div><div class="sec-head"><span class="eyebrow">03 — Parcours client</span><h2>La timeline du séjour</h2><p class="lead">Chaque étape porte une note. Cliquez sur un jalon pour révéler le détail et accéder aux constats associés.</p></div><div class="timeline"><div class="timeline-track" id="tlTrack"></div><div class="tl-detail" id="tlDetail"></div></div></section>
+      <section class="block" id="constats"><div class="rule"></div><div class="sec-head"><span class="eyebrow">04 — Constats détaillés</span><h2>Ce que nous avons observé</h2><p class="lead">Chaque constat consigne le fait observé, son impact, sa criticité et l'écart au standard attendu.</p></div><div id="constatsList"></div></section>
+      <section class="block" id="galerie"><div class="rule"></div><div class="sec-head"><span class="eyebrow">05 — Galerie audiovisuelle</span><h2>Les preuves, anonymisées</h2><p class="lead">Extraits vidéo, audio et photo rattachés aux constats. Visages floutés. Hébergement chiffré, lecture en streaming uniquement.</p></div><div class="gallery" id="galleryGrid"></div><div class="gallery-note"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg><span>Tous les médias sont anonymisés et hébergés sur serveur chiffré européen. Aucun téléchargement n'est autorisé ; les accès expirent à la clôture de la mission.</span></div></section>
+      <section class="block" id="fofr"><div class="rule"></div><div class="sec-head"><span class="eyebrow">06 — Points forts & points de friction</span><h2>Ce qui porte, ce qui freine</h2><p class="lead">Deux volets en miroir, puis une matrice gravité × fréquence pour hiérarchiser les frictions.</p></div><div class="ff-grid" id="ffGrid"></div><div class="matrix-wrap"><h3>Matrice gravité × fréquence</h3><div class="mh-sub">Positionnement des frictions — la zone haute-droite appelle une action prioritaire.</div><div class="matrix"><div class="m-ylabel">Gravité →</div><div class="m-cells" id="matrixCells"></div><div class="m-xlabels"><span>Rare</span><span>Occasionnel</span><span>Récurrent</span></div><div class="m-xtitle">Fréquence →</div></div></div></section>
+      <section class="block" id="reco"><div class="rule"></div><div class="sec-head"><span class="eyebrow">07 — Recommandations</span><h2>Le plan d'action priorisé</h2><p class="lead">Des gestes immédiats aux chantiers de fond. Chaque recommandation est reliée aux constats qui la motivent.</p></div><div class="reco-tabs"><button class="active" onclick="recoTab('qw',this)">Quick wins · 0–30 j</button><button onclick="recoTab('st',this)">Chantiers structurels · 1–6 mois</button></div><div class="reco-list active" id="reco-qw"></div><div class="reco-list" id="reco-st"></div></section>
+    </main>
+  </div>
+  <div class="foot"><span class="logo">Naiboze<span class="dot" style="color:var(--gold)">.</span></span><span>Audit d'expérience client — Hôtellerie d'exception</span><span class="sep" id="footRef"></span></div>
+</div>
+
+<div id="lb"><span class="lb-close" onclick="closeLb()">×</span><div class="lb-card"><div class="lb-vid"><div class="blur-grid"></div><div style="width:52px;height:52px;border-radius:50%;background:rgba(200,169,106,.92);display:flex;align-items:center;justify-content:center;position:relative;z-index:2"><svg width="20" height="20" viewBox="0 0 24 24" fill="#0d1c34"><path d="M8 5v14l11-7z"/></svg></div></div><div class="lb-body"><h3 id="lbTitle">Extrait</h3><p id="lbDesc"></p><p style="margin-top:14px;font-size:11px;color:#c8a96a;letter-spacing:.1em">⬡ MÉDIA ANONYMISÉ · LECTURE STREAMING · TÉLÉCHARGEMENT DÉSACTIVÉ</p></div></div></div>
+
+<script src="clients.js"></script>
+<script>
+/* ============ MOTEUR MULTI-CLIENT ============ */
+const ICONS={
+  home:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-6 9 6v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg>',
+  clock:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+  pin:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg>',
+  book:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v13.5"/><path d="M4 19.5A1.5 1.5 0 0 0 5.5 21H20"/><path d="M8 8h8M8 12h6"/></svg>',
+  img:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 17l5-5 4 4 3-3 6 6"/></svg>',
+  audio:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18"/><path d="M8 7v10M16 7v10M4 10v4M20 10v4"/></svg>',
+  vid:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>'
+};
+const LOCK='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
+const PLAY='<div class="play"><svg width="16" height="16" viewBox="0 0 24 24" fill="#0d1c34"><path d="M8 5v14l11-7z"/></svg></div>';
+const scoreCls=s=>s>=8?'s-good':s>=6?'s-mid':'s-bad';
+let CURRENT=null;
+
+function buildDemoKeys(){
+  // Panneau de clés visible uniquement en mode démo : URL avec ?demo ou #demo
+  const demoMode=/(\?|&|#)demo/.test(location.search+location.hash);
+  if(!demoMode)return;
+  document.getElementById('demoBox').style.display='block';
+  const box=document.getElementById('demoKeys');
+  box.innerHTML=Object.entries(CLIENTS).map(([k,c])=>
+    `<div class="demo-key" onclick="fillKey('${k}')"><span class="dk-name">${c.name}</span><span class="dk-code">${k}</span></div>`).join('');
+}
+function fillKey(k){document.getElementById('keyInput').value=k;tryEnter();}
+function tryEnter(){
+  const k=document.getElementById('keyInput').value.trim().toUpperCase();
+  const c=CLIENTS[k];
+  if(!c){document.getElementById('keyError').textContent='Clé non reconnue. Vérifiez la clé transmise à votre établissement.';return;}
+  document.getElementById('keyError').textContent='';
+  render(c);
+  document.getElementById('access').classList.add('hidden');
+  const app=document.getElementById('app');app.classList.add('show');
+  document.body.style.overflow='auto';window.scrollTo(0,0);
+}
+function logout(){document.getElementById('app').classList.remove('show');document.getElementById('access').classList.remove('hidden');document.body.style.overflow='hidden';document.getElementById('keyInput').value='';}
+
+function render(c){
+  CURRENT=c;
+  const off=Math.round(452*(1-c.score/100));
+  document.getElementById('clientChip').innerHTML=
+    `<span class="ref">RÉF. ${c.ref}</span><span>${c.name}</span><div class="score-pill"><b>${c.score}</b><span class="o">/100</span><span class="badge">${c.verdict}</span></div><button class="logout" onclick="logout()">Quitter</button>`;
+  document.getElementById('navSign').innerHTML=`Mission réalisée<br>${c.mission.dates}<br><span style="color:var(--gold)">●</span> Scénario « ${c.mission.scenarioName} »`;
+  document.getElementById('footRef').textContent=`Document confidentiel · Réf. ${c.ref} · Accès journalisé`;
+  // synthèse
+  document.getElementById('synthTitle').textContent=c.synthTitle;
+  document.getElementById('synthLead').textContent=c.synthLead;
+  document.getElementById('synthGrid').innerHTML=
+    `<div class="gauge-card"><div class="gauge"><svg width="170" height="170" viewBox="0 0 170 170"><circle cx="85" cy="85" r="72" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="10"/><circle cx="85" cy="85" r="72" fill="none" stroke="#c8a96a" stroke-width="10" stroke-linecap="round" stroke-dasharray="452" stroke-dashoffset="${off}"/></svg><div class="val"><b>${c.score}</b><span>SUR 100</span></div></div><div class="verdict-label">Verdict global</div><div class="verdict-val">${c.verdictTitle}</div></div>
+     <div><div class="kpi-row">${c.kpis.map(x=>`<div class="kpi"><div class="k">${x.k}</div><div class="lbl">${x.lbl}</div></div>`).join('')}</div><div class="verdict-box"><h4>En une phrase</h4><p>${c.verdictLong}</p></div></div>`;
+  // mission
+  const m=c.mission;
+  document.getElementById('missionGrid').innerHTML=
+    `<div class="mission-cell"><div class="ic">${ICONS.home}</div><h4>Périmètre</h4><p>${m.perimetre}</p></div>
+     <div class="mission-cell"><div class="ic">${ICONS.clock}</div><h4>Durée</h4><p>${m.duree}</p></div>
+     <div class="mission-cell"><div class="ic">${ICONS.pin}</div><h4>Scénario</h4><p>${m.scenario}</p></div>
+     <div class="mission-cell"><div class="ic">${ICONS.book}</div><h4>Méthodologie</h4><p>${m.methodo}</p></div>`;
+  document.getElementById('methodStrip').innerHTML=
+    `<div class="mi"><span class="eyebrow">Auditeur</span><p>Évaluateur senior formé au luxe, <b>profil correspondant à la clientèle cible</b>, parfaitement incognito.</p></div>
+     <div class="mi"><span class="eyebrow">Notation</span><p>Chaque point de contact noté sur 10, <b>pondéré par son poids émotionnel</b>.</p></div>
+     <div class="mi"><span class="eyebrow">Preuve</span><p>Captations discrètes <b>anonymisées</b> rattachées à chaque constat.</p></div>
+     <div class="mi"><span class="eyebrow">Référentiel</span><p>Écart mesuré au <b>standard cinq étoiles</b> et aux engagements de l'établissement.</p></div>`;
+  // parcours
+  const track=document.getElementById('tlTrack');track.innerHTML='';
+  c.parcours.forEach((s,i)=>{
+    const el=document.createElement('div');el.className='tl-step';
+    el.innerHTML=`<div class="tl-dot">${s.score}</div><div class="tl-name">${s.n}</div><span class="tl-score ${scoreCls(s.score)}">${s.score}/10</span>`;
+    el.onclick=()=>selStep(i,el);track.appendChild(el);
+  });
+  // pick lowest-scoring step as default selection
+  let lowIdx=0;c.parcours.forEach((s,i)=>{if(s.score<c.parcours[lowIdx].score)lowIdx=i;});
+  selStep(lowIdx,track.children[lowIdx]);
+  // constats
+  document.getElementById('constatsList').innerHTML=c.constats.map(x=>
+    `<div class="constat crit-${x.crit}" id="${x.id.toLowerCase()}"><div class="crit-bar"></div><div class="body">
+      <div class="top"><span class="cid">${x.id}</span><h3>${x.title}</h3><span class="crit-tag">${x.critLabel}</span><span class="stage-tag">Étape · ${x.stage}</span></div>
+      <p class="observed">${x.observed}</p>
+      <div class="constat-fields"><div class="cf"><div class="cf-l">Impact</div><p>${x.impact}</p></div><div class="cf"><div class="cf-l">Criticité</div><p>${x.criticite}</p></div><div class="cf"><div class="cf-l">Écart au standard</div><p>${x.ecart}</p></div></div>
+      ${x.media?`<span class="media-chip" onclick="document.querySelector('#galerie').scrollIntoView({behavior:'smooth'})">▶ ${x.media}</span>`:''}
+    </div></div>`).join('');
+  // galerie
+  document.getElementById('galleryGrid').innerHTML=c.gallery.map(g=>{
+    const ic=g.type==='Photo'?ICONS.img:g.type==='Audio'?ICONS.audio:ICONS.vid;
+    return `<div class="media-card" onclick="openLb('${esc(g.title)}','${esc(g.constat)}','${esc(g.desc)}')">
+      <div class="thumb"><div class="blur-grid"></div>${ic}</div>
+      <span class="type-tag">${g.type}</span><span class="lock">${LOCK}</span>${g.type==='Photo'?'':PLAY}
+      <div class="meta"><div class="t">${g.title}</div><div class="s">${g.type==='Photo'?'⬡ Photo':'▶ '+g.dur} · lié au ${g.constat}</div></div></div>`;
+  }).join('');
+  // forts/frictions
+  document.getElementById('ffGrid').innerHTML=
+    `<div class="ff-col pos"><h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 11v9M2 13l5-2"/><path d="M14 4l-1 5h6a2 2 0 0 1 2 2.3l-1.2 7A2 2 0 0 1 17.8 20H7v-9l4-7a2 2 0 0 1 3 1z"/></svg> Points forts</h3>${c.forts.map(t=>`<div class="ff-item"><span class="mk">◆</span><span>${t}</span></div>`).join('')}</div>
+     <div class="ff-col neg"><h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 13V4M22 11l-5 2"/><path d="M10 20l1-5H5a2 2 0 0 1-2-2.3l1.2-7A2 2 0 0 1 6.2 4H17v9l-4 7a2 2 0 0 1-3-1z"/></svg> Points de friction</h3>${c.frictions.map(t=>`<div class="ff-item"><span class="mk">◆</span><span>${t}</span></div>`).join('')}</div>`;
+  // matrice 3x3 : ligne 0=gravité haute ... col 0=fréq rare
+  const cellsEl=document.getElementById('matrixCells');
+  let cells='';
+  for(let r=0;r<3;r++){const grav=3-r;for(let col=0;col<3;col++){const freq=col+1;const sum=grav+freq;const z=sum>=5?'hi':sum>=4?'md':'lo';
+    const pts=c.matrix.filter(p=>p.grav===grav&&p.freq===freq).map(p=>`<span class="pt">${p.label}</span>`).join('');
+    cells+=`<div class="m-cell zone-${z}">${pts}</div>`;}}
+  cellsEl.innerHTML=cells;
+  // recos
+  document.getElementById('reco-qw').innerHTML=c.recos.qw.map((r,i)=>recoHtml(r,i)).join('');
+  document.getElementById('reco-st').innerHTML=c.recos.st.map((r,i)=>recoHtml(r,i)).join('');
+  document.querySelectorAll('.reco-tabs button')[0].classList.add('active');
+  document.querySelectorAll('.reco-tabs button')[1].classList.remove('active');
+  document.getElementById('reco-qw').classList.add('active');
+  document.getElementById('reco-st').classList.remove('active');
+}
+function recoHtml(r,i){
+  const dots=[1,2,3].map(d=>`<i class="${d<=r.effort?'on':''}"></i>`).join('');
+  return `<div class="reco"><div class="prio"><b>${i+1}</b><span>PRIO</span></div><div class="rmid"><h4>${r.title}</h4><p>${r.desc}</p><div class="links">${r.links.map(l=>`<a onclick="goConstat('${l.toLowerCase()}')">${l}</a>`).join('')}</div></div><div class="reffort"><div class="lbl">Effort</div><div class="dots">${dots}</div><div class="impact" style="color:${r.impact==='fort'?'var(--crit-low)':'var(--crit-med)'}">Impact ${r.impact}</div></div></div>`;
+}
+function goConstat(id){const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'center'});}
+function esc(s){return (s||'').replace(/'/g,"\\'").replace(/"/g,'&quot;');}
+function selStep(i,el){
+  document.querySelectorAll('.tl-step').forEach(s=>s.classList.remove('sel'));
+  if(el)el.classList.add('sel');
+  const s=CURRENT.parcours[i];
+  const link=s.c?`<span class="link-constat" onclick="goConstat('${s.c.toLowerCase()}')">→ Voir le constat ${s.c}</span>`:'<span class="muted" style="font-size:12.5px">Aucun constat critique sur cette étape.</span>';
+  document.getElementById('tlDetail').innerHTML=`<div class="dh"><h3>${s.n}</h3><div class="big-score">${s.score}<small>/10</small></div></div><p>${s.txt}</p>${link}`;
+}
+function recoTab(id,btn){document.querySelectorAll('.reco-tabs button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.reco-list').forEach(l=>l.classList.remove('active'));document.getElementById('reco-'+id).classList.add('active');}
+function openLb(t,sub,desc){document.getElementById('lbTitle').textContent=t;document.getElementById('lbDesc').textContent=desc;document.getElementById('lb').classList.add('open');}
+function closeLb(){document.getElementById('lb').classList.remove('open');}
+document.getElementById('lb').addEventListener('click',e=>{if(e.target.id==='lb')closeLb();});
+document.getElementById('keyInput').addEventListener('keydown',e=>{if(e.key==='Enter')tryEnter();});
+const navLinks=document.querySelectorAll('.sidenav a');
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));});},{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('section.block').forEach(s=>obs.observe(s));
+document.body.style.overflow='hidden';
+buildDemoKeys();
+</script>
+</body>
+</html>
