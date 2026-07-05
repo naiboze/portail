@@ -6,7 +6,7 @@
 const CLIENTS = {
 
   /* ---------- CLIENT 1 — Hôtel alpin 5★ — score solide ---------- */
-  "NBZ-7F4A-9C21-D0E5": {
+  "NBA-7F4A-9C21-D0E5": {
     ref: "FND-001",
     name: "Établissement ★★★★★ — Massif alpin",
     score: 78, verdict: "SOLIDE", verdictTitle: "Excellence en devenir",
