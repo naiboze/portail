@@ -5,6 +5,292 @@
    ===================================================================== */
 const CLIENTS = {
 
+   /* =====================================================================
+   NAIBOZE — Bloc rapport « Hôtel Azur Prestige » (réf. NBZ-01A-2026)
+   ---------------------------------------------------------------------
+   STRUCTURE DÉFINITIVE (celle du rapport) : cadre de mission, résumé
+   exécutif (score global + 5 axes), puis 8 phases chronologiques, chacune
+   composée d'événements horodatés et close par le ressenti de l'agent.
+   Les preuves (vidéo / photo / capture) sont rattachées à l'événement.
+
+   OÙ LE COLLER : dans clients.js, juste APRÈS la ligne « const CLIENTS = { »
+   (le bloc se termine par une virgule, rien d'autre à modifier).
+   ===================================================================== */
+
+  "NBZ-01A-2026": {
+    ref: "NBZ-01A-2026",
+    name: "Hôtel Azur Prestige ★★★★★ — France",
+    etoiles: 5,
+    localisation: "France",
+    type: "Premium",
+    score: 78.8,
+    verdict: "SOLIDE",
+
+    /* ---- Cadre de la mission (page de garde du rapport) ---- */
+    mission: {
+      dateMission: "entre le 01/06/2026 et le 15/06/2026",
+      duree: "1 jour — séjour individuel d'une nuit",
+      agent: "AP-17",
+      dateEmission: "25/06/2026",
+      destinataire: "Direction Générale",
+      statut: "Mission clôturée",
+      reservation: "Directe (site officiel)",
+      profil: "Homme, 26 ans, consultant en stratégie. Voyage individuel, déplacement hybride (professionnel / loisir). Habitué des établissements haut de gamme. Première visite de l'établissement.",
+      objectif: "Évaluer la capacité de l'établissement à identifier, transmettre et exploiter les informations communiquées par un client avant son arrivée afin de délivrer une expérience personnalisée, cohérente et conforme aux standards de l'hôtellerie de luxe.",
+      perimetre: ["Réservation", "Arrivée sur site", "Réception / check-in", "Chambre", "Conciergerie", "Restaurant gastronomique", "Services annexes", "Départ / check-out"],
+      elements: ["10 séquences vidéo", "9 photographies", "Notes d'observation chronologiques", "Analyse émotionnelle du parcours client", "Évaluation des standards de service"],
+      scenario: "L'agent a effectué une réservation directe sur le site officiel de l'établissement pour un séjour individuel d'une nuit. Avant son arrivée, l'agent a informé l'établissement qu'il travaillerait à distance pendant son séjour et qu'il participerait à plusieurs visioconférences nécessitant un environnement calme ainsi qu'une connexion internet stable. Une demande complémentaire a également été formulée auprès de la conciergerie concernant les espaces de travail disponibles, les recommandations de restaurants adaptés à une activité professionnelle ainsi que la possibilité d'un départ tardif.",
+      mentions: "Les observations présentées dans ce rapport reposent sur les éléments recueillis au cours de la mission selon le protocole opérationnel Naïboze et dans le respect des exigences applicables à la mission concernée. Les constats, analyses et recommandations présentés reposent exclusivement sur les faits observés et documentés au cours de la mission."
+    },
+
+    /* ---- Résumé exécutif ---- */
+    synthTitle: "Un standard maîtrisé, une personnalisation à activer",
+    synthLead: "Score global de 78,8 %. L'établissement délivre une prestation opérationnelle solide ; la marge se loge dans la personnalisation et la circulation de l'information entre les services.",
+    resume: [
+      "Dans le cadre de cette mission, Naïboze a procédé à l'évaluation de l'expérience client complète d'un séjour de 24 heures au sein de l'Hôtel Azur Prestige *****. La mission avait pour objectif d'observer la prise en compte, la transmission et l'exploitation des informations communiquées par un client avant son arrivée ainsi que leur utilisation tout au long du parcours client.",
+      "L'évaluation a porté sur l'ensemble des principales étapes du séjour, incluant la réservation, les échanges préalables à l'arrivée, l'accueil, l'hébergement, la conciergerie, la restauration, le petit-déjeuner et le départ.",
+      "Les observations réalisées au cours de la mission ont permis d'établir un score global de 78,8 %. Les éléments observés montrent que les informations communiquées avant l'arrivée ont été identifiées et exploitées de manière variable selon les services sollicités au cours du séjour.",
+      "Plusieurs interactions démontrent que certaines équipes disposaient des informations relatives au contexte du séjour et aux besoins exprimés avant l'arrivée. D'autres échanges observés ne font pas apparaître la même connaissance du dossier client ou ne permettent pas de constater l'exploitation des informations précédemment communiquées.",
+      "Les observations réalisées mettent également en évidence des différences dans les réponses apportées concernant certains sujets évoqués à plusieurs reprises au cours du séjour, notamment les espaces adaptés au travail à distance ainsi que le suivi d'une demande de départ tardif formulée avant l'arrivée.",
+      "Les infrastructures, les espaces d'hébergement, les services de restauration ainsi que les différents points de contact observés au cours de la mission ont fait l'objet d'une évaluation détaillée présentée dans les sections suivantes du rapport.",
+      "Les constats, analyses et recommandations formulés dans ce document reposent exclusivement sur les éléments observés et documentés durant la mission réalisée selon le protocole opérationnel Naïboze."
+    ],
+    axes: [
+      { label: "Premier contact et qualité de l'accueil", value: 76 },
+      { label: "Exécution des standards opérationnels", value: 84 },
+      { label: "Personnalisation et attention portée au client", value: 67 },
+      { label: "Fluidité de la communication interservices", value: 60 },
+      { label: "Expérience client perçue et valeur délivrée", value: 87 }
+    ],
+
+    /* ---- Chronologie : 8 phases ----
+       event.blocks[].t : 'p' (paragraphe) · 'quote' (verbatim « »)
+                          'synth' (retranscription de synthèse)
+                          'stat' (mesures) · 'flag' (point d'attention)
+       event.media : { type:'Vidéo'|'Photo'|'Capture', ref, label } */
+    phases: [
+
+      { n: 1, titre: "Réservation", jour: "Jour 0", horaire: "10h14 → 12h47",
+        events: [
+          { time: "Jour 0 · 10h14", blocks: [
+            { t: "p", v: "Une réservation est effectuée sur le site officiel de l'établissement pour un séjour individuel d'une nuit en chambre Deluxe Vue Mer. Au cours du processus de réservation, l'agent renseigne dans le champ dédié aux demandes particulières le message suivant :" },
+            { t: "quote", v: "Je serai amené à travailler à distance durant mon séjour et participerai à plusieurs visioconférences. Je recherche un environnement calme ainsi qu'une connexion internet stable." },
+            { t: "p", v: "La réservation est validée à 10h18." }
+          ] },
+          { time: "Jour 0 · 10h20", blocks: [
+            { t: "p", v: "Un courrier électronique automatique de confirmation est reçu à l'adresse utilisée pour la réservation." }
+          ], media: { type: "Capture", ref: "CAPTURE ÉCRAN 01", label: "Confirmation de réservation reçue par courrier électronique." } },
+          { time: "Jour 0 · 11h32", blocks: [
+            { t: "p", v: "L'agent contacte le service conciergerie par courrier électronique afin d'obtenir des informations complémentaires concernant les espaces de travail disponibles au sein de l'établissement ainsi que les restaurants adaptés à une activité professionnelle." }
+          ], media: { type: "Capture", ref: "CAPTURE ÉCRAN 02", label: "Demande adressée au service conciergerie." } },
+          { time: "Jour 0 · 12h47", blocks: [
+            { t: "p", v: "Une réponse est reçue le même jour. Les informations demandées sont communiquées et plusieurs solutions sont proposées." },
+            { t: "p", v: "Aucune autre interaction n'est observée avant l'arrivée sur site." }
+          ], media: { type: "Capture", ref: "CAPTURE ÉCRAN 03", label: "Réponse du service conciergerie." } }
+        ],
+        ressenti: "Les échanges réalisés avant l'arrivée permettent d'obtenir les informations recherchées. À ce stade, l'agent considère que l'établissement dispose des éléments nécessaires pour identifier le contexte de son séjour et les besoins exprimés avant son arrivée."
+      },
+
+      { n: 2, titre: "Arrivée sur site", jour: "Jour 1", horaire: "15h04 → 15h08",
+        events: [
+          { time: "Jour 1 · 15h04", blocks: [
+            { t: "p", v: "L'agent arrive devant l'entrée principale de l'établissement à bord d'un véhicule de location. La zone de dépose minute est libre au moment de son arrivée." }
+          ], media: { type: "Vidéo", ref: "VIDÉO 01", label: "Arrivée de l'agent devant l'établissement." } },
+          { time: "Jour 1 · 15h04 → 15h06", blocks: [
+            { t: "p", v: "Aucun membre du personnel n'interagit avec l'agent. À 15h06, un employé se présente et propose la prise en charge des bagages." }
+          ], media: { type: "Vidéo", ref: "VIDÉO 02", label: "Prise en charge des bagages." } },
+          { time: "", blocks: [
+            { t: "p", v: "L'agent est ensuite accompagné jusqu'au hall principal. Aucun échange relatif aux informations communiquées avant l'arrivée n'est observé durant cette phase." }
+          ] },
+          { time: "Jour 1 · 15h08", blocks: [
+            { t: "p", v: "L'agent rejoint la réception afin de procéder à son enregistrement." }
+          ] }
+        ],
+        ressenti: "L'arrivée est perçue comme fluide. Aucun élément ne permet toutefois d'identifier à ce stade une prise en compte particulière des informations communiquées avant le séjour."
+      },
+
+      { n: 3, titre: "Enregistrement", jour: "Jour 1", horaire: "15h08 → 15h22",
+        events: [
+          { time: "Jour 1 · 15h08", blocks: [
+            { t: "p", v: "À son arrivée à la réception, l'agent constate la présence de deux clients en cours d'enregistrement auprès des réceptionnistes. Trois postes d'accueil sont visibles, dont deux occupés." }
+          ], media: { type: "Vidéo", ref: "VIDÉO 03", label: "Vue générale de la réception lors de l'arrivée de l'agent." } },
+          { time: "Jour 1 · 15h10", blocks: [
+            { t: "p", v: "Un réceptionniste établit un contact visuel avec l'agent et lui adresse un signe de la tête indiquant qu'il sera pris en charge dans quelques instants. Aucun échange verbal complémentaire n'est observé." }
+          ] },
+          { time: "Jour 1 · 15h17", blocks: [
+            { t: "p", v: "L'agent est invité à se présenter au comptoir. La pièce d'identité est demandée ainsi qu'une carte bancaire de garantie. Le réceptionniste vérifie les informations de réservation, remet une fiche récapitulative du séjour et présente brièvement les principaux services de l'établissement." },
+            { t: "p", v: "Au cours de l'échange, aucune référence n'est faite aux informations communiquées avant l'arrivée concernant l'activité professionnelle de l'agent ou son besoin d'un environnement calme." }
+          ] },
+          { time: "Jour 1 · 15h19", blocks: [
+            { t: "p", v: "L'agent demande :" },
+            { t: "quote", v: "Je voulais savoir si ma demande concernant le télétravail pendant le séjour avait bien été prise en compte ?" },
+            { t: "p", v: "Le réceptionniste consulte son écran pendant quelques secondes avant de répondre :" },
+            { t: "quote", v: "Je vois effectivement une note dans votre dossier. Nous vous avons attribué une chambre dans une zone calme de l'établissement." },
+            { t: "p", v: "L'information apparaît donc dans le système de réservation au moment de la consultation du dossier client." }
+          ] },
+          { time: "Jour 1 · 15h21", blocks: [
+            { t: "p", v: "Le réceptionniste remet les cartes d'accès à la chambre et précise les horaires du petit-déjeuner ainsi que ceux du restaurant gastronomique." }
+          ] },
+          { time: "Jour 1 · 15h22", blocks: [
+            { t: "p", v: "La procédure d'enregistrement prend fin." }
+          ], media: { type: "Vidéo", ref: "VIDÉO 04", label: "Échange avec le réceptionniste." } }
+        ],
+        ressenti: "L'interaction est perçue comme professionnelle et courtoise. L'agent note cependant que les informations transmises avant son arrivée n'ont été évoquées qu'après une question directe de sa part."
+      },
+
+      { n: 4, titre: "Accès à la chambre et inspection initiale", jour: "Jour 1", horaire: "15h24 → 15h52",
+        events: [
+          { time: "Jour 1 · 15h24", blocks: [
+            { t: "p", v: "L'agent rejoint l'étage attribué à l'aide de l'ascenseur principal. Les espaces communs observés entre la réception et la chambre apparaissent propres et correctement entretenus. Aucun défaut particulier n'est constaté durant le parcours." }
+          ] },
+          { time: "Jour 1 · 15h26", blocks: [
+            { t: "p", v: "L'agent accède à la chambre. Une inspection visuelle complète est immédiatement réalisée conformément au protocole Naïboze." }
+          ], media: { type: "Photo", ref: "PHOTO 01", label: "Vue générale de la chambre." } },
+          { time: "", blocks: [
+            { t: "p", v: "L'agent vérifie plus particulièrement l'espace de travail en raison du scénario de mission. Le bureau est correctement installé à proximité d'une prise électrique et bénéficie d'un éclairage naturel." }
+          ], media: { type: "Photo", ref: "PHOTO 02", label: "Espace bureau." } },
+          { time: "Jour 1 · 15h34", blocks: [
+            { t: "p", v: "Un test de connexion internet est réalisé. Le téléchargement d'un fichier de 2 Go est effectué afin de mesurer la stabilité de la connexion." },
+            { t: "stat", v: [["Téléchargement", "94,7 Mbps"], ["Téléversement", "93,1 Mbps"], ["Ping", "12 ms"], ["Gigue", "2 ms"], ["Durée du transfert", "3 min 28 s"], ["Débit moyen", "9,83 Mo/s"]] }
+          ], media: { type: "Capture", ref: "CAPTURE 04", label: "Résultat du test réseau." } },
+          { time: "Jour 1 · 15h41", blocks: [
+            { t: "p", v: "Une visioconférence test de dix minutes est effectuée. Aucune coupure n'est observée durant l'appel." },
+            { t: "p", v: "L'agent poursuit ensuite l'inspection détaillée de la chambre. Une légère accumulation de poussière est observée sur une étagère décorative située à proximité du minibar." }
+          ], media: { type: "Photo", ref: "PHOTO 03", label: "Étagère décorative." } },
+          { time: "", blocks: [
+            { t: "p", v: "Une trace est également constatée sur une paroi de douche." }
+          ], media: { type: "Photo", ref: "PHOTO 04", label: "Paroi de douche." } },
+          { time: "Jour 1 · 15h52", blocks: [
+            { t: "p", v: "L'agent consulte le dossier de bienvenue présent dans la chambre. Aucune documentation spécifique relative aux espaces de travail de l'établissement n'est présente malgré la demande formulée avant le séjour." }
+          ] }
+        ],
+        ressenti: "L'agent considère que la chambre est adaptée à l'usage annoncé lors de la réservation. Les équipements et la connexion internet répondent aux besoins exprimés avant l'arrivée."
+      },
+
+      { n: 5, titre: "Test de la coordination entre services", jour: "Jour 1", horaire: "17h08 → 17h36",
+        events: [
+          { time: "Jour 1 · 17h08", blocks: [
+            { t: "p", v: "Afin d'évaluer la circulation de l'information entre les différents services, l'agent contacte la réception depuis sa chambre concernant une demande de départ tardif. La demande est prise en compte et un retour ultérieur est annoncé après vérification des disponibilités du lendemain." },
+            { t: "synth", v: "La réception confirme avoir identifié la demande et indique qu'une vérification interne sera effectuée avant de communiquer une réponse définitive." }
+          ] },
+          { time: "Jour 1 · 17h36", blocks: [
+            { t: "p", v: "Aucun rappel n'a été reçu. L'agent se rend alors directement à la conciergerie. L'échange porte sur les espaces de travail disponibles au sein de l'établissement, l'organisation du lendemain matin ainsi que la demande de départ tardif. Au cours de la discussion, plusieurs éléments communiqués avant l'arrivée sont spontanément évoqués par le concierge." },
+            { t: "synth", v: "Le service conciergerie démontre une connaissance du contexte du séjour. Les besoins liés à l'activité professionnelle de l'agent sont identifiés et plusieurs solutions adaptées sont proposées. La demande de départ tardif est également retrouvée dans le dossier client et fait l'objet d'un suivi." },
+            { t: "flag", v: "Cette interaction constitue le premier élément démontrant une différence de niveau d'information entre plusieurs services de l'établissement." }
+          ], media: { type: "Vidéo", ref: "VIDÉO 05", label: "Échange avec la conciergerie." } }
+        ],
+        ressenti: "L'agent perçoit une meilleure maîtrise du dossier client au sein du service conciergerie que lors des interactions précédentes observées durant le séjour."
+      },
+
+      { n: 6, titre: "Restauration gastronomique", jour: "Jour 1", horaire: "20h02 → 22h01",
+        events: [
+          { time: "Jour 1 · 20h02", blocks: [
+            { t: "p", v: "L'agent se présente à l'entrée du restaurant gastronomique de l'établissement à 20h02, conformément à la réservation effectuée lors du check-in. Une hôtesse accueille l'agent dès son arrivée. Après vérification du numéro de chambre, celui-ci est accompagné jusqu'à une table située dans une zone calme de la salle. Le personnel présente la carte ainsi que les suggestions du chef." }
+          ] },
+          { time: "Jour 1 · 20h09", blocks: [
+            { t: "p", v: "Le serveur prend la commande. Durant les premières minutes de l'échange, aucune référence n'est faite au contexte professionnel communiqué avant l'arrivée ou aux échanges précédemment réalisés avec la conciergerie." }
+          ], media: { type: "Vidéo", ref: "VIDÉO 06", label: "Arrivée de l'agent au restaurant et prise de commande." } },
+          { time: "Jour 1 · 20h24", blocks: [
+            { t: "p", v: "L'entrée est servie à la table de l'agent par le serveur référent. L'assiette est présentée avant d'être déposée. Une description succincte des principaux produits composant le plat est réalisée au moment du service. Le serveur précise notamment l'origine de certains produits ainsi que les éléments préparés par le chef le jour même. L'échange demeure fluide et naturel. Aucun document ou support complémentaire n'est utilisé." }
+          ], media: { type: "Photo", ref: "PHOTO 05", label: "Entrée servie à table." } },
+          { time: "Jour 1 · 20h28", blocks: [
+            { t: "p", v: "Un membre du personnel effectue un premier passage visuel dans la salle afin de s'assurer du bon déroulement du service. Aucun échange direct n'est engagé à ce moment-là." }
+          ] },
+          { time: "Jour 1 · 20h34", blocks: [
+            { t: "p", v: "Le serveur revient à table afin de recueillir les premières impressions concernant l'entrée." },
+            { t: "synth", v: "L'agent indique être satisfait du plat servi. Le personnel remercie l'agent pour son retour et confirme la préparation du plat suivant." },
+            { t: "p", v: "L'assiette est débarrassée à 20h39." }
+          ] },
+          { time: "Jour 1 · 20h39", blocks: [
+            { t: "p", v: "Débarrassage de l'entrée." }
+          ], media: { type: "Vidéo", ref: "VIDÉO 11", label: "Débarrassage de l'entrée." } },
+          { time: "Jour 1 · 20h39 → 20h56", blocks: [
+            { t: "p", v: "Plusieurs passages du personnel sont observés dans la salle. Les niveaux d'eau sont vérifiés régulièrement et les tables font l'objet d'une surveillance discrète." }
+          ] },
+          { time: "Jour 1 · 20h57", blocks: [
+            { t: "p", v: "Le plat principal est présenté à l'agent. Le serveur prend quelques instants pour détailler la composition du plat, les techniques de cuisson utilisées ainsi que les accompagnements proposés." }
+          ], media: { type: "Photo", ref: "PHOTO 07", label: "Plat principal." } },
+          { time: "Jour 1 · 21h10", blocks: [
+            { t: "p", v: "Durant le repas, le personnel effectue plusieurs passages de contrôle sans interruption excessive de l'expérience. Les interactions observées demeurent discrètes et adaptées au rythme du client. Un nouveau passage est effectué afin de vérifier la satisfaction de l'agent concernant le plat principal." },
+            { t: "synth", v: "L'échange porte principalement sur la cuisson, l'équilibre des saveurs et le déroulement général du repas. Aucun problème n'est signalé." },
+            { t: "p", v: "Le plat principal est débarrassé à 21h22." }
+          ] },
+          { time: "Jour 1 · 21h22", blocks: [
+            { t: "p", v: "Débarrassage du plat principal." }
+          ], media: { type: "Vidéo", ref: "VIDÉO 13", label: "Débarrassage du plat principal." } },
+          { time: "Jour 1 · 21h26", blocks: [
+            { t: "p", v: "Le serveur revient à table afin de proposer la carte des desserts ainsi que la carte des boissons chaudes. Après consultation, l'agent indique ne pas souhaiter de dessert et commande un café." },
+            { t: "synth", v: "L'agent indique être satisfait du repas et préfère conclure celui-ci par une boisson chaude." },
+            { t: "p", v: "Le café est servi à 21h35." }
+          ] },
+          { time: "Jour 1 · 21h36", blocks: [
+            { t: "p", v: "Plusieurs mignardises accompagnant le café sont apportées à table." }
+          ], media: { type: "Photo", ref: "PHOTO 09", label: "Mignardises servies avec le café." } },
+          { time: "Jour 1 · 21h41", blocks: [
+            { t: "p", v: "Un responsable de salle effectue un passage auprès de l'agent." },
+            { t: "synth", v: "L'échange porte sur le déroulement général du séjour, la qualité de la restauration et les infrastructures de l'établissement. Les espaces pouvant être utilisés pour travailler ou organiser des rendez-vous professionnels sont évoqués. Plusieurs recommandations sont formulées pour la matinée suivante." },
+            { t: "p", v: "Le responsable remercie ensuite l'agent pour sa visite et lui souhaite une excellente fin de séjour." }
+          ], media: { type: "Vidéo", ref: "VIDÉO 14", label: "Passage du responsable de salle." } },
+          { time: "Jour 1 · 21h52", blocks: [
+            { t: "p", v: "Le café et les mignardises sont débarrassés. L'addition est imputée directement sur la chambre conformément à la procédure annoncée lors du check-in." }
+          ] },
+          { time: "Jour 1 · 21h56", blocks: [
+            { t: "p", v: "À l'issue du dîner, l'agent quitte le restaurant gastronomique et rejoint les espaces communs de l'établissement. Le trajet s'effectue sans interaction particulière avec le personnel. Les espaces communs observés sont propres et correctement entretenus. La fréquentation de l'établissement est faible à cette heure de la soirée." }
+          ], media: { type: "Vidéo", ref: "VIDÉO 15", label: "Sortie du restaurant et retour vers les ascenseurs." } },
+          { time: "Jour 1 · 22h01", blocks: [
+            { t: "p", v: "L'agent rejoint sa chambre." },
+            { t: "flag", v: "Aucune communication complémentaire de l'établissement n'est reçue au cours de la soirée concernant la demande de départ tardif formulée avant l'arrivée puis évoquée à plusieurs reprises au cours du séjour." }
+          ] }
+        ],
+        ressenti: "L'agent considère que les informations nécessaires ont été communiquées aux différents services de l'établissement au cours de la journée et attend un retour concernant sa demande."
+      },
+
+      { n: 7, titre: "Petit déjeuner", jour: "Jour 2", horaire: "07h24 → 08h07",
+        events: [
+          { time: "Jour 2 · 07h24", blocks: [
+            { t: "p", v: "L'agent se présente à l'espace petit-déjeuner situé au rez-de-chaussée de l'établissement. Plusieurs clients sont déjà installés dans la salle au moment de son arrivée. Après communication du numéro de chambre, une table lui est attribuée par un membre du personnel d'accueil." }
+          ], media: { type: "Vidéo", ref: "VIDÉO 16", label: "Arrivée et prise en charge à l'espace petit-déjeuner." } },
+          { time: "", blocks: [
+            { t: "p", v: "Une fois installé, l'agent procède à une observation complète de l'espace de restauration. L'ensemble du buffet apparaît correctement approvisionné. Les différents espaces sont clairement identifiables et les produits présentés de manière ordonnée." },
+            { t: "p", v: "L'offre proposée comprend notamment une sélection de viennoiseries, pains, fruits frais, produits laitiers, céréales, charcuteries, fromages ainsi que plusieurs préparations chaudes." },
+            { t: "p", v: "Au cours de la période d'observation, plusieurs membres du personnel circulent régulièrement entre la salle et les différents postes de service. Les tables libérées sont rapidement remises en état et les produits consommés sont réapprovisionnés au fur et à mesure des besoins observés." },
+            { t: "p", v: "À plusieurs reprises, des collaborateurs effectuent des contrôles visuels du buffet afin de vérifier les niveaux de stock et la présentation des produits. Aucun espace vide ou rupture d'approvisionnement n'est observé durant la présence de l'agent." }
+          ] },
+          { time: "Jour 2 · 07h55", blocks: [
+            { t: "p", v: "L'agent sollicite un membre du personnel concernant les espaces disponibles pour travailler au sein de l'établissement durant la matinée." },
+            { t: "synth", v: "Le collaborateur indique ne pas disposer de cette information et oriente l'agent vers la réception pour obtenir davantage de renseignements. Cette interaction constitue la seule demande spécifique formulée par l'agent durant le petit-déjeuner." },
+            { t: "p", v: "Le repas se poursuit sans autre échange notable avec le personnel." }
+          ] },
+          { time: "Jour 2 · 08h07", blocks: [
+            { t: "p", v: "L'agent quitte l'espace petit-déjeuner." }
+          ] }
+        ],
+        ressenti: "L'organisation générale du service apparaît fluide et maîtrisée. L'espace est correctement entretenu et les opérations de réapprovisionnement sont réalisées de manière discrète. Les informations obtenues concernant les espaces de travail diffèrent toutefois de celles précédemment communiquées par d'autres services de l'établissement."
+      },
+
+      { n: 8, titre: "Check-out et départ", jour: "Jour 2", horaire: "10h52 → 11h12",
+        events: [
+          { time: "Jour 2 · 10h52", blocks: [
+            { t: "p", v: "L'agent se présente à la réception afin de procéder aux formalités de départ. Deux collaborateurs sont présents derrière le comptoir au moment de l'arrivée de l'agent. La prise en charge intervient rapidement après son arrivée." },
+            { t: "p", v: "Le réceptionniste procède à la consultation du dossier client et prépare la facture du séjour. Les consommations enregistrées sur la chambre sont vérifiées avant validation." },
+            { t: "p", v: "Au cours de l'échange, l'agent sollicite un dernier retour concernant la demande de départ tardif formulée avant son arrivée puis évoquée à plusieurs reprises durant le séjour." },
+            { t: "synth", v: "Après consultation du dossier client, aucune validation définitive de la demande n'apparaît dans les informations disponibles à la réception. Une vérification complémentaire est réalisée sans qu'une réponse précise puisse être apportée au client." },
+            { t: "p", v: "L'échange se poursuit ensuite sur les modalités de règlement et sur le déroulement général du séjour. Le réceptionniste remercie l'agent pour sa visite et l'invite à revenir séjourner dans l'établissement." },
+            { t: "p", v: "La procédure de départ est finalisée à 11h06." }
+          ], media: { type: "Vidéo", ref: "VIDÉO 17", label: "Arrivée à la réception pour le check-out." } },
+          { time: "Jour 2 · 11h06", blocks: [
+            { t: "p", v: "Fin du check-out." }
+          ], media: { type: "Vidéo", ref: "VIDÉO 18", label: "Fin du check-out." } },
+          { time: "Jour 2 · 11h12", blocks: [
+            { t: "p", v: "L'agent quitte définitivement l'établissement à 11h12." }
+          ], media: { type: "Vidéo", ref: "VIDÉO 19", label: "Sortie de l'établissement." } }
+        ],
+        ressenti: "Les formalités de départ sont réalisées rapidement et sans difficulté particulière. La demande formulée avant l'arrivée n'a toutefois pas reçu de réponse définitive avant la fin du séjour."
+      }
+
+    ]
+  },
+
   /* ---------- CLIENT 1 — Hôtel alpin 5★ — score solide ---------- */
   "NBA-7F4A-9C21-D0E5": {
     ref: "FND-001",
