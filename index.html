@@ -206,6 +206,61 @@ section.block{margin-bottom:92px;scroll-margin-top:80px}
 .reco .reffort .dots i.on{background:var(--gold)}
 .reco .reffort .impact{margin-top:9px;font-size:11px;font-weight:600;color:var(--crit-low)}
 
+/* ===================== STRUCTURE DÉFINITIVE (rapport chrono) ===================== */
+.axes-panel{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:26px 30px;display:flex;flex-direction:column;justify-content:center}
+.axis{margin-bottom:17px}.axis:last-child{margin-bottom:0}
+.axis-top{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;margin-bottom:7px;color:#3c465c}
+.axis-top b{font-family:'Cormorant Garamond';font-size:19px;color:var(--navy)}
+.axis-bar{height:6px;background:#ece6da;border-radius:6px;overflow:hidden}
+.axis-fill{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-soft));border-radius:6px;transition:width 1s cubic-bezier(.2,.7,.2,1)}
+.resume-prose{margin-top:30px;max-width:770px}
+.resume-prose p{font-size:14.5px;color:#3c465c;font-weight:300;margin-bottom:14px}
+.resume-prose p:first-child{font-family:'Cormorant Garamond';font-size:23px;font-weight:500;color:var(--navy);line-height:1.35}
+
+.cadre-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px}
+.cadre-cell{background:#fff;border:1px solid var(--line);border-radius:13px;padding:18px 20px}
+.cadre-cell.wide{grid-column:1/-1}
+.cadre-cell .cl{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:7px}
+.cadre-cell .cv{font-size:14px;color:#2b3447}
+.cadre-cell .chips{display:flex;flex-wrap:wrap;gap:7px}
+.cadre-cell .chips span{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:5px 12px;font-size:12.5px;color:#3c465c}
+.scenario-box{background:var(--navy);border-radius:16px;padding:24px 28px;color:#cdd6e6;margin-bottom:18px}
+.scenario-box .cl{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);font-weight:600;margin-bottom:10px}
+.scenario-box p{font-size:14px;font-weight:300;line-height:1.7}
+.legal-note{font-size:12px;color:var(--muted);font-weight:300;line-height:1.7;border-top:1px solid var(--line);padding-top:16px}
+
+.phase{background:#fff;border:1px solid var(--line);border-radius:16px;margin-bottom:16px;overflow:hidden}
+.phase-head{width:100%;background:none;border:none;text-align:left;display:flex;align-items:center;gap:18px;padding:22px 26px;cursor:pointer}
+.phase-head .pn{font-family:'Cormorant Garamond';font-size:26px;color:var(--gold);min-width:40px}
+.phase-head .pt{flex:1}
+.phase-head .pk{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.phase-head .pt h3{font-size:22px;color:var(--navy)}
+.phase-head .chev{color:var(--gold);font-size:15px;transition:transform .3s;flex:none}
+.phase.open .phase-head .chev{transform:rotate(180deg)}
+.phase-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+.phase.open .phase-body{grid-template-rows:1fr}
+.phase-body>div{overflow:hidden}
+.phase-inner{padding:0 26px 26px}
+.event{display:grid;grid-template-columns:118px 1fr;gap:20px;padding:16px 0;border-top:1px dashed var(--line)}
+.event:first-child{border-top:none}
+.ev-time{font-family:'Cormorant Garamond';font-size:15px;color:var(--navy-soft);font-weight:600;text-align:right;padding-top:1px}
+.ev-time.cont{color:var(--gold);font-size:20px;line-height:1}
+.ev-body>*{margin-bottom:11px}.ev-body>*:last-child{margin-bottom:0}
+.ev-body p{font-size:14px;color:#3c465c;font-weight:300}
+.ev-quote{border-left:2px solid var(--gold);background:var(--paper);border-radius:0 10px 10px 0;padding:13px 18px;font-family:'Cormorant Garamond';font-style:italic;font-size:17px;color:var(--navy)}
+.ev-synth{background:var(--paper);border:1px solid var(--line);border-radius:11px;padding:13px 16px;font-size:13.5px;color:#3c465c;font-weight:300}
+.ev-synth .tag{display:block;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:5px}
+.ev-stat{display:flex;flex-wrap:wrap;gap:10px 22px;background:var(--navy);border-radius:11px;padding:15px 18px;color:#cdd6e6;font-size:13px}
+.ev-stat span b{color:#fff;font-family:'Cormorant Garamond';font-size:16px;margin-right:5px}
+.ev-flag{display:flex;gap:10px;align-items:flex-start;background:#f6ece0;border:1px solid #e6cfa8;border-radius:11px;padding:13px 16px;font-size:13.5px;color:#8a5a25;line-height:1.55}
+.ev-flag svg{flex:none;margin-top:1px}
+.ev-media{display:inline-flex;align-items:center;gap:8px;background:var(--cream);border:1px solid var(--line);border-radius:9px;padding:7px 13px;font-size:12px;color:var(--navy);font-weight:500;cursor:pointer}
+.ev-media:hover{border-color:var(--gold)}
+.ev-media .lk{color:var(--gold);display:flex}
+.ressenti{margin-top:18px;background:var(--navy);border-radius:13px;padding:18px 22px;color:#dbe3ee}
+.ressenti .tag{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);font-weight:600;margin-bottom:8px}
+.ressenti p{font-family:'Cormorant Garamond';font-style:italic;font-size:17px;color:#fff;line-height:1.5}
+
 .foot{border-top:1px solid var(--line);padding:34px 56px;max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:18px;color:var(--muted);font-size:11.5px;margin-left:228px;flex-wrap:wrap}
 .foot .logo{font-size:14px;color:var(--navy)}
 .foot .sep{margin-left:auto}
@@ -225,6 +280,8 @@ section.block{margin-bottom:92px;scroll-margin-top:80px}
   .foot{margin-left:0;padding:30px 22px}
   .synth-grid,.ff-grid{grid-template-columns:1fr}
   .mission-grid,.gallery{grid-template-columns:1fr 1fr}
+  .cadre-grid{grid-template-columns:1fr 1fr}
+  .event{grid-template-columns:78px 1fr;gap:12px}
   .sec-head h2{font-size:28px}
   .reco{grid-template-columns:46px 1fr}.reco .reffort{display:none}
 }
@@ -258,18 +315,8 @@ section.block{margin-bottom:92px;scroll-margin-top:80px}
     <div class="client-chip" id="clientChip"></div>
   </div></div>
   <div class="layout">
-    <nav class="sidenav">
-      <div class="nav-title">Rapport de mission</div>
-      <a href="#synthese" class="active"><span class="n">01</span> Synthèse exécutive</a>
-      <a href="#cadre"><span class="n">02</span> Cadre de la mission</a>
-      <a href="#parcours"><span class="n">03</span> Parcours client</a>
-      <a href="#constats"><span class="n">04</span> Constats détaillés</a>
-      <a href="#galerie"><span class="n">05</span> Galerie audiovisuelle</a>
-      <a href="#fofr"><span class="n">06</span> Forts / Frictions</a>
-      <a href="#reco"><span class="n">07</span> Recommandations</a>
-      <div class="sign" id="navSign"></div>
-    </nav>
-    <main class="content">
+    <nav class="sidenav" id="sidenav"></nav>
+    <main class="content" id="content">
       <section class="block" id="synthese"><div class="rule"></div><div class="sec-head"><span class="eyebrow">01 — Synthèse exécutive</span><h2 id="synthTitle"></h2><p class="lead" id="synthLead"></p></div><div class="synth-grid" id="synthGrid"></div></section>
       <section class="block" id="cadre"><div class="rule"></div><div class="sec-head"><span class="eyebrow">02 — Cadre de la mission</span><h2>Périmètre & méthodologie</h2><p class="lead">Un audit immersif conduit dans des conditions réelles, en totale incognito, selon un scénario défini avec la direction.</p></div><div class="mission-grid" id="missionGrid"></div><div class="method-strip" id="methodStrip"></div></section>
       <section class="block" id="parcours"><div class="rule"></div><div class="sec-head"><span class="eyebrow">03 — Parcours client</span><h2>La timeline du séjour</h2><p class="lead">Chaque étape porte une note. Cliquez sur un jalon pour révéler le détail et accéder aux constats associés.</p></div><div class="timeline"><div class="timeline-track" id="tlTrack"></div><div class="tl-detail" id="tlDetail"></div></div></section>
@@ -286,7 +333,7 @@ section.block{margin-bottom:92px;scroll-margin-top:80px}
 
 <script src="clients.js"></script>
 <script>
-/* ============ MOTEUR MULTI-CLIENT ============ */
+/* ============ MOTEUR MULTI-CLIENT (bilingue : démos + structure définitive) ============ */
 const ICONS={
   home:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-6 9 6v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg>',
   clock:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
@@ -294,20 +341,48 @@ const ICONS={
   book:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v13.5"/><path d="M4 19.5A1.5 1.5 0 0 0 5.5 21H20"/><path d="M8 8h8M8 12h6"/></svg>',
   img:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 17l5-5 4 4 3-3 6 6"/></svg>',
   audio:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18"/><path d="M8 7v10M16 7v10M4 10v4M20 10v4"/></svg>',
-  vid:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>'
+  vid:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+  cap:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>'
 };
 const LOCK='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
 const PLAY='<div class="play"><svg width="16" height="16" viewBox="0 0 24 24" fill="#0d1c34"><path d="M8 5v14l11-7z"/></svg></div>';
 const scoreCls=s=>s>=8?'s-good':s>=6?'s-mid':'s-bad';
+const fr=n=>String(n).replace('.',',');
 let CURRENT=null;
 
+/* Gabarit d'origine de la zone contenu, restauré à chaque rendu pour éviter toute contamination entre rapports. */
+const CONTENT_TPL=document.getElementById('content').innerHTML;
+const SIDENAV=document.getElementById('sidenav');
+const LEGACY_NAV=[['01','synthese','Synthèse exécutive'],['02','cadre','Cadre de la mission'],['03','parcours','Parcours client'],['04','constats','Constats détaillés'],['05','galerie','Galerie audiovisuelle'],['06','fofr','Forts / Frictions'],['07','reco','Recommandations']];
+const CHRONO_NAV=[['01','synthese','Synthèse exécutive'],['02','cadre','Cadre de la mission'],['03','parcours','Parcours client'],['04','constats','Chronologie détaillée'],['05','galerie','Galerie audiovisuelle']];
+
+/* ---------- Détection de structure ---------- */
+function detectKind(c){ return (c && c.phases) ? 'chrono' : 'legacy'; }
+
+/* ---------- Sommaire + sections ---------- */
+function buildSidebar(items){
+  SIDENAV.innerHTML='<div class="nav-title">Rapport de mission</div>'+
+    items.map((it,i)=>`<a href="#${it[1]}" class="${i===0?'active':''}"><span class="n">${it[0]}</span> ${it[2]}</a>`).join('')+
+    '<div class="sign" id="navSign"></div>';
+}
+function showSections(ids){
+  document.querySelectorAll('section.block').forEach(s=>{ s.style.display=ids.includes(s.id)?'':'none'; });
+}
+function initScrollSpy(){
+  if(window.__spy)window.__spy.disconnect();
+  const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){
+    document.querySelectorAll('.sidenav a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));
+  }});},{rootMargin:'-45% 0px -50% 0px'});
+  document.querySelectorAll('section.block').forEach(s=>{ if(s.style.display!=='none')obs.observe(s); });
+  window.__spy=obs;
+}
+
+/* ---------- Accès ---------- */
 function buildDemoKeys(){
-  // Panneau de clés visible uniquement en mode démo : URL avec ?demo ou #demo
   const demoMode=/(\?|&|#)demo/.test(location.search+location.hash);
   if(!demoMode)return;
   document.getElementById('demoBox').style.display='block';
-  const box=document.getElementById('demoKeys');
-  box.innerHTML=Object.entries(CLIENTS).map(([k,c])=>
+  document.getElementById('demoKeys').innerHTML=Object.entries(CLIENTS).map(([k,c])=>
     `<div class="demo-key" onclick="fillKey('${k}')"><span class="dk-name">${c.name}</span><span class="dk-code">${k}</span></div>`).join('');
 }
 function fillKey(k){document.getElementById('keyInput').value=k;tryEnter();}
@@ -318,25 +393,37 @@ function tryEnter(){
   document.getElementById('keyError').textContent='';
   render(c);
   document.getElementById('access').classList.add('hidden');
-  const app=document.getElementById('app');app.classList.add('show');
+  document.getElementById('app').classList.add('show');
   document.body.style.overflow='auto';window.scrollTo(0,0);
 }
 function logout(){document.getElementById('app').classList.remove('show');document.getElementById('access').classList.remove('hidden');document.body.style.overflow='hidden';document.getElementById('keyInput').value='';}
 
+/* ---------- Aiguillage du rendu ---------- */
 function render(c){
   CURRENT=c;
-  const off=Math.round(452*(1-c.score/100));
+  const kind=detectKind(c);
+  document.getElementById('content').innerHTML=CONTENT_TPL;
+  buildSidebar(kind==='chrono'?CHRONO_NAV:LEGACY_NAV);
   document.getElementById('clientChip').innerHTML=
-    `<span class="ref">RÉF. ${c.ref}</span><span>${c.name}</span><div class="score-pill"><b>${c.score}</b><span class="o">/100</span><span class="badge">${c.verdict}</span></div><button class="logout" onclick="logout()">Quitter</button>`;
-  document.getElementById('navSign').innerHTML=`Mission réalisée<br>${c.mission.dates}<br><span style="color:var(--gold)">●</span> Scénario « ${c.mission.scenarioName} »`;
+    `<span class="ref">RÉF. ${c.ref}</span><span>${c.name}</span><div class="score-pill"><b>${fr(c.score)}</b><span class="o">/100</span><span class="badge">${c.verdict}</span></div><button class="logout" onclick="logout()">Quitter</button>`;
   document.getElementById('footRef').textContent=`Document confidentiel · Réf. ${c.ref} · Accès journalisé`;
-  // synthèse
+  if(kind==='chrono')renderChrono(c); else renderLegacy(c);
+  initScrollSpy();
+  window.scrollTo(0,0);
+}
+
+/* ============================================================
+   RENDU 1 — STRUCTURE DÉMOS (héritée, inchangée)
+   ============================================================ */
+function renderLegacy(c){
+  showSections(['synthese','cadre','parcours','constats','galerie','fofr','reco']);
+  const off=Math.round(452*(1-c.score/100));
+  document.getElementById('navSign').innerHTML=`Mission réalisée<br>${c.mission.dates}<br><span style="color:var(--gold)">●</span> Scénario « ${c.mission.scenarioName} »`;
   document.getElementById('synthTitle').textContent=c.synthTitle;
   document.getElementById('synthLead').textContent=c.synthLead;
   document.getElementById('synthGrid').innerHTML=
     `<div class="gauge-card"><div class="gauge"><svg width="170" height="170" viewBox="0 0 170 170"><circle cx="85" cy="85" r="72" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="10"/><circle cx="85" cy="85" r="72" fill="none" stroke="#c8a96a" stroke-width="10" stroke-linecap="round" stroke-dasharray="452" stroke-dashoffset="${off}"/></svg><div class="val"><b>${c.score}</b><span>SUR 100</span></div></div><div class="verdict-label">Verdict global</div><div class="verdict-val">${c.verdictTitle}</div></div>
      <div><div class="kpi-row">${c.kpis.map(x=>`<div class="kpi"><div class="k">${x.k}</div><div class="lbl">${x.lbl}</div></div>`).join('')}</div><div class="verdict-box"><h4>En une phrase</h4><p>${c.verdictLong}</p></div></div>`;
-  // mission
   const m=c.mission;
   document.getElementById('missionGrid').innerHTML=
     `<div class="mission-cell"><div class="ic">${ICONS.home}</div><h4>Périmètre</h4><p>${m.perimetre}</p></div>
@@ -348,17 +435,14 @@ function render(c){
      <div class="mi"><span class="eyebrow">Notation</span><p>Chaque point de contact noté sur 10, <b>pondéré par son poids émotionnel</b>.</p></div>
      <div class="mi"><span class="eyebrow">Preuve</span><p>Captations discrètes <b>anonymisées</b> rattachées à chaque constat.</p></div>
      <div class="mi"><span class="eyebrow">Référentiel</span><p>Écart mesuré au <b>standard cinq étoiles</b> et aux engagements de l'établissement.</p></div>`;
-  // parcours
   const track=document.getElementById('tlTrack');track.innerHTML='';
   c.parcours.forEach((s,i)=>{
     const el=document.createElement('div');el.className='tl-step';
     el.innerHTML=`<div class="tl-dot">${s.score}</div><div class="tl-name">${s.n}</div><span class="tl-score ${scoreCls(s.score)}">${s.score}/10</span>`;
     el.onclick=()=>selStep(i,el);track.appendChild(el);
   });
-  // pick lowest-scoring step as default selection
   let lowIdx=0;c.parcours.forEach((s,i)=>{if(s.score<c.parcours[lowIdx].score)lowIdx=i;});
   selStep(lowIdx,track.children[lowIdx]);
-  // constats
   document.getElementById('constatsList').innerHTML=c.constats.map(x=>
     `<div class="constat crit-${x.crit}" id="${x.id.toLowerCase()}"><div class="crit-bar"></div><div class="body">
       <div class="top"><span class="cid">${x.id}</span><h3>${x.title}</h3><span class="crit-tag">${x.critLabel}</span><span class="stage-tag">Étape · ${x.stage}</span></div>
@@ -366,7 +450,6 @@ function render(c){
       <div class="constat-fields"><div class="cf"><div class="cf-l">Impact</div><p>${x.impact}</p></div><div class="cf"><div class="cf-l">Criticité</div><p>${x.criticite}</p></div><div class="cf"><div class="cf-l">Écart au standard</div><p>${x.ecart}</p></div></div>
       ${x.media?`<span class="media-chip" onclick="document.querySelector('#galerie').scrollIntoView({behavior:'smooth'})">▶ ${x.media}</span>`:''}
     </div></div>`).join('');
-  // galerie
   document.getElementById('galleryGrid').innerHTML=c.gallery.map(g=>{
     const ic=g.type==='Photo'?ICONS.img:g.type==='Audio'?ICONS.audio:ICONS.vid;
     return `<div class="media-card" onclick="openLb('${esc(g.title)}','${esc(g.constat)}','${esc(g.desc)}')">
@@ -374,24 +457,16 @@ function render(c){
       <span class="type-tag">${g.type}</span><span class="lock">${LOCK}</span>${g.type==='Photo'?'':PLAY}
       <div class="meta"><div class="t">${g.title}</div><div class="s">${g.type==='Photo'?'⬡ Photo':'▶ '+g.dur} · lié au ${g.constat}</div></div></div>`;
   }).join('');
-  // forts/frictions
   document.getElementById('ffGrid').innerHTML=
     `<div class="ff-col pos"><h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 11v9M2 13l5-2"/><path d="M14 4l-1 5h6a2 2 0 0 1 2 2.3l-1.2 7A2 2 0 0 1 17.8 20H7v-9l4-7a2 2 0 0 1 3 1z"/></svg> Points forts</h3>${c.forts.map(t=>`<div class="ff-item"><span class="mk">◆</span><span>${t}</span></div>`).join('')}</div>
      <div class="ff-col neg"><h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 13V4M22 11l-5 2"/><path d="M10 20l1-5H5a2 2 0 0 1-2-2.3l1.2-7A2 2 0 0 1 6.2 4H17v9l-4 7a2 2 0 0 1-3-1z"/></svg> Points de friction</h3>${c.frictions.map(t=>`<div class="ff-item"><span class="mk">◆</span><span>${t}</span></div>`).join('')}</div>`;
-  // matrice 3x3 : ligne 0=gravité haute ... col 0=fréq rare
-  const cellsEl=document.getElementById('matrixCells');
-  let cells='';
+  const cellsEl=document.getElementById('matrixCells');let cells='';
   for(let r=0;r<3;r++){const grav=3-r;for(let col=0;col<3;col++){const freq=col+1;const sum=grav+freq;const z=sum>=5?'hi':sum>=4?'md':'lo';
     const pts=c.matrix.filter(p=>p.grav===grav&&p.freq===freq).map(p=>`<span class="pt">${p.label}</span>`).join('');
     cells+=`<div class="m-cell zone-${z}">${pts}</div>`;}}
   cellsEl.innerHTML=cells;
-  // recos
   document.getElementById('reco-qw').innerHTML=c.recos.qw.map((r,i)=>recoHtml(r,i)).join('');
   document.getElementById('reco-st').innerHTML=c.recos.st.map((r,i)=>recoHtml(r,i)).join('');
-  document.querySelectorAll('.reco-tabs button')[0].classList.add('active');
-  document.querySelectorAll('.reco-tabs button')[1].classList.remove('active');
-  document.getElementById('reco-qw').classList.add('active');
-  document.getElementById('reco-st').classList.remove('active');
 }
 function recoHtml(r,i){
   const dots=[1,2,3].map(d=>`<i class="${d<=r.effort?'on':''}"></i>`).join('');
@@ -400,22 +475,138 @@ function recoHtml(r,i){
 function goConstat(id){const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'center'});}
 function esc(s){return (s||'').replace(/'/g,"\\'").replace(/"/g,'&quot;');}
 function selStep(i,el){
-  document.querySelectorAll('.tl-step').forEach(s=>s.classList.remove('sel'));
+  document.querySelectorAll('#tlTrack .tl-step').forEach(s=>s.classList.remove('sel'));
   if(el)el.classList.add('sel');
   const s=CURRENT.parcours[i];
   const link=s.c?`<span class="link-constat" onclick="goConstat('${s.c.toLowerCase()}')">→ Voir le constat ${s.c}</span>`:'<span class="muted" style="font-size:12.5px">Aucun constat critique sur cette étape.</span>';
   document.getElementById('tlDetail').innerHTML=`<div class="dh"><h3>${s.n}</h3><div class="big-score">${s.score}<small>/10</small></div></div><p>${s.txt}</p>${link}`;
 }
 function recoTab(id,btn){document.querySelectorAll('.reco-tabs button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.reco-list').forEach(l=>l.classList.remove('active'));document.getElementById('reco-'+id).classList.add('active');}
+
+/* ============================================================
+   RENDU 2 — STRUCTURE DÉFINITIVE (rapport chrono : axes + phases)
+   ============================================================ */
+function renderChrono(c){
+  showSections(['synthese','cadre','parcours','constats','galerie']);
+  const m=c.mission;
+  document.getElementById('navSign').innerHTML=`Mission réalisée<br>${m.dateMission}<br><span style="color:var(--gold)">●</span> Agent ${m.agent} · ${m.statut}`;
+
+  /* 01 — Synthèse */
+  const off=Math.round(452*(1-c.score/100));
+  document.getElementById('synthese').innerHTML=`
+    <div class="rule"></div>
+    <div class="sec-head"><span class="eyebrow">01 — Synthèse exécutive</span><h2>${c.synthTitle}</h2><p class="lead">${c.synthLead}</p></div>
+    <div class="synth-grid">
+      <div class="gauge-card"><div class="gauge"><svg width="170" height="170" viewBox="0 0 170 170"><circle cx="85" cy="85" r="72" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="10"/><circle cx="85" cy="85" r="72" fill="none" stroke="#c8a96a" stroke-width="10" stroke-linecap="round" stroke-dasharray="452" stroke-dashoffset="${off}"/></svg><div class="val"><b>${fr(c.score)}</b><span>SUR 100</span></div></div><div class="verdict-label">Verdict global</div><div class="verdict-val">${c.verdict}</div></div>
+      <div class="axes-panel">${c.axes.map(a=>`<div class="axis"><div class="axis-top"><span>${a.label}</span><b>${a.value}%</b></div><div class="axis-bar"><div class="axis-fill" data-w="${a.value}"></div></div></div>`).join('')}</div>
+    </div>
+    <div class="resume-prose">${c.resume.map(p=>`<p>${p}</p>`).join('')}</div>`;
+  requestAnimationFrame(()=>setTimeout(()=>{document.querySelectorAll('#synthese .axis-fill').forEach(f=>f.style.width=f.dataset.w+'%');},140));
+
+  /* 02 — Cadre */
+  document.getElementById('cadre').innerHTML=`
+    <div class="rule"></div>
+    <div class="sec-head"><span class="eyebrow">02 — Cadre de la mission</span><h2>Le périmètre de l'audit</h2><p class="lead">Un audit immersif conduit en conditions réelles, en toute discrétion, selon un scénario défini avec la direction.</p></div>
+    <div class="cadre-grid">
+      <div class="cadre-cell"><div class="cl">Établissement</div><div class="cv">${c.name}</div></div>
+      <div class="cadre-cell"><div class="cl">Référence</div><div class="cv">${c.ref}</div></div>
+      <div class="cadre-cell"><div class="cl">Type de mission</div><div class="cv">${c.type||'—'}</div></div>
+      <div class="cadre-cell"><div class="cl">Durée d'observation</div><div class="cv">${m.duree}</div></div>
+      <div class="cadre-cell"><div class="cl">Agent de référence</div><div class="cv">${m.agent}</div></div>
+      <div class="cadre-cell"><div class="cl">Réservation</div><div class="cv">${m.reservation}</div></div>
+      <div class="cadre-cell"><div class="cl">Date d'émission</div><div class="cv">${m.dateEmission}</div></div>
+      <div class="cadre-cell"><div class="cl">Destinataire</div><div class="cv">${m.destinataire}</div></div>
+      <div class="cadre-cell"><div class="cl">Statut du dossier</div><div class="cv">${m.statut}</div></div>
+      <div class="cadre-cell wide"><div class="cl">Profil de l'agent</div><div class="cv">${m.profil}</div></div>
+      <div class="cadre-cell wide"><div class="cl">Objectif de la mission</div><div class="cv">${m.objectif}</div></div>
+      <div class="cadre-cell wide"><div class="cl">Périmètre évalué</div><div class="chips">${m.perimetre.map(p=>`<span>${p}</span>`).join('')}</div></div>
+      <div class="cadre-cell wide"><div class="cl">Éléments documentés</div><div class="chips">${m.elements.map(p=>`<span>${p}</span>`).join('')}</div></div>
+    </div>
+    <div class="scenario-box"><div class="cl">Scénario préparé</div><p>${m.scenario}</p></div>
+    <div class="legal-note">${m.mentions||''}</div>`;
+
+  /* 03 — Parcours (timeline des phases) */
+  document.getElementById('parcours').innerHTML=`
+    <div class="rule"></div>
+    <div class="sec-head"><span class="eyebrow">03 — Parcours client</span><h2>La timeline du séjour</h2><p class="lead">De la réservation au départ. Cliquez sur une phase pour en révéler l'essentiel et accéder au détail complet.</p></div>
+    <div class="timeline"><div class="timeline-track" id="tlTrack"></div><div class="tl-detail" id="tlDetail"></div></div>`;
+  const track=document.getElementById('tlTrack');
+  c.phases.forEach((p,i)=>{const el=document.createElement('div');el.className='tl-step';
+    el.innerHTML=`<div class="tl-dot">${p.n}</div><div class="tl-name">${p.titre}</div>`;
+    el.onclick=()=>selPhase(i,el);track.appendChild(el);});
+  selPhase(0,track.children[0]);
+
+  /* 04 — Chronologie détaillée (accordéons) */
+  document.getElementById('constats').innerHTML=`
+    <div class="rule"></div>
+    <div class="sec-head"><span class="eyebrow">04 — Chronologie détaillée</span><h2>Ce que nous avons observé</h2><p class="lead">Le déroulé horodaté du séjour, phase par phase : faits, échanges, preuves et ressenti de l'agent.</p></div>
+    <div id="phasesList">${c.phases.map((p,i)=>phaseHtml(p,i)).join('')}</div>`;
+
+  /* 05 — Galerie (construite depuis les preuves des phases) */
+  const media=[];c.phases.forEach(p=>p.events.forEach(e=>{if(e.media)media.push(Object.assign({},e.media,{phase:'Phase '+p.n}));}));
+  document.getElementById('galerie').innerHTML=`
+    <div class="rule"></div>
+    <div class="sec-head"><span class="eyebrow">05 — Galerie audiovisuelle</span><h2>Les preuves, anonymisées</h2><p class="lead">Extraits vidéo, photo et captures rattachés aux constats. Visages floutés, hébergement chiffré, lecture en streaming — sans téléchargement.</p></div>
+    <div class="gallery">${media.map(galleryCardChrono).join('')}</div>
+    <div class="gallery-note"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg><span>Tous les médias sont anonymisés et hébergés sur serveur chiffré. Aucun téléchargement n'est autorisé ; les accès expirent à la clôture de la mission.</span></div>`;
+}
+
+function phaseHtml(p,i){
+  const pad=String(p.n).padStart(2,'0');
+  return `<article class="phase${i===0?' open':''}" id="phase-${i}">
+    <button class="phase-head" onclick="togglePhase(${i})"><span class="pn">${pad}</span><span class="pt"><span class="pk">${p.jour} · ${p.horaire}</span><h3>${p.titre}</h3></span><span class="chev"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></span></button>
+    <div class="phase-body"><div><div class="phase-inner">
+      ${p.events.map(ev=>eventHtml(ev,'Phase '+p.n)).join('')}
+      <div class="ressenti"><span class="tag">Ressenti de l'agent</span><p>« ${p.ressenti} »</p></div>
+    </div></div></div>
+  </article>`;
+}
+function eventHtml(ev,phaseLabel){
+  const t=ev.time?`<div class="ev-time">${ev.time}</div>`:'<div class="ev-time cont">•</div>';
+  const body=ev.blocks.map(blockHtml).join('')+(ev.media?mediaChipHtml(ev.media,phaseLabel):'');
+  return `<div class="event">${t}<div class="ev-body">${body}</div></div>`;
+}
+function blockHtml(b){
+  if(b.t==='p')return `<p>${b.v}</p>`;
+  if(b.t==='quote')return `<div class="ev-quote">« ${b.v} »</div>`;
+  if(b.t==='synth')return `<div class="ev-synth"><span class="tag">Retranscription de synthèse</span>${b.v}</div>`;
+  if(b.t==='flag')return `<div class="ev-flag"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><span>${b.v}</span></div>`;
+  if(b.t==='stat')return `<div class="ev-stat">${b.v.map(pair=>`<span><b>${pair[1]}</b>${pair[0]}</span>`).join('')}</div>`;
+  return '';
+}
+function mediaChipHtml(mm,phaseLabel){
+  const desc=mm.type+' · '+mm.ref+' · '+phaseLabel+' — extrait anonymisé, lecture protégée en streaming, sans téléchargement.';
+  return `<span class="ev-media" onclick="openLb('${esc(mm.ref+' — '+mm.label)}','${esc(phaseLabel)}','${esc(desc)}')"><span class="lk">${LOCK}</span>${mm.type} · ${mm.ref} — ${mm.label}</span>`;
+}
+function galleryCardChrono(g){
+  const ic=g.type==='Photo'?ICONS.img:g.type==='Capture'?ICONS.cap:ICONS.vid;
+  const play=(g.type==='Vidéo')?PLAY:'';
+  const desc=g.type+' · '+g.ref+' · '+g.phase+' — extrait anonymisé, lecture protégée en streaming, sans téléchargement.';
+  return `<div class="media-card" onclick="openLb('${esc(g.ref+' — '+g.label)}','${esc(g.phase)}','${esc(desc)}')">
+    <div class="thumb"><div class="blur-grid"></div>${ic}</div>
+    <span class="type-tag">${g.type}</span><span class="lock">${LOCK}</span>${play}
+    <div class="meta"><div class="t">${g.label}</div><div class="s">${g.type} · ${g.ref} · ${g.phase}</div></div></div>`;
+}
+function selPhase(i,el){
+  document.querySelectorAll('#tlTrack .tl-step').forEach(s=>s.classList.remove('sel'));
+  if(el)el.classList.add('sel');
+  const p=CURRENT.phases[i];
+  document.getElementById('tlDetail').innerHTML=
+    `<div class="dh"><h3>${p.titre}</h3><div class="big-score" style="font-size:19px;color:var(--muted)">${p.horaire}</div></div>
+     <p style="font-style:italic;color:#3c465c">« ${p.ressenti} »</p>
+     <span class="link-constat" onclick="openPhaseFromTimeline(${i})">→ Voir le détail complet de la phase</span>`;
+}
+function togglePhase(i){const el=document.getElementById('phase-'+i);if(el)el.classList.toggle('open');}
+function openPhaseFromTimeline(i){const el=document.getElementById('phase-'+i);if(el){el.classList.add('open');el.scrollIntoView({behavior:'smooth',block:'start'});}}
+
+/* ---------- Lightbox ---------- */
 function openLb(t,sub,desc){document.getElementById('lbTitle').textContent=t;document.getElementById('lbDesc').textContent=desc;document.getElementById('lb').classList.add('open');}
 function closeLb(){document.getElementById('lb').classList.remove('open');}
 document.getElementById('lb').addEventListener('click',e=>{if(e.target.id==='lb')closeLb();});
 document.getElementById('keyInput').addEventListener('keydown',e=>{if(e.key==='Enter')tryEnter();});
-const navLinks=document.querySelectorAll('.sidenav a');
-const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));});},{rootMargin:'-45% 0px -50% 0px'});
-document.querySelectorAll('section.block').forEach(s=>obs.observe(s));
 document.body.style.overflow='hidden';
 buildDemoKeys();
 </script>
 </body>
 </html>
+
