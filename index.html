@@ -350,6 +350,7 @@ section.block{margin-bottom:92px;scroll-margin-top:80px}
 
 .score-pill b{font-family:'Inter';font-weight:300}
 .sidenav a .n{font-family:'Inter';font-weight:400}
+.ev-body,.ev-body p,.resume-prose,.resume-prose p,.ressenti p,.cadre-cell .cv,.tl-detail p{text-align:left}
 </style>
 </head>
 <body>
@@ -622,7 +623,7 @@ function phaseHtml(p,i){
     <button class="phase-head" onclick="togglePhase(${i})"><span class="pn">${pad}</span><span class="pt"><span class="pk">${p.jour} · ${p.horaire}</span><h3>${p.titre}</h3></span><span class="chev"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></span></button>
     <div class="phase-body"><div><div class="phase-inner">
       ${p.events.map(ev=>eventHtml(ev,'Phase '+p.n)).join('')}
-      <div class="ressenti"><span class="tag">Ressenti de l'agent</span><p>« ${p.ressenti} »</p></div>
+      <div class="ressenti"><span class="tag">Constatations de l'agent</span><p>${p.constatations}</p></div>
     </div></div></div>
   </article>`;
 }
@@ -658,7 +659,7 @@ function selPhase(i,el){
   const p=CURRENT.phases[i];
   document.getElementById('tlDetail').innerHTML=
     `<div class="dh"><h3>${p.titre}</h3><div class="big-score" style="font-size:19px;color:var(--muted)">${p.horaire}</div></div>
-     <p style="font-style:italic;color:#4B453B">« ${p.ressenti} »</p>
+     <p style="font-style:italic;color:#4B453B">${p.constatations}</p>
      <span class="link-constat" onclick="openPhaseFromTimeline(${i})">→ Voir le détail complet de la phase</span>`;
 }
 function togglePhase(i){const el=document.getElementById('phase-'+i);if(el)el.classList.toggle('open');}
