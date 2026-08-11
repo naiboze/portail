@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NAIBOZE — Portail Rapport Confidentiel</title>
+<title>Nameless Advisory — Portail confidentiel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
@@ -302,7 +302,7 @@ section.block{margin-bottom:92px;scroll-margin-top:80px}
 .ev-time{font-family:'Inter';font-weight:500}
 .ev-stat span b{font-family:'Inter';font-weight:500;color:var(--cream)}
 .ev-quote{font-family:'Inter';font-weight:300}
-.ressenti p{font-family:'Inter';font-weight:300;color:var(--cream)}
+.ressenti p{font-family:'Inter';font-weight:300;color:var(--cream);font-style:normal;font-size:15px;line-height:1.6}
 .sec-head h2{font-weight:400}
 .access-frame h1{font-weight:300}
 .eyebrow{color:var(--muted)}
@@ -351,6 +351,39 @@ section.block{margin-bottom:92px;scroll-margin-top:80px}
 .score-pill b{font-family:'Inter';font-weight:300}
 .sidenav a .n{font-family:'Inter';font-weight:400}
 .ev-body,.ev-body p,.resume-prose,.resume-prose p,.ressenti p,.cadre-cell .cv,.tl-detail p{text-align:left}
+
+/* ---- Page invitation (accès profil agent) ---- */
+.inv-hero{margin-bottom:6px}
+.inv-hero h1{font-family:'Inter';font-weight:200;font-size:46px;line-height:1.05;letter-spacing:-.01em;color:var(--navy);margin:12px 0 16px}
+.inv-hero-sub{font-size:17px;font-weight:300;color:#4B453B;max-width:680px}
+.inv-figs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+.inv-figs .kpi .k{font-size:30px}
+.inv-prose{margin-top:4px}
+.inv-prose p{font-size:15px;font-weight:300;color:#4B453B;max-width:680px;margin-bottom:14px;text-align:left}
+.inv-prose p:last-child{margin-bottom:0}
+.inv-values{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+.inv-val{background:#fff;border:1px solid var(--line);border-radius:13px;padding:22px}
+.inv-val h4{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:8px;font-weight:600}
+.inv-val p{font-size:13px;font-weight:300;color:var(--muted)}
+.inv-steps{margin-top:26px;border-top:1px solid var(--line)}
+.inv-step{display:flex;gap:20px;padding:20px 2px;border-bottom:1px solid var(--line)}
+.inv-step .sn{flex-shrink:0;width:38px;height:38px;border-radius:50%;border:1px solid var(--navy);color:var(--navy);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:400}
+.inv-step .st h4{font-size:17px;color:var(--navy);margin-bottom:4px;font-weight:500}
+.inv-step .st p{font-size:14px;font-weight:300;color:#4B453B;max-width:620px}
+.inv-band{background:var(--navy);border-radius:14px;padding:30px 34px;color:#CFC7B7;margin-top:30px;font-size:16px;font-weight:300;line-height:1.65}
+.inv-band b{color:var(--gold);font-weight:500}
+.inv-table{width:100%;border-collapse:collapse;margin-top:24px;font-size:14px}
+.inv-table th{text-align:left;font-weight:600;color:var(--navy);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:0 16px 12px;border-bottom:1px solid var(--line)}
+.inv-table td{padding:16px;border-bottom:1px solid var(--line);color:#4B453B;font-weight:300}
+.inv-table td.o{color:var(--navy);font-weight:500}
+.inv-table td.r{color:var(--navy);font-weight:400;font-size:17px}
+.inv-note{font-size:13px;font-weight:300;color:var(--muted);margin-top:16px;max-width:680px}
+.inv-cta{background:var(--navy);border-radius:16px;padding:38px 40px;color:#ECE6D9;margin-top:6px}
+.inv-cta h3{font-family:'Inter';font-weight:200;font-size:28px;color:#fff;margin-bottom:16px}
+.inv-cta p{font-size:15px;font-weight:300;color:#CFC7B7;max-width:640px;margin-bottom:10px}
+.inv-cta .contact{margin-top:22px;font-size:14px;color:var(--gold);letter-spacing:.02em}
+.inv-values-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:26px}
+@media(max-width:860px){.inv-figs,.inv-values,.inv-values-2{grid-template-columns:1fr}.inv-hero h1{font-size:34px}}
 </style>
 </head>
 <body>
@@ -363,13 +396,9 @@ section.block{margin-bottom:92px;scroll-margin-top:80px}
     <div class="lock-ring"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
     <h1>Portail confidentiel</h1>
     <p class="sub">Accès réservé. Saisissez la clé unique transmise à votre établissement pour consulter votre rapport.</p>
-    <div class="key-field"><input id="keyInput" type="text" placeholder="NBZ — • • • • — • • • • — • • • •"></div>
+    <div class="key-field"><input id="keyInput" type="text" placeholder="Saisissez votre clé d'accès"></div>
     <button class="btn-access" onclick="tryEnter()">Accéder au rapport</button>
     <div id="keyError"></div>
-    <div class="demo-box" id="demoBox" style="display:none">
-      <div class="dt">Clés de démonstration — cliquez pour tester</div>
-      <div id="demoKeys"></div>
-    </div>
     <div class="confidential-note"><strong>Confidentialité absolue.</strong> Ce rapport et l'ensemble des éléments audiovisuels sont strictement personnels à votre établissement. Toute diffusion à un tiers est interdite. Chaque accès est horodaté et journalisé.</div>
   </div>
 </div>
@@ -421,13 +450,14 @@ const CONTENT_TPL=document.getElementById('content').innerHTML;
 const SIDENAV=document.getElementById('sidenav');
 const LEGACY_NAV=[['01','synthese','Synthèse exécutive'],['02','cadre','Cadre de la mission'],['03','parcours','Parcours client'],['04','constats','Constats détaillés'],['05','galerie','Galerie audiovisuelle'],['06','fofr','Forts / Frictions'],['07','reco','Recommandations']];
 const CHRONO_NAV=[['01','synthese','Synthèse exécutive'],['02','cadre','Cadre de la mission'],['03','parcours','Parcours client'],['04','constats','Chronologie détaillée'],['05','galerie','Galerie audiovisuelle']];
+const INVITE_NAV=[['01','bienvenue','Bienvenue'],['02','nameless','Nameless en bref'],['03','methode','La méthode'],['04','role','Votre rôle'],['05','evolution','Agent référent'],['06','remun','Rémunération'],['07','etape','Prochaine étape']];
 
 /* ---------- Détection de structure ---------- */
-function detectKind(c){ return (c && c.phases) ? 'chrono' : 'legacy'; }
+function detectKind(c){ if(c && (c.kind==='invite' || c.invite)) return 'invite'; return (c && c.phases) ? 'chrono' : 'legacy'; }
 
 /* ---------- Sommaire + sections ---------- */
-function buildSidebar(items){
-  SIDENAV.innerHTML='<div class="nav-title">Rapport de mission</div>'+
+function buildSidebar(items,title){
+  SIDENAV.innerHTML='<div class="nav-title">'+(title||'Rapport de mission')+'</div>'+
     items.map((it,i)=>`<a href="#${it[1]}" class="${i===0?'active':''}"><span class="n">${it[0]}</span> ${it[2]}</a>`).join('')+
     '<div class="sign" id="navSign"></div>';
 }
@@ -444,14 +474,6 @@ function initScrollSpy(){
 }
 
 /* ---------- Accès ---------- */
-function buildDemoKeys(){
-  const demoMode=/(\?|&|#)demo/.test(location.search+location.hash);
-  if(!demoMode)return;
-  document.getElementById('demoBox').style.display='block';
-  document.getElementById('demoKeys').innerHTML=Object.entries(CLIENTS).map(([k,c])=>
-    `<div class="demo-key" onclick="fillKey('${k}')"><span class="dk-name">${c.name}</span><span class="dk-code">${k}</span></div>`).join('');
-}
-function fillKey(k){document.getElementById('keyInput').value=k;tryEnter();}
 function tryEnter(){
   const k=document.getElementById('keyInput').value.trim().toUpperCase();
   const c=CLIENTS[k];
@@ -468,6 +490,7 @@ function logout(){document.getElementById('app').classList.remove('show');docume
 function render(c){
   CURRENT=c;
   const kind=detectKind(c);
+  if(kind==='invite'){ renderInvite(c); initScrollSpy(); window.scrollTo(0,0); return; }
   document.getElementById('content').innerHTML=CONTENT_TPL;
   buildSidebar(kind==='chrono'?CHRONO_NAV:LEGACY_NAV);
   document.getElementById('clientChip').innerHTML=
@@ -476,6 +499,53 @@ function render(c){
   if(kind==='chrono')renderChrono(c); else renderLegacy(c);
   initScrollSpy();
   window.scrollTo(0,0);
+}
+
+/* ============================================================
+   RENDU 3 — PAGE INVITATION (accès profil apporteur d'affaires)
+   ============================================================ */
+function renderInvite(c){
+  const v=c.invite;
+  const P=a=>(a||[]).map(x=>`<p>${x}</p>`).join('');
+  document.getElementById('content').innerHTML=`
+    <section class="block" id="bienvenue"><div class="rule"></div>
+      <div class="inv-hero"><span class="eyebrow">${v.eyebrow}</span><h1>${v.hero}</h1><p class="inv-hero-sub">${v.heroSub}</p></div>
+      <div class="inv-figs">${v.figures.map(f=>`<div class="kpi"><div class="k">${f.k}</div><div class="lbl">${f.lbl}</div></div>`).join('')}</div>
+    </section>
+    <section class="block" id="nameless"><div class="rule"></div>
+      <div class="sec-head"><span class="eyebrow">02 — Nameless en bref</span><h2>Ce que nous faisons</h2><p class="lead">${v.bref.lead}</p></div>
+      <div class="inv-prose">${P(v.bref.paras)}</div>
+      <div class="inv-values">${v.bref.valeurs.map(x=>`<div class="inv-val"><h4>${x.t}</h4><p>${x.d}</p></div>`).join('')}</div>
+    </section>
+    <section class="block" id="methode"><div class="rule"></div>
+      <div class="sec-head"><span class="eyebrow">03 — La méthode</span><h2>Comment se déroule une mission</h2><p class="lead">${v.methode.lead}</p></div>
+      <div class="inv-steps">${v.methode.steps.map((st,i)=>`<div class="inv-step"><div class="sn">${String(i+1).padStart(2,'0')}</div><div class="st"><h4>${st.t}</h4><p>${st.d}</p></div></div>`).join('')}</div>
+      <div class="inv-band">${v.methode.bande}</div>
+    </section>
+    <section class="block" id="role"><div class="rule"></div>
+      <div class="sec-head"><span class="eyebrow">04 — Votre rôle</span><h2>Apporteur d'affaires</h2><p class="lead">${v.role.lead}</p></div>
+      <div class="inv-prose">${P(v.role.paras)}</div>
+      <div class="inv-values">${v.role.atouts.map(x=>`<div class="inv-val"><h4>${x.t}</h4><p>${x.d}</p></div>`).join('')}</div>
+    </section>
+    <section class="block" id="evolution"><div class="rule"></div>
+      <div class="sec-head"><span class="eyebrow">05 — Et demain</span><h2>Devenir agent référent</h2><p class="lead">${v.evolution.lead}</p></div>
+      <div class="inv-prose">${P(v.evolution.paras)}</div>
+      <div class="inv-values-2">${v.evolution.avantages.map(x=>`<div class="inv-val"><h4>${x.t}</h4><p>${x.d}</p></div>`).join('')}</div>
+      <div class="inv-band" style="margin-top:26px">${v.evolution.bande}</div>
+    </section>
+    <section class="block" id="remun"><div class="rule"></div>
+      <div class="sec-head"><span class="eyebrow">06 — Rémunération</span><h2>Une rémunération à la commission</h2><p class="lead">${v.remun.lead}</p></div>
+      <div class="inv-prose">${P(v.remun.paras)}</div>
+      <div class="inv-band">${v.remun.commission}</div>
+      ${v.remun.notes.map(n=>`<p class="inv-note">${n}</p>`).join('')}
+    </section>
+    <section class="block" id="etape"><div class="rule"></div>
+      <div class="sec-head"><span class="eyebrow">07 — Prochaine étape</span><h2>On en parle&nbsp;?</h2></div>
+      <div class="inv-cta"><h3>${v.etape.titre}</h3>${P(v.etape.paras)}<div class="contact">${v.etape.contact}</div></div>
+    </section>`;
+  buildSidebar(INVITE_NAV,'Votre accès');
+  document.getElementById('clientChip').innerHTML=`<span class="ref">ACCÈS PRIVÉ</span><span>${v.to}</span><button class="logout" onclick="logout()">Quitter</button>`;
+  document.getElementById('footRef').textContent=`Document confidentiel · Destiné à ${v.to} · Ne pas diffuser`;
 }
 
 /* ============================================================
@@ -605,7 +675,7 @@ function renderChrono(c){
   /* 04 — Chronologie détaillée (accordéons) */
   document.getElementById('constats').innerHTML=`
     <div class="rule"></div>
-    <div class="sec-head"><span class="eyebrow">04 — Chronologie détaillée</span><h2>Ce que nous avons observé</h2><p class="lead">Le déroulé horodaté du séjour, phase par phase : faits, échanges, preuves et ressenti de l'agent.</p></div>
+    <div class="sec-head"><span class="eyebrow">04 — Chronologie détaillée</span><h2>Ce que nous avons observé</h2><p class="lead">Le déroulé horodaté du séjour, phase par phase : faits, échanges, preuves et constatations de l'agent.</p></div>
     <div id="phasesList">${c.phases.map((p,i)=>phaseHtml(p,i)).join('')}</div>`;
 
   /* 05 — Galerie (construite depuis les preuves des phases) */
@@ -659,7 +729,7 @@ function selPhase(i,el){
   const p=CURRENT.phases[i];
   document.getElementById('tlDetail').innerHTML=
     `<div class="dh"><h3>${p.titre}</h3><div class="big-score" style="font-size:19px;color:var(--muted)">${p.horaire}</div></div>
-     <p style="font-style:italic;color:#4B453B">${p.constatations}</p>
+     <p style="color:#4B453B">${p.constatations}</p>
      <span class="link-constat" onclick="openPhaseFromTimeline(${i})">→ Voir le détail complet de la phase</span>`;
 }
 function togglePhase(i){const el=document.getElementById('phase-'+i);if(el)el.classList.toggle('open');}
@@ -671,7 +741,6 @@ function closeLb(){document.getElementById('lb').classList.remove('open');}
 document.getElementById('lb').addEventListener('click',e=>{if(e.target.id==='lb')closeLb();});
 document.getElementById('keyInput').addEventListener('keydown',e=>{if(e.key==='Enter')tryEnter();});
 document.body.style.overflow='hidden';
-buildDemoKeys();
 </script>
 </body>
 </html>
