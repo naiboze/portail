@@ -26,7 +26,7 @@ const CLIENTS = {
       perimetre: ["Réservation", "Arrivée sur site", "Réception / check-in", "Chambre", "Conciergerie", "Restaurant gastronomique", "Services annexes", "Départ / check-out"],
       elements: ["10 séquences vidéo", "9 photographies", "Notes d'observation chronologiques", "Analyse du parcours client", "Évaluation des standards de service"],
       scenario: "L'agent effectue une réservation directe sur le site officiel, pour un séjour individuel d'une nuit. Avant l'arrivée, il signale qu'il travaillera à distance et participera à plusieurs visioconférences ; il requiert un environnement calme et une connexion stable. Une demande complémentaire est adressée à la conciergerie : espaces de travail, restaurants adaptés à une activité professionnelle et possibilité d'un départ tardif.",
-      mentions: "Les observations de ce rapport reposent sur les éléments recueillis au cours de la mission, selon le protocole opérationnel Nameless et dans le respect des exigences applicables. Les constats, analyses et recommandations reposent exclusivement sur les faits observés et documentés durant la mission."
+      mentions: "Les observations de ce rapport reposent sur les éléments recueillis au cours de la mission, selon le protocole opérationnel Naïboze et dans le respect des exigences applicables. Les constats, analyses et recommandations reposent exclusivement sur les faits observés et documentés durant la mission."
     },
 
     synthTitle: "Des standards tenus, une information inégalement partagée",
@@ -139,7 +139,7 @@ const CLIENTS = {
           ] },
           { time: "Jour 1 · 15h26", blocks: [
             { t: "p", v: "L'agent accède à la chambre." },
-            { t: "p", v: "Une inspection visuelle complète est menée <em>in situ</em>, conformément au protocole Nameless." }
+            { t: "p", v: "Une inspection visuelle complète est menée <em>in situ</em>, conformément au protocole Naïboze." }
           ], media: { type: "Photo", ref: "PHOTO 01", label: "Vue générale de la chambre." } },
           { time: "", blocks: [
             { t: "p", v: "L'espace de travail fait l'objet d'une vérification particulière, en lien avec le scénario." },
@@ -404,6 +404,98 @@ const CLIENTS = {
         paras: [
           "Nous serions ravis de vous présenter des missions concrètes et de répondre à toutes vos questions — le rôle, la commission, la manière dont nous pourrions démarrer ensemble.",
           "Prenez le temps de parcourir cette page. Elle n'est que la porte d'entrée d'une conversation que nous avons hâte d'avoir."
+        ],
+        contact: "contact@namelessadvisory.com"
+      }
+    }
+  },
+
+  "LHP-EZZP-867D-UC22": {
+    ref: "INV-LH-2026",
+    kind: "invite",
+    name: "Nameless Advisory — Accès privé (Luxury Hospitality)",
+    invite: {
+      to: "Luxury Hospitality",
+      eyebrow: "Accès privé · Invitation confidentielle",
+      hero: "Bienvenue, Luxury Hospitality.",
+      heroSub: "Cette page est ouverte à votre cabinet, en amont de notre échange. Elle réunit l'essentiel de Nameless — qui nous sommes, notre méthode, et la forme que pourrait prendre un partenariat entre nos deux maisons.",
+      nav: [["01","bienvenue","Bienvenue"],["02","nameless","Nameless en bref"],["03","methode","La méthode"],["04","role","Le partenariat"],["05","evolution","Partenariat privilégié"],["06","remun","Rémunération"],["07","etape","Prochaine étape"]],
+      figures: [
+        { k: "8 – 12 %", lbl: "de commission sur chaque mission née de votre recommandation" },
+        { k: "3", lbl: "niveaux de mission — Standard, Premium, Exclusive" },
+        { k: "Cercle restreint", lbl: "un nombre volontairement limité de cabinets partenaires" }
+      ],
+      bref: {
+        lead: "Nameless est une agence indépendante de renseignement opérationnel dédiée à l'hôtellerie de luxe.",
+        paras: [
+          "Nous analysons la réalité terrain des établissements en conditions réelles, complétée par des captations vidéo discrètes et documentées, dans un cadre juridique strict. Nous livrons aux décideurs des éléments concrets et vérifiables — des faits, des preuves, jamais des impressions.",
+          "Notre vocation n'est pas de remplacer les cabinets de conseil. Elle est d'enrichir leurs recommandations par une intelligence terrain indépendante et factuelle."
+        ],
+        valeurs: [
+          { t: "Indépendance", d: "Un regard extérieur, sans lien avec l'établissement observé — donc sans complaisance." },
+          { t: "Rigueur factuelle", d: "Uniquement des faits observés et documentés ; aucune interprétation, aucun jugement." },
+          { t: "Confidentialité", d: "Informations, preuves et livrables strictement protégés et réservés au client." }
+        ]
+      },
+      methode: {
+        lead: "Pour situer ce que vous pourriez recommander, voici notre méthode, de la préparation à la restitution.",
+        steps: [
+          { t: "Cadrage", d: "Nous comprenons l'établissement, ses standards et ses angles morts, puis écrivons un scénario d'observation sur mesure." },
+          { t: "Observation en conditions réelles", d: "Un agent séjourne comme un client. Il vit le parcours de la réservation au départ et le documente avec précision." },
+          { t: "Preuve", d: "Selon le cadre légal et l'accord de l'établissement, certains moments sont captés en photo ou en vidéo, systématiquement anonymisés." },
+          { t: "Analyse factuelle", d: "Chaque observation est confrontée au standard attendu. Nous ne rapportons que ce qui a été constaté, jamais une opinion." },
+          { t: "Restitution", d: "La direction reçoit un rapport structuré — constats, preuves, recommandations priorisées — pensé pour l'action." }
+        ],
+        bande: "Notre principe est simple : <b>nous ne rapportons que des faits</b>. Pas de jugement, pas d'interprétation — l'observation la plus fidèle possible de l'expérience réellement vécue."
+      },
+      role: {
+        eyebrow: "04 — Le partenariat",
+        titre: "Enrichir vos recommandations",
+        lead: "Nous vous voyons comme un cabinet partenaire — celui qui, au bon moment, recommande à ses clients une intelligence terrain qu'il ne produit pas lui-même.",
+        paras: [
+          "Votre métier est le conseil ; le nôtre, l'observation. Lorsqu'un de vos clients a besoin d'une vision indépendante et factuelle de l'expérience réellement délivrée par son établissement, vous nous le recommandez, et nous prenons le relais sur le terrain.",
+          "Vous n'exécutez rien, vous n'engagez rien. Vous ajoutez simplement à vos recommandations une preuve terrain que peu d'acteurs savent produire — et qui vous distingue."
+        ],
+        atouts: [
+          { t: "L'expertise du segment", d: "Vous évoluez au cœur du tourisme, de l'immobilier et de la gestion hôtelière de luxe — exactement notre terrain." },
+          { t: "La relation de confiance", d: "Vos clients vous écoutent. Une recommandation de votre part ouvre des portes qu'une approche directe n'atteint pas." },
+          { t: "Une clientèle premium internationale", d: "Vos décideurs sont précisément ceux à qui notre intelligence terrain apporte le plus de valeur." }
+        ]
+      },
+      evolution: {
+        eyebrow: "05 — Et demain",
+        titre: "Un partenariat privilégié",
+        lead: "Ce premier cadre peut s'approfondir. Si la collaboration nous convainc l'un et l'autre, la relation se resserre.",
+        paras: [
+          "Nous ne travaillons qu'avec un nombre restreint de cabinets partageant nos standards d'exigence. Un partenaire de confiance devient un interlocuteur privilégié : missions prioritaires, conditions renforcées et co-construction d'offres pensées pour vos clients.",
+          "C'est une relation de long terme, réservée à ceux avec qui la confiance est pleinement installée."
+        ],
+        avantages: [
+          { t: "Un service différenciant", d: "Vous offrez à vos clients une preuve terrain que vos confrères ne proposent pas." },
+          { t: "Aucun risque", d: "Vous n'engagez ni ressource ni responsabilité : vous recommandez, nous exécutons." },
+          { t: "Un revenu complémentaire", d: "Une commission à chaque mission née de votre recommandation, sans effort d'exécution." },
+          { t: "Une place dans le cercle", d: "L'accès à un réseau volontairement restreint de cabinets partenaires, et aux conditions qui l'accompagnent." }
+        ],
+        bande: "En clair : vous recommandez, nous exécutons, et vos clients y gagnent une preuve terrain que personne d'autre ne leur apporte."
+      },
+      remun: {
+        titre: "Une commission sur les missions confiées",
+        lead: "Votre cabinet est rémunéré lorsqu'une recommandation se transforme en mission réalisée. Simple, et sans risque.",
+        paras: [
+          "Nos missions se déclinent en trois niveaux, dont la valeur donne la mesure de chaque contrat : Standard à 6 500 € HT, Premium à 14 800 € HT et Exclusive à 24 000 € HT."
+        ],
+        commission: "Pour chaque établissement que vous nous recommandez et qui donne lieu à une mission réalisée, votre cabinet perçoit une commission comprise <b>entre 8 et 12 % de la valeur du contrat</b>.",
+        notes: [
+          "La commission n'est due qu'en cas de mission effectivement réalisée — aucun engagement, aucun frais, aucune responsabilité de votre part.",
+          "Chaque recommandation et sa rémunération sont formalisées par écrit, dans le respect de la confidentialité de vos clients."
+        ]
+      },
+      etape: {
+        h2: "Et maintenant&nbsp;?",
+        titre: "Échangeons de vive voix.",
+        paras: [
+          "Nous serions ravis de vous présenter notre méthodologie plus en détail et d'explorer, ensemble, les synergies possibles avec vos clients — le temps d'un entretien d'une vingtaine de minutes.",
+          "Prenez le temps de parcourir cette page. Elle n'est que la porte d'entrée d'une conversation que nous espérons fructueuse."
         ],
         contact: "contact@namelessadvisory.com"
       }

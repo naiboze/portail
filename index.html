@@ -507,43 +507,44 @@ function render(c){
 function renderInvite(c){
   const v=c.invite;
   const P=a=>(a||[]).map(x=>`<p>${x}</p>`).join('');
+  const eb=(o,d)=>(o&&o.eyebrow)||d, ti=(o,d)=>(o&&o.titre)||d;
   document.getElementById('content').innerHTML=`
     <section class="block" id="bienvenue"><div class="rule"></div>
       <div class="inv-hero"><span class="eyebrow">${v.eyebrow}</span><h1>${v.hero}</h1><p class="inv-hero-sub">${v.heroSub}</p></div>
       <div class="inv-figs">${v.figures.map(f=>`<div class="kpi"><div class="k">${f.k}</div><div class="lbl">${f.lbl}</div></div>`).join('')}</div>
     </section>
     <section class="block" id="nameless"><div class="rule"></div>
-      <div class="sec-head"><span class="eyebrow">02 — Nameless en bref</span><h2>Ce que nous faisons</h2><p class="lead">${v.bref.lead}</p></div>
+      <div class="sec-head"><span class="eyebrow">${eb(v.bref,'02 — Nameless en bref')}</span><h2>${ti(v.bref,'Ce que nous faisons')}</h2><p class="lead">${v.bref.lead}</p></div>
       <div class="inv-prose">${P(v.bref.paras)}</div>
       <div class="inv-values">${v.bref.valeurs.map(x=>`<div class="inv-val"><h4>${x.t}</h4><p>${x.d}</p></div>`).join('')}</div>
     </section>
     <section class="block" id="methode"><div class="rule"></div>
-      <div class="sec-head"><span class="eyebrow">03 — La méthode</span><h2>Comment se déroule une mission</h2><p class="lead">${v.methode.lead}</p></div>
+      <div class="sec-head"><span class="eyebrow">${eb(v.methode,'03 — La méthode')}</span><h2>${ti(v.methode,'Comment se déroule une mission')}</h2><p class="lead">${v.methode.lead}</p></div>
       <div class="inv-steps">${v.methode.steps.map((st,i)=>`<div class="inv-step"><div class="sn">${String(i+1).padStart(2,'0')}</div><div class="st"><h4>${st.t}</h4><p>${st.d}</p></div></div>`).join('')}</div>
       <div class="inv-band">${v.methode.bande}</div>
     </section>
     <section class="block" id="role"><div class="rule"></div>
-      <div class="sec-head"><span class="eyebrow">04 — Votre rôle</span><h2>Apporteur d'affaires</h2><p class="lead">${v.role.lead}</p></div>
+      <div class="sec-head"><span class="eyebrow">${eb(v.role,'04 — Votre rôle')}</span><h2>${ti(v.role,"Apporteur d'affaires")}</h2><p class="lead">${v.role.lead}</p></div>
       <div class="inv-prose">${P(v.role.paras)}</div>
       <div class="inv-values">${v.role.atouts.map(x=>`<div class="inv-val"><h4>${x.t}</h4><p>${x.d}</p></div>`).join('')}</div>
     </section>
     <section class="block" id="evolution"><div class="rule"></div>
-      <div class="sec-head"><span class="eyebrow">05 — Et demain</span><h2>Devenir agent référent</h2><p class="lead">${v.evolution.lead}</p></div>
+      <div class="sec-head"><span class="eyebrow">${eb(v.evolution,'05 — Et demain')}</span><h2>${ti(v.evolution,'Devenir agent référent')}</h2><p class="lead">${v.evolution.lead}</p></div>
       <div class="inv-prose">${P(v.evolution.paras)}</div>
       <div class="inv-values-2">${v.evolution.avantages.map(x=>`<div class="inv-val"><h4>${x.t}</h4><p>${x.d}</p></div>`).join('')}</div>
       <div class="inv-band" style="margin-top:26px">${v.evolution.bande}</div>
     </section>
     <section class="block" id="remun"><div class="rule"></div>
-      <div class="sec-head"><span class="eyebrow">06 — Rémunération</span><h2>Une rémunération à la commission</h2><p class="lead">${v.remun.lead}</p></div>
+      <div class="sec-head"><span class="eyebrow">${eb(v.remun,'06 — Rémunération')}</span><h2>${ti(v.remun,'Une rémunération à la commission')}</h2><p class="lead">${v.remun.lead}</p></div>
       <div class="inv-prose">${P(v.remun.paras)}</div>
       <div class="inv-band">${v.remun.commission}</div>
       ${v.remun.notes.map(n=>`<p class="inv-note">${n}</p>`).join('')}
     </section>
     <section class="block" id="etape"><div class="rule"></div>
-      <div class="sec-head"><span class="eyebrow">07 — Prochaine étape</span><h2>On en parle&nbsp;?</h2></div>
+      <div class="sec-head"><span class="eyebrow">${eb(v.etape,'07 — Prochaine étape')}</span><h2>${(v.etape&&v.etape.h2)||'On en parle&nbsp;?'}</h2></div>
       <div class="inv-cta"><h3>${v.etape.titre}</h3>${P(v.etape.paras)}<div class="contact">${v.etape.contact}</div></div>
     </section>`;
-  buildSidebar(INVITE_NAV,'Votre accès');
+  buildSidebar(v.nav||INVITE_NAV,'Votre accès');
   document.getElementById('clientChip').innerHTML=`<span class="ref">ACCÈS PRIVÉ</span><span>${v.to}</span><button class="logout" onclick="logout()">Quitter</button>`;
   document.getElementById('footRef').textContent=`Document confidentiel · Destiné à ${v.to} · Ne pas diffuser`;
 }
