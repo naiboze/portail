@@ -384,6 +384,14 @@ section.block{margin-bottom:92px;scroll-margin-top:80px}
 .inv-cta .contact{margin-top:22px;font-size:14px;color:var(--gold);letter-spacing:.02em}
 .inv-values-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:26px}
 @media(max-width:860px){.inv-figs,.inv-values,.inv-values-2{grid-template-columns:1fr}.inv-hero h1{font-size:34px}}
+
+.inv-list{ margin-top:20px; border-top:1px solid var(--line); }
+.inv-list div{ padding:11px 2px; border-bottom:1px solid var(--line); font-size:14px; font-weight:300; color:#2b2620; }
+.inv-flow{ display:flex; align-items:center; flex-wrap:wrap; gap:10px; margin-top:28px; }
+.inv-flow .node{ border:1px solid var(--navy); color:var(--navy); border-radius:22px; padding:9px 18px; font-size:11px; letter-spacing:.13em; text-transform:uppercase; font-weight:500; }
+.inv-flow .arrow{ color:var(--muted); font-size:15px; }
+.inv-cta .cta-btn{ display:inline-block; margin-top:20px; background:var(--gold); color:var(--encre); text-decoration:none; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; padding:13px 26px; border-radius:30px; }
+.inv-cta .cta-note{ margin-top:12px; font-size:12px; color:#A99F8C; }
 </style>
 </head>
 <body>
@@ -421,7 +429,7 @@ section.block{margin-bottom:92px;scroll-margin-top:80px}
       <section class="block" id="reco"><div class="rule"></div><div class="sec-head"><span class="eyebrow">07 — Recommandations</span><h2>Le plan d'action priorisé</h2><p class="lead">Des gestes immédiats aux chantiers de fond. Chaque recommandation est reliée aux constats qui la motivent.</p></div><div class="reco-tabs"><button class="active" onclick="recoTab('qw',this)">Quick wins · 0–30 j</button><button onclick="recoTab('st',this)">Chantiers structurels · 1–6 mois</button></div><div class="reco-list active" id="reco-qw"></div><div class="reco-list" id="reco-st"></div></section>
     </main>
   </div>
-  <div class="foot"><span class="logo"><span class="seal"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3"><circle cx="50" cy="50" r="45"/><path d="M35 68V32"/><path d="M65 32V68"/><path d="M35 32 44 42.8"/><path d="M56 57.2 65 68"/></svg></span><span class="wm"><span class="wm-name">Nameless</span><span class="wm-desc">Advisory</span></span></span><span>Audit d'expérience client — Hôtellerie d'exception</span><span class="sep" id="footRef"></span></div>
+  <div class="foot"><span class="logo"><span class="seal"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3"><circle cx="50" cy="50" r="45"/><path d="M35 68V32"/><path d="M65 32V68"/><path d="M35 32 44 42.8"/><path d="M56 57.2 65 68"/></svg></span><span class="wm"><span class="wm-name">Nameless</span><span class="wm-desc">Advisory</span></span></span><span id="footTag">Audit d'expérience client — Hôtellerie d'exception</span><span class="sep" id="footRef"></span></div>
 </div>
 
 <div id="lb"><span class="lb-close" onclick="closeLb()">×</span><div class="lb-card"><div class="lb-vid"><div class="blur-grid"></div><div style="width:52px;height:52px;border-radius:50%;background:rgba(195,169,123,.92);display:flex;align-items:center;justify-content:center;position:relative;z-index:2"><svg width="20" height="20" viewBox="0 0 24 24" fill="#100D0A"><path d="M8 5v14l11-7z"/></svg></div></div><div class="lb-body"><h3 id="lbTitle">Extrait</h3><p id="lbDesc"></p><p style="margin-top:14px;font-size:11px;color:#C3A97B;letter-spacing:.1em">⬡ MÉDIA ANONYMISÉ · LECTURE STREAMING · TÉLÉCHARGEMENT DÉSACTIVÉ</p></div></div></div>
@@ -489,6 +497,7 @@ function logout(){document.getElementById('app').classList.remove('show');docume
 /* ---------- Aiguillage du rendu ---------- */
 function render(c){
   CURRENT=c;
+  const _ft=document.getElementById('footTag'); if(_ft)_ft.textContent="Audit d'expérience client — Hôtellerie d'exception";
   const kind=detectKind(c);
   if(kind==='invite'){ renderInvite(c); initScrollSpy(); window.scrollTo(0,0); return; }
   document.getElementById('content').innerHTML=CONTENT_TPL;
@@ -504,8 +513,38 @@ function render(c){
 /* ============================================================
    RENDU 3 — PAGE INVITATION (accès profil apporteur d'affaires)
    ============================================================ */
+/* ============================================================
+   RENDU 3bis — PAGE INVITATION SUR MESURE (sections libres)
+   ============================================================ */
+function renderInviteFlex(c){
+  const v=c.invite;
+  const P=a=>(a||[]).map(x=>`<p>${x}</p>`).join('');
+  const blk={
+    prose:x=>`<div class="inv-prose">${P(x)}</div>`,
+    list:x=>`<div class="inv-list">${x.map(i=>`<div>${i}</div>`).join('')}</div>`,
+    cards:x=>`<div class="inv-values">${x.map(o=>`<div class="inv-val"><h4>${o.t}</h4><p>${o.d}</p></div>`).join('')}</div>`,
+    steps:x=>`<div class="inv-steps">${x.map((st,i)=>`<div class="inv-step"><div class="sn">${String(i+1).padStart(2,'0')}</div><div class="st"><h4>${st.t}</h4><p>${st.d}</p></div></div>`).join('')}</div>`,
+    schema:x=>`<div class="inv-flow">${x.map((n,i)=>`${i?'<span class="arrow">&rarr;</span>':''}<span class="node">${n}</span>`).join('')}</div>`,
+    band:x=>`<div class="inv-band">${x}</div>`,
+    cta:x=>`<div class="inv-cta"><h3>${x.title}</h3>${P(x.paras)}<a class="cta-btn" href="mailto:${x.email||'contact@namelessadvisory.com'}">${x.ctaLabel}</a><div class="cta-note">${x.ctaNote}</div></div>`
+  };
+  const html=(v.sections||[]).map(s=>{
+    const head = s.hero
+      ? `<div class="inv-hero"><span class="eyebrow">${s.eyebrow}</span><h1>${s.h1}</h1></div>`
+      : `<div class="sec-head"><span class="eyebrow">${s.eyebrow}</span><h2>${s.titre}</h2>${s.lead?`<p class="lead">${s.lead}</p>`:''}</div>`;
+    const body=(s.body||[]).map(b=>blk[b.t]?blk[b.t](b.v):'').join('');
+    return `<section class="block" id="${s.id}"><div class="rule"></div>${head}${body}</section>`;
+  }).join('');
+  document.getElementById('content').innerHTML=html;
+  buildSidebar(v.nav||INVITE_NAV,'Votre accès');
+  document.getElementById('clientChip').innerHTML=`<span class="ref">ACCÈS PRIVÉ</span><span>${v.to}</span><button class="logout" onclick="logout()">Quitter</button>`;
+  document.getElementById('footRef').textContent=`Document confidentiel · Destiné à ${v.to} · Ne pas diffuser`;
+  const ft=document.getElementById('footTag'); if(ft&&v.tagline) ft.textContent=v.tagline;
+}
+
 function renderInvite(c){
   const v=c.invite;
+  if(v.sections) return renderInviteFlex(c);
   const P=a=>(a||[]).map(x=>`<p>${x}</p>`).join('');
   const eb=(o,d)=>(o&&o.eyebrow)||d, ti=(o,d)=>(o&&o.titre)||d;
   document.getElementById('content').innerHTML=`

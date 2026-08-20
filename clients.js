@@ -416,89 +416,163 @@ const CLIENTS = {
     name: "Nameless Advisory — Accès privé (Luxury Hospitality)",
     invite: {
       to: "Luxury Hospitality",
-      eyebrow: "Accès privé · Invitation confidentielle",
-      hero: "Bienvenue, Luxury Hospitality.",
-      heroSub: "Cette page est ouverte à votre cabinet, en amont de notre échange. Elle réunit l'essentiel de Nameless — qui nous sommes, notre méthode, et la forme que pourrait prendre un partenariat entre nos deux maisons.",
-      nav: [["01","bienvenue","Bienvenue"],["02","nameless","Nameless en bref"],["03","methode","La méthode"],["04","role","Le partenariat"],["05","evolution","Partenariat privilégié"],["06","remun","Rémunération"],["07","etape","Prochaine étape"]],
-      figures: [
-        { k: "8 – 12 %", lbl: "de commission sur chaque mission née de votre recommandation" },
-        { k: "3", lbl: "niveaux de mission — Standard, Premium, Exclusive" },
-        { k: "Cercle restreint", lbl: "un nombre volontairement limité de cabinets partenaires" }
+      tagline: "Renseignement opérationnel — Hôtellerie de luxe",
+      nav: [
+        ["01","bienvenue","Bienvenue"],
+        ["02","pourquoi","Pourquoi vous"],
+        ["03","nameless","Nameless"],
+        ["04","methode","Notre méthode"],
+        ["05","rencontre","Le point de rencontre"],
+        ["06","collaboration","La collaboration"],
+        ["07","etape","Prochaine étape"]
       ],
-      bref: {
-        lead: "Nameless est une agence indépendante de renseignement opérationnel dédiée à l'hôtellerie de luxe.",
-        paras: [
-          "Nous analysons la réalité terrain des établissements en conditions réelles, complétée par des captations vidéo discrètes et documentées, dans un cadre juridique strict. Nous livrons aux décideurs des éléments concrets et vérifiables — des faits, des preuves, jamais des impressions.",
-          "Notre vocation n'est pas de remplacer les cabinets de conseil. Elle est d'enrichir leurs recommandations par une intelligence terrain indépendante et factuelle."
-        ],
-        valeurs: [
-          { t: "Indépendance", d: "Un regard extérieur, sans lien avec l'établissement observé — donc sans complaisance." },
-          { t: "Rigueur factuelle", d: "Uniquement des faits observés et documentés ; aucune interprétation, aucun jugement." },
-          { t: "Confidentialité", d: "Informations, preuves et livrables strictement protégés et réservés au client." }
-        ]
-      },
-      methode: {
-        lead: "Pour situer ce que vous pourriez recommander, voici notre méthode, de la préparation à la restitution.",
-        steps: [
-          { t: "Cadrage", d: "Nous comprenons l'établissement, ses standards et ses angles morts, puis écrivons un scénario d'observation sur mesure." },
-          { t: "Observation en conditions réelles", d: "Un agent séjourne comme un client. Il vit le parcours de la réservation au départ et le documente avec précision." },
-          { t: "Preuve", d: "Selon le cadre légal et l'accord de l'établissement, certains moments sont captés en photo ou en vidéo, systématiquement anonymisés." },
-          { t: "Analyse factuelle", d: "Chaque observation est confrontée au standard attendu. Nous ne rapportons que ce qui a été constaté, jamais une opinion." },
-          { t: "Restitution", d: "La direction reçoit un rapport structuré — constats, preuves, recommandations priorisées — pensé pour l'action." }
-        ],
-        bande: "Notre principe est simple : <b>nous ne rapportons que des faits</b>. Pas de jugement, pas d'interprétation — l'observation la plus fidèle possible de l'expérience réellement vécue."
-      },
-      role: {
-        eyebrow: "04 — Le partenariat",
-        titre: "Enrichir vos recommandations",
-        lead: "Nous vous voyons comme un cabinet partenaire — celui qui, au bon moment, recommande à ses clients une intelligence terrain qu'il ne produit pas lui-même.",
-        paras: [
-          "Votre métier est le conseil ; le nôtre, l'observation. Lorsqu'un de vos clients a besoin d'une vision indépendante et factuelle de l'expérience réellement délivrée par son établissement, vous nous le recommandez, et nous prenons le relais sur le terrain.",
-          "Vous n'exécutez rien, vous n'engagez rien. Vous ajoutez simplement à vos recommandations une preuve terrain que peu d'acteurs savent produire — et qui vous distingue."
-        ],
-        atouts: [
-          { t: "L'expertise du segment", d: "Vous évoluez au cœur du tourisme, de l'immobilier et de la gestion hôtelière de luxe — exactement notre terrain." },
-          { t: "La relation de confiance", d: "Vos clients vous écoutent. Une recommandation de votre part ouvre des portes qu'une approche directe n'atteint pas." },
-          { t: "Une clientèle premium internationale", d: "Vos décideurs sont précisément ceux à qui notre intelligence terrain apporte le plus de valeur." }
-        ]
-      },
-      evolution: {
-        eyebrow: "05 — Et demain",
-        titre: "Un partenariat privilégié",
-        lead: "Ce premier cadre peut s'approfondir. Si la collaboration nous convainc l'un et l'autre, la relation se resserre.",
-        paras: [
-          "Nous ne travaillons qu'avec un nombre restreint de cabinets partageant nos standards d'exigence. Un partenaire de confiance devient un interlocuteur privilégié : missions prioritaires, conditions renforcées et co-construction d'offres pensées pour vos clients.",
-          "C'est une relation de long terme, réservée à ceux avec qui la confiance est pleinement installée."
-        ],
-        avantages: [
-          { t: "Un service différenciant", d: "Vous offrez à vos clients une preuve terrain que vos confrères ne proposent pas." },
-          { t: "Aucun risque", d: "Vous n'engagez ni ressource ni responsabilité : vous recommandez, nous exécutons." },
-          { t: "Un revenu complémentaire", d: "Une commission à chaque mission née de votre recommandation, sans effort d'exécution." },
-          { t: "Une place dans le cercle", d: "L'accès à un réseau volontairement restreint de cabinets partenaires, et aux conditions qui l'accompagnent." }
-        ],
-        bande: "En clair : vous recommandez, nous exécutons, et vos clients y gagnent une preuve terrain que personne d'autre ne leur apporte."
-      },
-      remun: {
-        titre: "Une commission sur les missions confiées",
-        lead: "Votre cabinet est rémunéré lorsqu'une recommandation se transforme en mission réalisée. Simple, et sans risque.",
-        paras: [
-          "Nos missions se déclinent en trois niveaux, dont la valeur donne la mesure de chaque contrat : Standard à 6 500 € HT, Premium à 14 800 € HT et Exclusive à 24 000 € HT."
-        ],
-        commission: "Pour chaque établissement que vous nous recommandez et qui donne lieu à une mission réalisée, votre cabinet perçoit une commission comprise <b>entre 8 et 12 % de la valeur du contrat</b>.",
-        notes: [
-          "La commission n'est due qu'en cas de mission effectivement réalisée — aucun engagement, aucun frais, aucune responsabilité de votre part.",
-          "Chaque recommandation et sa rémunération sont formalisées par écrit, dans le respect de la confidentialité de vos clients."
-        ]
-      },
-      etape: {
-        h2: "Et maintenant&nbsp;?",
-        titre: "Échangeons de vive voix.",
-        paras: [
-          "Nous serions ravis de vous présenter notre méthodologie plus en détail et d'explorer, ensemble, les synergies possibles avec vos clients — le temps d'un entretien d'une vingtaine de minutes.",
-          "Prenez le temps de parcourir cette page. Elle n'est que la porte d'entrée d'une conversation que nous espérons fructueuse."
-        ],
-        contact: "contact@namelessadvisory.com"
-      }
+      sections: [
+
+        { id: "bienvenue", hero: true,
+          eyebrow: "Accès privé · Invitation confidentielle",
+          h1: "Bienvenue, Luxury Hospitality.",
+          body: [
+            { t: "prose", v: [
+              "Cet espace a été ouvert spécifiquement à votre attention.",
+              "Il présente Nameless, notre approche et surtout la raison pour laquelle Luxury Hospitality a retenu notre attention.",
+              "Nous ne cherchons pas à multiplier les partenariats.",
+              "Nous cherchons à identifier les personnes et structures suffisamment proches de la décision pour reconnaître les situations dans lesquelles notre méthode peut avoir une réelle valeur.",
+              "Votre position dans l'écosystème de l'hospitality en fait partie."
+            ] },
+            { t: "cards", v: [
+              { t: "Hospitality", d: "Une connaissance directe des environnements dans lesquels nous intervenons." },
+              { t: "Investissement & projets", d: "Une proximité avec des situations où la qualité de l'information peut précéder une décision importante." },
+              { t: "Décideurs", d: "Un environnement composé de propriétaires, investisseurs, dirigeants et porteurs de projets." }
+            ] }
+          ]
+        },
+
+        { id: "pourquoi",
+          eyebrow: "02 — Pourquoi Luxury Hospitality",
+          titre: "Ce n'est pas seulement votre réseau qui nous intéresse.",
+          lead: "Luxury Hospitality évolue à la croisée de plusieurs environnements particulièrement pertinents pour Nameless : hospitality, immobilier, investissement, développement de projets et univers du luxe.",
+          body: [
+            { t: "prose", v: [
+              "Cette position vous expose à des situations dans lesquelles une information indépendante issue du terrain peut prendre une valeur particulière.",
+              "Un établissement peut être observé sous de nombreux angles : sa performance, son positionnement, son exploitation, ses actifs ou encore son potentiel.",
+              "Nameless ajoute une lecture différente : celle de ce qui se passe réellement lorsque l'expérience est vécue dans des conditions ordinaires, sans modifier l'environnement observé.",
+              "Ce n'est donc pas simplement votre capacité à nous présenter des établissements qui motive notre approche.",
+              "C'est votre capacité à reconnaître quand cette information peut devenir pertinente — et pour qui."
+            ] },
+            { t: "cards", v: [
+              { t: "Une position transversale", d: "Hospitality, immobilier, investissement et projets spécifiques créent une lecture qui dépasse le seul fonctionnement d'un établissement." },
+              { t: "Une proximité avec la décision", d: "Certaines informations prennent toute leur valeur lorsqu'elles arrivent directement auprès de ceux qui peuvent agir." },
+              { t: "Les bonnes situations", d: "Notre méthode n'est pas nécessaire partout. Sa valeur repose aussi sur la capacité à reconnaître les contextes où elle peut réellement faire la différence." }
+            ] },
+            { t: "band", v: "Vous connaissez certaines portes. Nous savons ce que nous cherchons derrière." }
+          ]
+        },
+
+        { id: "nameless",
+          eyebrow: "03 — Nameless",
+          titre: "Voir ce que l'établissement ne peut pas toujours voir.",
+          lead: "Nameless est une structure française indépendante de renseignement opérationnel appliqué à l'hôtellerie de luxe.",
+          body: [
+            { t: "prose", v: [
+              "Nous intervenons en conditions réelles afin de donner aux décideurs accès à une lecture de leur établissement que les dispositifs traditionnels produisent difficilement.",
+              "Audits, standards internes, questionnaires, données opérationnelles et avis clients produisent déjà une quantité considérable d'informations.",
+              "Nous ne cherchons pas à les remplacer.",
+              "Nous intervenons sur une autre couche : l'expérience telle qu'elle se déroule réellement lorsque personne ne sait qu'elle est observée.",
+              "Notre travail consiste ensuite à transformer cette observation en éléments structurés, factuels et exploitables par le décideur."
+            ] },
+            { t: "cards", v: [
+              { t: "Indépendance", d: "Une observation extérieure, réalisée sans lien avec les équipes opérationnelles observées." },
+              { t: "Réalité terrain", d: "L'expérience est vécue dans son déroulement naturel, sans créer artificiellement les conditions de l'évaluation." },
+              { t: "Confidentialité", d: "La mission, les informations recueillies et leur restitution restent strictement encadrées." }
+            ] },
+            { t: "band", v: "Nous ne cherchons pas à savoir uniquement ce qui devrait se passer. Nous observons ce qui se passe réellement." }
+          ]
+        },
+
+        { id: "methode",
+          eyebrow: "04 — La méthode",
+          titre: "Du signal visible à ce qu'il révèle.",
+          lead: "Une observation isolée a peu de valeur si elle est sortie de son contexte.",
+          body: [
+            { t: "prose", v: [ "Notre travail consiste à comprendre ce qui mérite réellement l'attention." ] },
+            { t: "steps", v: [
+              { t: "Cadrage", d: "Nous étudions l'établissement, son positionnement, ses standards et le contexte de la mission afin de construire un scénario d'observation adapté." },
+              { t: "Immersion", d: "Un agent vit le parcours comme un client ordinaire, de la réservation au départ, sans modifier le fonctionnement naturel de l'établissement." },
+              { t: "Observation", d: "Les éléments significatifs du parcours sont relevés et, lorsque le cadre de la mission le permet, documentés." },
+              { t: "Analyse", d: "Les observations sont replacées dans leur contexte afin de distinguer l'incident isolé du signal réellement pertinent." },
+              { t: "Restitution", d: "Le décideur reçoit une lecture structurée des éléments observés, accompagnée des preuves et informations nécessaires à leur compréhension." }
+            ] },
+            { t: "schema", v: [ "Signal", "Récurrence", "Origine", "Impact" ] },
+            { t: "band", v: "Ce n'est pas seulement ce qui s'est passé qui nous intéresse. C'est ce que cela permet de comprendre." }
+          ]
+        },
+
+        { id: "rencontre",
+          eyebrow: "05 — Luxury Hospitality × Nameless",
+          titre: "L'information avant la décision.",
+          lead: "Certaines situations rendent une lecture indépendante du terrain particulièrement pertinente.",
+          body: [
+            { t: "list", v: [
+              "Acquisition ou investissement.",
+              "Repositionnement d'un établissement.",
+              "Évolution d'une expérience.",
+              "Développement d'un projet.",
+              "Interrogation sur la capacité réelle d'un actif à tenir son positionnement.",
+              "Problématique opérationnelle difficile à objectiver depuis l'intérieur."
+            ] },
+            { t: "prose", v: [
+              "Les contextes peuvent être très différents. La question reste souvent la même : dispose-t-on d'une lecture suffisamment fidèle de ce qui se passe réellement sur le terrain ?",
+              "C'est ici que nos deux environnements peuvent se rencontrer."
+            ] },
+            { t: "cards", v: [
+              { t: "Avant une décision", d: "Apporter une lecture supplémentaire lorsqu'un dirigeant, propriétaire ou investisseur doit comprendre une situation avant d'arbitrer." },
+              { t: "Pendant une transformation", d: "Observer ce que produit réellement une évolution de positionnement, de service ou d'expérience." },
+              { t: "Face à un doute", d: "Objectiver une situation lorsque les informations disponibles ne permettent plus d'obtenir une lecture suffisamment claire du terrain." }
+            ] },
+            { t: "band", v: "Avant de décider, il faut parfois regarder autrement." }
+          ]
+        },
+
+        { id: "collaboration",
+          eyebrow: "06 — Le principe",
+          titre: "Chacun reste là où sa valeur est la plus forte.",
+          lead: "Nous ne cherchons pas à faire de Luxury Hospitality une force commerciale Nameless.",
+          body: [
+            { t: "prose", v: [ "La relation que nous envisageons est volontairement plus simple." ] },
+            { t: "steps", v: [
+              { t: "Vous identifiez", d: "Une situation, un établissement ou un décideur pour lequel une lecture Nameless pourrait avoir une valeur particulière." },
+              { t: "Vous ouvrez la conversation", d: "Lorsque vous estimez le contexte pertinent, vous créez la mise en relation." },
+              { t: "Nous prenons le relais", d: "Nameless assume ensuite la qualification, la présentation de son approche, la contractualisation et l'intégralité de l'exécution opérationnelle." }
+            ] },
+            { t: "prose", v: [
+              "Vous n'avez ni méthodologie à exécuter, ni mission à superviser.",
+              "Votre rôle est celui qui justifie précisément notre prise de contact : reconnaître la bonne situation et permettre la bonne rencontre."
+            ] },
+            { t: "band", v: "Vous créez l'opportunité. Nous apportons la méthode et l'exécution." }
+          ]
+        },
+
+        { id: "etape",
+          eyebrow: "07 — Prochaine étape",
+          titre: "Commençons par une situation réelle.",
+          body: [
+            { t: "cta", v: {
+              title: "Une première porte suffit.",
+              paras: [
+                "Nous ne pensons pas qu'une collaboration de cette nature nécessite d'être sur-construite avant même d'avoir commencé.",
+                "Une première situation pertinente nous permettra d'en mesurer naturellement l'intérêt.",
+                "Un établissement. Un propriétaire. Un investisseur. Un dirigeant confronté à une situation pour laquelle une lecture indépendante du terrain pourrait apporter quelque chose que les informations disponibles ne montrent pas encore.",
+                "Vous créez la rencontre. Nameless prend le relais.",
+                "La qualité de cette première opération déterminera naturellement ce qu'il conviendra de construire ensuite."
+              ],
+              ctaLabel: "Échanger avec Nameless",
+              ctaNote: "Échange confidentiel — environ 20 minutes.",
+              email: "contact@namelessadvisory.com"
+            } }
+          ]
+        }
+
+      ]
     }
   },
 
