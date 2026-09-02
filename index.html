@@ -6,7 +6,7 @@
 <title>Nameless Advisory — Portail confidentiel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --navy:#15120E;--navy-deep:#100D0A;--navy-soft:#221C15;
@@ -390,8 +390,114 @@ section.block{margin-bottom:92px;scroll-margin-top:80px}
 .inv-flow{ display:flex; align-items:center; flex-wrap:wrap; gap:10px; margin-top:28px; }
 .inv-flow .node{ border:1px solid var(--navy); color:var(--navy); border-radius:22px; padding:9px 18px; font-size:11px; letter-spacing:.13em; text-transform:uppercase; font-weight:500; }
 .inv-flow .arrow{ color:var(--muted); font-size:15px; }
-.inv-cta .cta-btn{ display:inline-block; margin-top:20px; background:var(--gold); color:var(--encre); text-decoration:none; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; padding:13px 26px; border-radius:30px; }
+.cta-btn{ display:inline-block; background:var(--gold); color:var(--navy); text-decoration:none; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; padding:13px 26px; border-radius:30px; }
+.inv-cta .cta-btn{ margin-top:20px; }
 .inv-cta .cta-note{ margin-top:12px; font-size:12px; color:#A99F8C; }
+
+.consent{display:flex;align-items:flex-start;gap:9px;margin:2px 0 18px;text-align:left;font-size:12.5px;color:#B7AE9E;line-height:1.5;font-weight:300;cursor:pointer}
+.consent input{margin-top:2px;width:15px;height:15px;accent-color:var(--gold);flex-shrink:0;cursor:pointer}
+.consent a{color:var(--gold-soft);text-decoration:underline;text-underline-offset:2px}
+.terms-overlay{position:fixed;inset:0;background:rgba(10,8,6,.72);display:none;align-items:center;justify-content:center;z-index:200;padding:24px}
+.terms-overlay.show{display:flex}
+.terms-modal{background:#1b1712;border:1px solid rgba(195,169,123,.28);border-radius:14px;max-width:640px;width:100%;max-height:82vh;display:flex;flex-direction:column;color:#E7E0D2}
+.terms-head{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid rgba(255,255,255,.08)}
+.terms-head .eyebrow{color:var(--gold-soft);font-size:11px;letter-spacing:.22em;text-transform:uppercase}
+.terms-close{background:none;border:1px solid rgba(255,255,255,.2);color:#CFC7B7;border-radius:20px;padding:6px 16px;font-size:11px;cursor:pointer;letter-spacing:.08em}
+.terms-body{padding:22px 24px;overflow-y:auto;font-size:13px;line-height:1.65;font-weight:300;color:#CFC7B7}
+.terms-body h4{color:#fff;font-weight:500;font-size:13.5px;margin:16px 0 4px}
+.terms-body h4:first-child{margin-top:0}
+.terms-body p{margin-bottom:10px}
+.terms-foot{padding:14px 24px;border-top:1px solid rgba(255,255,255,.08);font-size:11px;color:#8F877A}
+
+/* ---- Invitation éditoriale (blocs visuels riches) ---- */
+.inv-theme-editorial .hero-txt h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:58px;line-height:1;letter-spacing:.02em;text-transform:uppercase;color:var(--navy);margin:10px 0 16px}
+.inv-theme-editorial .sec-head h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:34px;line-height:1.12;color:var(--navy)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center}
+.hero-grid.nolo{grid-template-columns:1fr}
+.hero-txt{padding:4px 6px 4px 0}
+.hero-txt .inv-hero-sub{max-width:none}
+.hero-visual{min-height:320px;background:linear-gradient(135deg,#241f17,#0d0b08);background-size:cover;background-position:center;position:relative;border-radius:14px;overflow:hidden}
+.hero-logo{position:absolute;top:20px;right:24px;color:#fff;font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:.14em;text-align:right;line-height:1.1;opacity:.92}
+.icard-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.icard{background:var(--navy);color:#E7E0D2;border-radius:12px;padding:22px}
+.icard .ic-w{color:var(--gold);display:block;margin-bottom:12px}
+.icard .ic{width:26px;height:26px}
+.icard h4{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#fff;font-weight:600;margin-bottom:6px}
+.icard p{font-size:12.5px;color:#B9B0A0;font-weight:300;line-height:1.5}
+.qband{background:var(--navy);border-radius:12px;padding:26px 30px;margin-top:16px;display:flex;gap:20px;align-items:center}
+.qband .qb-quote{font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:64px;line-height:.6}
+.qband .qb-mark{color:var(--gold);flex-shrink:0}
+.qband .qb-mark .ic{width:46px;height:46px}
+.qband .qb-lines p{color:var(--gold-soft);font-size:16px;font-weight:300;line-height:1.5}
+.qband.big{padding:40px 42px}
+.qband.big .qb-lines p{color:var(--gold-soft);font-size:21px;letter-spacing:.02em;text-transform:uppercase;font-weight:300;line-height:1.35}
+.qband.big .qb-lines b{color:#fff;font-weight:600}
+.pcard-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+.pcard{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.pcard-img{height:150px;background:linear-gradient(135deg,#241f17,#0d0b08);background-size:cover;background-position:center}
+.pcard-body{padding:0 20px 20px}
+.pcard-ic{display:inline-flex;width:42px;height:42px;border-radius:50%;background:var(--navy);color:var(--gold);align-items:center;justify-content:center;margin:-21px 0 12px;border:3px solid #fff}
+.pcard-ic .ic{width:20px;height:20px}
+.pcard h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);font-weight:600;margin-bottom:6px}
+.pcard p{font-size:12.5px;color:#4B453B;font-weight:300;line-height:1.55}
+.flownum{display:flex;align-items:center;flex-wrap:wrap;gap:16px;margin-top:26px}
+.fn-step{display:flex;flex-direction:column;align-items:center;gap:5px;min-width:66px}
+.fn-n{font-family:'Cormorant Garamond',serif;font-size:28px;color:#A5824C;line-height:1}
+.fn-l{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);font-weight:500}
+.fn-arr{color:var(--muted);font-size:16px}
+.blackbox{background:var(--navy);border-radius:12px;padding:26px 28px;margin-top:26px;color:#B9B0A0}
+.blackbox .bb-ic{display:block;color:var(--gold);margin-bottom:10px}
+.blackbox .bb-ic .ic{width:28px;height:28px}
+.bb-eyebrow{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#fff;font-weight:600;margin-bottom:8px}
+.blackbox p{font-size:13.5px;font-weight:300;color:#B9B0A0;line-height:1.6}
+.lrows{margin-top:22px;border-top:1px solid var(--line)}
+.lrow{display:flex;gap:16px;align-items:flex-start;padding:16px 2px;border-bottom:1px solid var(--line)}
+.lr-ic{color:var(--navy);flex-shrink:0}
+.lr-ic .ic{width:24px;height:24px}
+.lr-tx h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);font-weight:600;margin-bottom:3px}
+.lr-tx p{font-size:13px;color:#4B453B;font-weight:300}
+.statebox{background:var(--navy);border-radius:12px;padding:28px 32px;margin-top:26px;display:flex;gap:18px;align-items:flex-start}
+.statebox .qb-quote{font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:52px;line-height:.6}
+.statebox p{color:#E7E0D2;font-size:17px;font-weight:300;line-height:1.5}
+.hsteps{display:flex;align-items:flex-start;gap:16px;margin-top:28px;flex-wrap:wrap}
+.hstep{flex:1;min-width:150px}
+.hs-ic{display:inline-flex;width:46px;height:46px;border-radius:50%;background:var(--navy);color:var(--gold);align-items:center;justify-content:center;margin-bottom:12px}
+.hs-ic .ic{width:22px;height:22px}
+.hs-n{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);font-weight:600;margin-bottom:5px}
+.hstep p{font-size:12.5px;color:#4B453B;font-weight:300}
+.hs-arr{align-self:center;color:var(--muted);font-size:18px;padding-top:12px}
+.centernote{text-align:center;color:#4B453B;font-weight:300;font-size:13.5px;margin-top:24px}
+.bigcta{text-align:center;margin:36px 0 8px}
+.cta-btn.big{font-size:13px;padding:17px 40px;display:inline-flex;align-items:center;gap:10px}
+.cta-btn.big .cc-ic .ic{width:18px;height:18px}
+.confid{margin-top:42px;border-top:1px solid var(--line);padding-top:20px;text-align:center;color:var(--muted)}
+.confid .c-t{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);font-weight:600;margin-bottom:6px}
+.confid p{font-size:11px;font-weight:300;line-height:1.6;max-width:640px;margin:0 auto}
+@media(max-width:860px){.hero-grid,.icard-row,.pcard-row{grid-template-columns:1fr}.hsteps{flex-direction:column}.hs-arr{display:none}.inv-theme-editorial .hero-txt h1{font-size:40px}}
+
+/* ---- Sidebar de marque (mode invitation) ---- */
+.side-brand{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.side-brand .seal{width:34px;height:34px;color:var(--navy);flex-shrink:0}
+.side-brand .seal svg{width:100%;height:100%}
+.side-brand .wm{display:flex;flex-direction:column;line-height:1}
+.side-brand .wm-name{font-family:'Inter';font-weight:200;font-size:15px;letter-spacing:.26em;color:var(--navy)}
+.side-brand .wm-desc{font-size:8.5px;letter-spacing:.32em;color:var(--muted);text-transform:uppercase;margin-top:5px}
+.side-access{margin:2px 0 22px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.side-access .sa-t{display:block;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.side-access .sa-c{display:block;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);font-weight:600;margin-top:6px}
+.side-bottom{margin-top:auto;padding-top:22px}
+.side-logout{background:none;border:1px solid var(--line);color:#5B5448;border-radius:8px;padding:9px 14px;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;width:100%;margin-bottom:18px;transition:.18s}
+.side-logout:hover{border-color:var(--navy);color:var(--navy)}
+.side-confid{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;line-height:1.5}
+.side-confid .sc-lock{width:15px;height:15px;flex-shrink:0;color:var(--navy)}
+.side-confid .sc-lock svg{width:100%;height:100%}
+body.inv-mode .topbar{display:none}
+body.inv-mode .foot{display:none}
+body.inv-mode .sidenav{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;padding:32px 22px 26px 28px;overflow-y:auto}
+.inv-theme-editorial .hero-grid{grid-template-columns:1.12fr .88fr}
+.inv-theme-editorial .hero-visual{min-height:342px}
+.inv-theme-editorial .hero-txt h1{font-size:46px}
+@media(max-width:860px){.inv-theme-editorial .hero-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -405,9 +511,10 @@ section.block{margin-bottom:92px;scroll-margin-top:80px}
     <h1>Portail confidentiel</h1>
     <p class="sub">Accès réservé. Saisissez la clé unique transmise à votre établissement pour consulter votre rapport.</p>
     <div class="key-field"><input id="keyInput" type="text" placeholder="Saisissez votre clé d'accès"></div>
-    <button class="btn-access" onclick="tryEnter()">Accéder au rapport</button>
+    <label class="consent"><input type="checkbox" id="consent"><span>J'ai lu et j'accepte les <a href="#" onclick="openTerms();return false;">conditions de confidentialité</a> de Nameless Advisory.</span></label>
+    <button class="btn-access" onclick="tryEnter()">Accéder</button>
     <div id="keyError"></div>
-    <div class="confidential-note"><strong>Confidentialité absolue.</strong> Ce rapport et l'ensemble des éléments audiovisuels sont strictement personnels à votre établissement. Toute diffusion à un tiers est interdite. Chaque accès est horodaté et journalisé.</div>
+    <div class="confidential-note"><strong>Confidentialité absolue.</strong> Les contenus de cet espace sont strictement personnels à leur destinataire et à la seule finalité convenue. Toute diffusion à un tiers est interdite. L'accès requiert l'acceptation de nos conditions de confidentialité.</div>
   </div>
 </div>
 
@@ -456,6 +563,8 @@ let CURRENT=null;
 /* Gabarit d'origine de la zone contenu, restauré à chaque rendu pour éviter toute contamination entre rapports. */
 const CONTENT_TPL=document.getElementById('content').innerHTML;
 const SIDENAV=document.getElementById('sidenav');
+const SEAL_SVG='<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3"><circle cx="50" cy="50" r="45"/><path d="M35 68V32"/><path d="M65 32V68"/><path d="M35 32 44 42.8"/><path d="M56 57.2 65 68"/></svg>';
+const LOCK_SVG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
 const LEGACY_NAV=[['01','synthese','Synthèse exécutive'],['02','cadre','Cadre de la mission'],['03','parcours','Parcours client'],['04','constats','Constats détaillés'],['05','galerie','Galerie audiovisuelle'],['06','fofr','Forts / Frictions'],['07','reco','Recommandations']];
 const CHRONO_NAV=[['01','synthese','Synthèse exécutive'],['02','cadre','Cadre de la mission'],['03','parcours','Parcours client'],['04','constats','Chronologie détaillée'],['05','galerie','Galerie audiovisuelle']];
 const INVITE_NAV=[['01','bienvenue','Bienvenue'],['02','nameless','Nameless en bref'],['03','methode','La méthode'],['04','role','Votre rôle'],['05','evolution','Agent référent'],['06','remun','Rémunération'],['07','etape','Prochaine étape']];
@@ -464,10 +573,22 @@ const INVITE_NAV=[['01','bienvenue','Bienvenue'],['02','nameless','Nameless en b
 function detectKind(c){ if(c && (c.kind==='invite' || c.invite)) return 'invite'; return (c && c.phases) ? 'chrono' : 'legacy'; }
 
 /* ---------- Sommaire + sections ---------- */
-function buildSidebar(items,title){
-  SIDENAV.innerHTML='<div class="nav-title">'+(title||'Rapport de mission')+'</div>'+
-    items.map((it,i)=>`<a href="#${it[1]}" class="${i===0?'active':''}"><span class="n">${it[0]}</span> ${it[2]}</a>`).join('')+
-    '<div class="sign" id="navSign"></div>';
+function buildSidebar(items,title,opts){
+  opts=opts||{};
+  let top;
+  if(opts.brand){
+    top='<div class="side-brand"><span class="seal">'+SEAL_SVG+'</span><span class="wm"><span class="wm-name">Nameless</span><span class="wm-desc">Advisory</span></span></div>';
+    if(opts.access||opts.client){
+      top+='<div class="side-access">'+(opts.access?'<span class="sa-t">'+opts.access+'</span>':'')+(opts.client?'<span class="sa-c">'+opts.client+'</span>':'')+'</div>';
+    }
+  } else {
+    top='<div class="nav-title">'+(title||'Rapport de mission')+'</div>';
+  }
+  const nav='<div class="side-nav">'+items.map((it,i)=>`<a href="#${it[1]}" class="${i===0?'active':''}"><span class="n">${it[0]}</span> ${it[2]}</a>`).join('')+'</div>';
+  let bottom='';
+  if(opts.logout) bottom+='<button class="side-logout" onclick="logout()">Quitter l\'espace</button>';
+  if(opts.confidential) bottom+='<div class="side-confid"><span class="sc-lock">'+LOCK_SVG+'</span><span>Document strictement confidentiel</span></div>';
+  SIDENAV.innerHTML=top+nav+(bottom?('<div class="side-bottom">'+bottom+'</div>'):'')+'<div class="sign" id="navSign"></div>';
 }
 function showSections(ids){
   document.querySelectorAll('section.block').forEach(s=>{ s.style.display=ids.includes(s.id)?'':'none'; });
@@ -483,10 +604,13 @@ function initScrollSpy(){
 
 /* ---------- Accès ---------- */
 function tryEnter(){
+  const consent=document.getElementById('consent');
+  if(consent && !consent.checked){document.getElementById('keyError').textContent='Merci d\'accepter les conditions de confidentialité pour accéder.';return;}
   const k=document.getElementById('keyInput').value.trim().toUpperCase();
   const c=CLIENTS[k];
   if(!c){document.getElementById('keyError').textContent='Clé non reconnue. Vérifiez la clé transmise à votre établissement.';return;}
   document.getElementById('keyError').textContent='';
+  recordConsent(k);
   render(c);
   document.getElementById('access').classList.add('hidden');
   document.getElementById('app').classList.add('show');
@@ -494,11 +618,23 @@ function tryEnter(){
 }
 function logout(){document.getElementById('app').classList.remove('show');document.getElementById('access').classList.remove('hidden');document.body.style.overflow='hidden';document.getElementById('keyInput').value='';}
 
+/* ---------- Consentement / confidentialité ---------- */
+const TERMS_VERSION='v1-2026';
+const CONSENT_ENDPOINT=''; /* Renseigner l'URL d'une fonction serverless pour tracer l'acceptation côté serveur. */
+function openTerms(){document.getElementById('termsOverlay').classList.add('show');}
+function closeTerms(){document.getElementById('termsOverlay').classList.remove('show');}
+function recordConsent(key){
+  const rec={portail:key,version:TERMS_VERSION,acceptationUTC:new Date().toISOString(),agent:navigator.userAgent};
+  try{const log=JSON.parse(localStorage.getItem('nameless_consent')||'[]');log.push(rec);localStorage.setItem('nameless_consent',JSON.stringify(log));}catch(e){}
+  if(CONSENT_ENDPOINT){try{fetch(CONSENT_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(rec),keepalive:true});}catch(e){}}
+}
+
 /* ---------- Aiguillage du rendu ---------- */
 function render(c){
   CURRENT=c;
   const _ft=document.getElementById('footTag'); if(_ft)_ft.textContent="Audit d'expérience client — Hôtellerie d'exception";
   const kind=detectKind(c);
+  document.body.classList.toggle('inv-mode', kind==='invite');
   if(kind==='invite'){ renderInvite(c); initScrollSpy(); window.scrollTo(0,0); return; }
   document.getElementById('content').innerHTML=CONTENT_TPL;
   buildSidebar(kind==='chrono'?CHRONO_NAV:LEGACY_NAV);
@@ -519,6 +655,22 @@ function render(c){
 function renderInviteFlex(c){
   const v=c.invite;
   const P=a=>(a||[]).map(x=>`<p>${x}</p>`).join('');
+  const ICONS={
+    bank:'<path d="M3 21h18M4 10h16M5 21V10M9 21V10M15 21V10M19 21V10M12 3 4 7h16z"/>',
+    refresh:'<path d="M4 12a8 8 0 0 1 13.5-5.7M20 12a8 8 0 0 1-13.5 5.7"/><path d="M18 3.5v4h-4M6 20.5v-4h4"/>',
+    dome:'<path d="M3 18h18M6 18a6 6 0 0 1 12 0M12 6V4.5"/>',
+    people:'<circle cx="9" cy="8" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M16 5.5a3 3 0 0 1 0 5M20.5 19a5.5 5.5 0 0 0-3.5-5.1"/>',
+    eye:'<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+    video:'<rect x="2.5" y="6.5" width="13" height="11" rx="2"/><path d="M15.5 10l6-3v10l-6-3z"/>',
+    play:'<circle cx="12" cy="12" r="9.5"/><path d="M10 8.2l6 3.8-6 3.8z" fill="currentColor" stroke="none"/>',
+    alert:'<circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.2v.2"/>',
+    person:'<circle cx="12" cy="8" r="3.2"/><path d="M5.5 19a6.5 6.5 0 0 1 13 0"/>',
+    handshake:'<path d="M8 12l3-2.5 3 2.5M3 10l3.5-2 4.5 2.5 4.5-2.5L21 10M6.5 12v4M17.5 12v4"/>',
+    seal:'<circle cx="12" cy="12" r="9.5"/><path d="M8.5 16V8M15.5 8v8M8.5 8l2.6 3.2M13 12.8l2.5 3.2"/>',
+    docplay:'<rect x="4.5" y="3" width="15" height="18" rx="2"/><path d="M10.5 10l4.5 3-4.5 3z" fill="currentColor" stroke="none"/>',
+    calendar:'<rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/>'
+  };
+  const icon=n=>`<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">${ICONS[n]||''}</svg>`;
   const blk={
     prose:x=>`<div class="inv-prose">${P(x)}</div>`,
     list:x=>`<div class="inv-list">${x.map(i=>`<div>${i}</div>`).join('')}</div>`,
@@ -526,19 +678,36 @@ function renderInviteFlex(c){
     steps:x=>`<div class="inv-steps">${x.map((st,i)=>`<div class="inv-step"><div class="sn">${String(i+1).padStart(2,'0')}</div><div class="st"><h4>${st.t}</h4><p>${st.d}</p></div></div>`).join('')}</div>`,
     schema:x=>`<div class="inv-flow">${x.map((n,i)=>`${i?'<span class="arrow">&rarr;</span>':''}<span class="node">${n}</span>`).join('')}</div>`,
     band:x=>`<div class="inv-band">${x}</div>`,
-    cta:x=>`<div class="inv-cta"><h3>${x.title}</h3>${P(x.paras)}<a class="cta-btn" href="mailto:${x.email||'contact@namelessadvisory.com'}">${x.ctaLabel}</a><div class="cta-note">${x.ctaNote}</div></div>`
+    cta:x=>`<div class="inv-cta"><h3>${x.title}</h3>${P(x.paras)}<a class="cta-btn" href="mailto:${x.email||'contact@namelessadvisory.com'}">${x.ctaLabel}</a><div class="cta-note">${x.ctaNote}</div></div>`,
+    iconcards:x=>`<div class="icard-row">${x.map(o=>`<div class="icard"><span class="ic-w">${icon(o.icon)}</span><h4>${o.t}</h4><p>${o.d}</p></div>`).join('')}</div>`,
+    quoteband:x=>`<div class="qband${x.big?' big':''}">${x.mark==='play'?`<span class="qb-mark">${icon('play')}</span>`:'<span class="qb-quote">&ldquo;</span>'}<div class="qb-lines">${x.lines.map(l=>`<p>${l}</p>`).join('')}</div></div>`,
+    photocards:x=>`<div class="pcard-row">${x.map(o=>`<div class="pcard"><div class="pcard-img"${o.img?` style="background-image:url('${o.img}')"`:''}></div><div class="pcard-body"><span class="pcard-ic">${icon(o.icon)}</span><h4>${o.t}</h4><p>${o.d}</p></div></div>`).join('')}</div>`,
+    flownum:x=>`<div class="flownum">${x.map((o,i)=>`${i?'<span class="fn-arr">&rarr;</span>':''}<span class="fn-step"><span class="fn-n">${o.n}</span><span class="fn-l">${o.label}</span></span>`).join('')}</div>`,
+    blackbox:x=>`<div class="blackbox">${x.icon?`<span class="bb-ic">${icon(x.icon)}</span>`:''}<span class="bb-eyebrow">${x.eyebrow}</span><p>${x.text}</p></div>`,
+    linerows:x=>`<div class="lrows">${x.map(o=>`<div class="lrow"><span class="lr-ic">${icon(o.icon)}</span><div class="lr-tx"><h4>${o.t}</h4><p>${o.d}</p></div></div>`).join('')}</div>`,
+    statementbox:x=>`<div class="statebox"><span class="qb-quote">&ldquo;</span><p>${x}</p></div>`,
+    hsteps:x=>`<div class="hsteps">${x.map((o,i)=>`${i?'<span class="hs-arr">&rarr;</span>':''}<div class="hstep"><span class="hs-ic">${icon(o.icon)}</span><span class="hs-n">${o.n} — ${o.t}</span><p>${o.d}</p></div>`).join('')}</div>`,
+    bigcta:x=>`<div class="bigcta"><a class="cta-btn big" href="mailto:${x.email||'contact@namelessadvisory.com'}"><span class="cc-ic">${icon('calendar')}</span>${x.label}</a>${x.note?`<div class="cta-note">${x.note}</div>`:''}</div>`,
+    centernote:x=>`<p class="centernote">${Array.isArray(x)?x.join(' '):x}</p>`,
+    confid:x=>`<div class="confid"><span class="c-t">Document strictement confidentiel</span><p>${x}</p></div>`
   };
   const html=(v.sections||[]).map(s=>{
-    const head = s.hero
-      ? `<div class="inv-hero"><span class="eyebrow">${s.eyebrow}</span><h1>${s.h1}</h1></div>`
-      : `<div class="sec-head"><span class="eyebrow">${s.eyebrow}</span><h2>${s.titre}</h2>${s.lead?`<p class="lead">${s.lead}</p>`:''}</div>`;
+    let head;
+    if(s.hero){
+      const vis = (s.heroImage!==undefined)
+        ? `<div class="hero-visual"${s.heroImage?` style="background-image:url('${s.heroImage}')"`:''}>${s.heroLogo?`<span class="hero-logo">${s.heroLogo}</span>`:''}</div>` : '';
+      head = `<div class="hero-grid${vis?'':' nolo'}"><div class="hero-txt"><span class="eyebrow">${s.eyebrow}</span><h1>${s.h1}</h1>${s.heroSub?`<p class="inv-hero-sub">${s.heroSub}</p>`:''}</div>${vis}</div>`;
+    } else {
+      head = `<div class="sec-head"><span class="eyebrow">${s.eyebrow}</span><h2>${s.titre}</h2>${s.lead?`<p class="lead">${s.lead}</p>`:''}</div>`;
+    }
     const body=(s.body||[]).map(b=>blk[b.t]?blk[b.t](b.v):'').join('');
     return `<section class="block" id="${s.id}"><div class="rule"></div>${head}${body}</section>`;
   }).join('');
-  document.getElementById('content').innerHTML=html;
-  buildSidebar(v.nav||INVITE_NAV,'Votre accès');
+  const wrap = v.theme ? `<div class="inv-theme-${v.theme}">${html}</div>` : html;
+  document.getElementById('content').innerHTML=wrap;
+  buildSidebar(v.nav||INVITE_NAV,null,{brand:true,access:'Accès privé',client:v.sidebarClient||v.to,confidential:true,logout:true});
   document.getElementById('clientChip').innerHTML=`<span class="ref">ACCÈS PRIVÉ</span><span>${v.to}</span><button class="logout" onclick="logout()">Quitter</button>`;
-  document.getElementById('footRef').textContent=`Document confidentiel · Destiné à ${v.to} · Ne pas diffuser`;
+  document.getElementById('footRef').textContent=v.footRef||`Document confidentiel · Destiné à ${v.to} · Ne pas diffuser`;
   const ft=document.getElementById('footTag'); if(ft&&v.tagline) ft.textContent=v.tagline;
 }
 
@@ -583,7 +752,7 @@ function renderInvite(c){
       <div class="sec-head"><span class="eyebrow">${eb(v.etape,'07 — Prochaine étape')}</span><h2>${(v.etape&&v.etape.h2)||'On en parle&nbsp;?'}</h2></div>
       <div class="inv-cta"><h3>${v.etape.titre}</h3>${P(v.etape.paras)}<div class="contact">${v.etape.contact}</div></div>
     </section>`;
-  buildSidebar(v.nav||INVITE_NAV,'Votre accès');
+  buildSidebar(v.nav||INVITE_NAV,null,{brand:true,access:'Accès privé',client:v.sidebarClient||v.to,confidential:true,logout:true});
   document.getElementById('clientChip').innerHTML=`<span class="ref">ACCÈS PRIVÉ</span><span>${v.to}</span><button class="logout" onclick="logout()">Quitter</button>`;
   document.getElementById('footRef').textContent=`Document confidentiel · Destiné à ${v.to} · Ne pas diffuser`;
 }
@@ -782,5 +951,23 @@ document.getElementById('lb').addEventListener('click',e=>{if(e.target.id==='lb'
 document.getElementById('keyInput').addEventListener('keydown',e=>{if(e.key==='Enter')tryEnter();});
 document.body.style.overflow='hidden';
 </script>
+  <div class="terms-overlay" id="termsOverlay">
+    <div class="terms-modal">
+      <div class="terms-head"><span class="eyebrow">Conditions de confidentialité</span><button class="terms-close" onclick="closeTerms()">Fermer</button></div>
+      <div class="terms-body">
+        <h4>1. Confidentialité</h4>
+        <p>L'ensemble des contenus accessibles via cet espace — rapports, observations, preuves, méthodologie et supports associés — sont strictement confidentiels et demeurent la propriété exclusive de Nameless Advisory.</p>
+        <h4>2. Usage restreint</h4>
+        <p>Ces contenus vous sont communiqués pour votre seul usage interne. Toute reproduction, diffusion, publication ou communication à un tiers, totale ou partielle, est interdite sans l'accord écrit préalable de Nameless Advisory.</p>
+        <h4>3. Méthodologie</h4>
+        <p>Les méthodes, protocoles et savoir-faire de Nameless Advisory constituent des informations confidentielles protégées. Vous vous engagez à ne pas les divulguer ni les exploiter en dehors du cadre convenu.</p>
+        <h4>4. Durée</h4>
+        <p>Cet engagement s'applique dès l'accès et se poursuit sans limitation de durée.</p>
+        <h4>5. Acceptation</h4>
+        <p>En cochant la case puis en accédant à l'espace, vous formez un engagement de confidentialité que vous reconnaissez opposable. À défaut d'acceptation, l'accès n'est pas autorisé.</p>
+      </div>
+      <div class="terms-foot">Version v1 — 2026 · Votre acceptation est enregistrée avec la date et l'heure au moment de l'accès.</div>
+    </div>
+  </div>
 </body>
 </html>
