@@ -583,6 +583,7 @@ const CLIENTS = {
     invite: {
       to: "David Esseryk — HDC Hospitality",
       sidebarClient: "HDC Hospitality",
+      sidebarDark: true,
       tagline: "Renseignement opérationnel — Hôtellerie de luxe",
       theme: "editorial",
       footRef: "Document strictement confidentiel · Destiné à David Esseryk et HDC Hospitality · Ne pas diffuser",

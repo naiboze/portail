@@ -498,6 +498,24 @@ body.inv-mode .sidenav{position:sticky;top:0;height:100vh;display:flex;flex-dire
 .inv-theme-editorial .hero-visual{min-height:342px}
 .inv-theme-editorial .hero-txt h1{font-size:46px}
 @media(max-width:860px){.inv-theme-editorial .hero-grid{grid-template-columns:1fr}}
+
+/* ---- Barre latérale sombre (portail HDC) ---- */
+body.inv-dark .sidenav{background:#141009;border-right:1px solid rgba(255,255,255,.06)}
+body.inv-dark .side-brand .seal{color:var(--gold)}
+body.inv-dark .side-brand .wm-name{color:#ECE6D9}
+body.inv-dark .side-brand .wm-desc{color:var(--gold-soft)}
+body.inv-dark .side-access{border-bottom-color:rgba(255,255,255,.10)}
+body.inv-dark .side-access .sa-t{color:var(--gold)}
+body.inv-dark .side-access .sa-c{color:#ECE6D9}
+body.inv-dark .sidenav a{color:#A79E8D}
+body.inv-dark .sidenav a .n{color:var(--gold)}
+body.inv-dark .sidenav a:hover{background:rgba(255,255,255,.06);color:#fff}
+body.inv-dark .sidenav a.active{background:rgba(255,255,255,.08);color:#fff}
+body.inv-dark .sidenav a.active .n{color:var(--gold-soft)}
+body.inv-dark .side-logout{border-color:rgba(255,255,255,.22);color:#CFC7B7}
+body.inv-dark .side-logout:hover{border-color:var(--gold);color:#fff}
+body.inv-dark .side-confid{color:#8f877a}
+body.inv-dark .side-confid .sc-lock{color:var(--gold-soft)}
 </style>
 </head>
 <body>
@@ -635,6 +653,7 @@ function render(c){
   const _ft=document.getElementById('footTag'); if(_ft)_ft.textContent="Audit d'expérience client — Hôtellerie d'exception";
   const kind=detectKind(c);
   document.body.classList.toggle('inv-mode', kind==='invite');
+  document.body.classList.toggle('inv-dark', kind==='invite' && !!(c.invite && c.invite.sidebarDark));
   if(kind==='invite'){ renderInvite(c); initScrollSpy(); window.scrollTo(0,0); return; }
   document.getElementById('content').innerHTML=CONTENT_TPL;
   buildSidebar(kind==='chrono'?CHRONO_NAV:LEGACY_NAV);
