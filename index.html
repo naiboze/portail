@@ -604,8 +604,8 @@ function buildSidebar(items,title,opts){
   }
   const nav='<div class="side-nav">'+items.map((it,i)=>`<a href="#${it[1]}" class="${i===0?'active':''}"><span class="n">${it[0]}</span> ${it[2]}</a>`).join('')+'</div>';
   let bottom='';
-  if(opts.logout) bottom+='<button class="side-logout" onclick="logout()">Quitter l\'espace</button>';
-  if(opts.confidential) bottom+='<div class="side-confid"><span class="sc-lock">'+LOCK_SVG+'</span><span>Document strictement confidentiel</span></div>';
+  if(opts.logout) bottom+='<button class="side-logout" onclick="logout()">'+(opts.logoutLabel||'Quitter l\'espace')+'</button>';
+  if(opts.confidential) bottom+='<div class="side-confid"><span class="sc-lock">'+LOCK_SVG+'</span><span>'+(opts.confidLabel||'Document strictement confidentiel')+'</span></div>';
   SIDENAV.innerHTML=top+nav+(bottom?('<div class="side-bottom">'+bottom+'</div>'):'')+'<div class="sign" id="navSign"></div>';
 }
 function showSections(ids){
@@ -724,7 +724,7 @@ function renderInviteFlex(c){
   }).join('');
   const wrap = v.theme ? `<div class="inv-theme-${v.theme}">${html}</div>` : html;
   document.getElementById('content').innerHTML=wrap;
-  buildSidebar(v.nav||INVITE_NAV,null,{brand:true,access:'Accès privé',client:v.sidebarClient||v.to,confidential:true,logout:true});
+  buildSidebar(v.nav||INVITE_NAV,null,{brand:true,access:v.access||'Accès privé',client:v.sidebarClient||v.to,confidential:true,logout:true,logoutLabel:v.logoutLabel,confidLabel:v.confidLabel});
   document.getElementById('clientChip').innerHTML=`<span class="ref">ACCÈS PRIVÉ</span><span>${v.to}</span><button class="logout" onclick="logout()">Quitter</button>`;
   document.getElementById('footRef').textContent=v.footRef||`Document confidentiel · Destiné à ${v.to} · Ne pas diffuser`;
   const ft=document.getElementById('footTag'); if(ft&&v.tagline) ft.textContent=v.tagline;
@@ -771,7 +771,7 @@ function renderInvite(c){
       <div class="sec-head"><span class="eyebrow">${eb(v.etape,'07 — Prochaine étape')}</span><h2>${(v.etape&&v.etape.h2)||'On en parle&nbsp;?'}</h2></div>
       <div class="inv-cta"><h3>${v.etape.titre}</h3>${P(v.etape.paras)}<div class="contact">${v.etape.contact}</div></div>
     </section>`;
-  buildSidebar(v.nav||INVITE_NAV,null,{brand:true,access:'Accès privé',client:v.sidebarClient||v.to,confidential:true,logout:true});
+  buildSidebar(v.nav||INVITE_NAV,null,{brand:true,access:v.access||'Accès privé',client:v.sidebarClient||v.to,confidential:true,logout:true,logoutLabel:v.logoutLabel,confidLabel:v.confidLabel});
   document.getElementById('clientChip').innerHTML=`<span class="ref">ACCÈS PRIVÉ</span><span>${v.to}</span><button class="logout" onclick="logout()">Quitter</button>`;
   document.getElementById('footRef').textContent=`Document confidentiel · Destiné à ${v.to} · Ne pas diffuser`;
 }
