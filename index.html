@@ -516,6 +516,27 @@ body.inv-dark .side-logout{border-color:rgba(255,255,255,.22);color:#CFC7B7}
 body.inv-dark .side-logout:hover{border-color:var(--gold);color:#fff}
 body.inv-dark .side-confid{color:#8f877a}
 body.inv-dark .side-confid .sc-lock{color:var(--gold-soft)}
+
+/* ---- Grille d'offres (portail prospect) ---- */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+.tier{border:1px solid var(--line);border-radius:14px;padding:24px 22px;background:#fff;display:flex;flex-direction:column;position:relative}
+.tier.featured{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+.tier .t-badge{position:absolute;top:-10px;left:22px;background:var(--gold);color:var(--navy);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:4px 10px;border-radius:20px}
+.tier .t-name{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);font-weight:600}
+.tier .t-tag{font-size:12px;color:var(--muted);margin-top:3px}
+.tier .t-price{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--navy);margin:14px 0 2px;line-height:1}
+.tier .t-meta{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:#A5824C;margin-bottom:14px}
+.tier ul{list-style:none;margin:0 0 16px;padding:14px 0 0;border-top:1px solid var(--line)}
+.tier li{font-size:12.5px;color:#4B453B;font-weight:300;padding-left:15px;position:relative;margin-bottom:7px;line-height:1.4}
+.tier li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.tier .t-besoin{margin-top:auto;border-top:1px solid var(--line);padding-top:12px}
+.tier .t-besoin .bl{display:block;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;font-weight:600}
+.tier .t-besoin p{font-size:12px;color:#4B453B;font-weight:300;line-height:1.5}
+.conditions{margin-top:26px;border:1px solid var(--line);border-radius:12px;padding:22px 24px}
+.conditions .c-eyebrow{display:block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:10px}
+.conditions p{font-size:13px;color:#4B453B;font-weight:300;margin-bottom:8px}
+.conditions .c-terms{margin-top:12px;background:var(--navy);color:var(--gold-soft);border-radius:8px;padding:12px 16px;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;text-align:center;font-weight:500}
+@media(max-width:860px){.tiers{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -707,6 +728,8 @@ function renderInviteFlex(c){
     statementbox:x=>`<div class="statebox"><span class="qb-quote">&ldquo;</span><p>${x}</p></div>`,
     hsteps:x=>`<div class="hsteps">${x.map((o,i)=>`${i?'<span class="hs-arr">&rarr;</span>':''}<div class="hstep"><span class="hs-ic">${icon(o.icon)}</span><span class="hs-n">${o.n} — ${o.t}</span><p>${o.d}</p></div>`).join('')}</div>`,
     bigcta:x=>`<div class="bigcta"><a class="cta-btn big" href="mailto:${x.email||'contact@namelessadvisory.com'}"><span class="cc-ic">${icon('calendar')}</span>${x.label}</a>${x.note?`<div class="cta-note">${x.note}</div>`:''}</div>`,
+    tiers:x=>`<div class="tiers">${x.map(t=>`<div class="tier${t.featured?' featured':''}">${t.featured?`<span class="t-badge">${t.badge||'Recommandé'}</span>`:''}<span class="t-name">${t.name}</span><span class="t-tag">${t.tag}</span><div class="t-price">${t.price}</div><div class="t-meta">${t.meta}</div><ul>${t.features.map(f=>`<li>${f}</li>`).join('')}</ul><div class="t-besoin"><span class="bl">Pour quel besoin&nbsp;?</span><p>${t.besoin}</p></div></div>`).join('')}</div>`,
+    conditions:x=>`<div class="conditions"><span class="c-eyebrow">${x.eyebrow||'Conditions'}</span>${P(x.paras)}<div class="c-terms">${x.terms}</div></div>`,
     centernote:x=>`<p class="centernote">${Array.isArray(x)?x.join(' '):x}</p>`,
     confid:x=>`<div class="confid"><span class="c-t">Document strictement confidentiel</span><p>${x}</p></div>`
   };
