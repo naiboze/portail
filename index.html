@@ -537,6 +537,103 @@ body.inv-dark .side-confid .sc-lock{color:var(--gold-soft)}
 .conditions p{font-size:13px;color:#4B453B;font-weight:300;margin-bottom:8px}
 .conditions .c-terms{margin-top:12px;background:var(--navy);color:var(--gold-soft);border-radius:8px;padding:12px 16px;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;text-align:center;font-weight:500}
 @media(max-width:860px){.tiers{grid-template-columns:1fr}}
+
+/* ---- Étude préalable (blocs) ---- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
+.stat{border:1px solid var(--line);border-radius:12px;padding:20px 18px;background:#fff}
+.stat .s-n{font-family:'Cormorant Garamond',serif;font-size:34px;color:var(--navy);line-height:1}
+.stat .s-l{font-size:12px;color:var(--muted);margin-top:6px;font-weight:300;line-height:1.35}
+.stat .s-ref{font-size:10px;color:#A5824C;margin-top:8px;display:inline-block}
+.split{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;margin-top:28px}
+.sp-col{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px}
+.sp-col .sp-eyebrow{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.sp-col h4{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--navy);margin:6px 0 8px;font-weight:500}
+.sp-col p{font-size:13px;font-weight:300;color:#4B453B;line-height:1.55}
+.sp-mid{text-align:center;max-width:160px;margin:0 auto}
+.sp-mid .sp-n{display:inline-flex;width:42px;height:42px;border-radius:50%;background:var(--navy);color:var(--gold);align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:19px;margin-bottom:10px}
+.sp-mid p{font-size:11px;color:var(--muted);font-weight:300;line-height:1.45}
+@media(max-width:860px){.stats{grid-template-columns:repeat(2,1fr)}.split{grid-template-columns:1fr}.sp-mid{max-width:none;margin:4px 0}}
+
+/* ---- Étude préalable — blocs additionnels ---- */
+.etl{margin-top:24px;border-left:1px solid var(--line);padding-left:26px}
+.etl-row{position:relative;padding-bottom:22px}
+.etl-row:last-child{padding-bottom:0}
+.etl-dot{position:absolute;left:-31px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px var(--paper)}
+.etl-period{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#A5824C}
+.etl-c h4{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--navy);margin:3px 0 4px;font-weight:500}
+.etl-c p{font-size:13px;color:#4B453B;font-weight:300;line-height:1.5}
+.carto{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+.carto-card{border:1px solid var(--line);border-radius:12px;padding:22px;background:#fff}
+.carto-k{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.carto-p{margin-top:12px}
+.cp-name{display:block;font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--navy)}
+.cp-role{display:block;font-size:11px;color:var(--muted);font-weight:300;margin-top:2px;line-height:1.35}
+.carto-link{font-size:12px;font-style:italic;color:#4B453B;margin:12px 0;line-height:1.4}
+.carto-arr{color:var(--gold);font-style:normal}
+.cmp-row{border:1px solid var(--line);border-radius:12px;padding:20px;margin-top:16px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;background:#fff}
+.cmp-eyebrow{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.cmp-cell h4{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--navy);margin:5px 0 6px;font-weight:500}
+.cmp-cell p{font-size:12.5px;color:#4B453B;font-weight:300;line-height:1.5}
+.cmp-q{grid-column:1/-1;border-top:1px solid var(--line);padding-top:12px;font-style:italic;color:#A5824C;font-size:13px}
+.mtx{margin-top:22px;border-top:1px solid var(--line)}
+.mtx-head{display:grid;grid-template-columns:1fr 1.6fr auto;gap:16px;padding:10px 2px;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:1px solid var(--line)}
+.mtx-row{border-bottom:1px solid var(--line)}
+.mtx-row summary{display:grid;grid-template-columns:1fr 1.6fr auto;gap:16px;align-items:center;padding:15px 2px;cursor:pointer;list-style:none}
+.mtx-row summary::-webkit-details-marker{display:none}
+.mtx-name{display:flex;gap:10px;align-items:baseline;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);font-weight:600}
+.mtx-name small{font-family:'Cormorant Garamond',serif;color:#A5824C;font-size:15px;letter-spacing:0}
+.mtx-q{font-size:13px;color:#4B453B;font-weight:300}
+.mtx-exp{color:var(--gold);font-size:18px;transition:transform .18s}
+.mtx-row[open] .mtx-exp{transform:rotate(45deg)}
+.mtx-d{padding:0 2px 16px 34px}
+.mtx-d p{font-size:12.5px;color:var(--muted);font-weight:300;margin-bottom:4px;line-height:1.5}
+.mtx-d b{color:var(--navy);font-weight:600}
+.ichain{list-style:none;display:grid;grid-template-columns:repeat(7,1fr);gap:9px;margin:24px 0 0;padding:0}
+.ichain li{border:1px solid var(--line);border-radius:10px;padding:14px 12px;background:#fff}
+.ic-n{font-family:'Cormorant Garamond',serif;color:#A5824C;font-size:16px}
+.ichain strong{display:block;font-size:12px;letter-spacing:.03em;color:var(--navy);margin:6px 0 4px;font-weight:600}
+.ichain p{font-size:11px;color:var(--muted);font-weight:300;line-height:1.35}
+.iexample{display:grid;grid-template-columns:1fr 1.1fr;gap:34px;margin-top:26px;border:1px solid var(--line);border-radius:12px;padding:26px;background:#fff}
+.iex-l h3{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--navy);margin:8px 0 8px;font-weight:500;line-height:1.15}
+.iex-sub{font-size:13px;color:var(--muted);font-weight:300;line-height:1.5}
+.iex-r p{font-size:13.5px;color:#4B453B;font-weight:300;line-height:1.55;margin-bottom:10px}
+.iex-trace{border-top:1px solid var(--line);padding-top:12px}
+.iex-trace b{color:var(--navy);font-weight:600}
+.isubhead{margin-top:30px}
+.isubhead h3{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--navy);margin:6px 0 6px;font-weight:500;line-height:1.12}
+.isubhead p{font-size:13.5px;color:#4B453B;font-weight:300;max-width:660px;line-height:1.55}
+@media(max-width:860px){.ichain{grid-template-columns:repeat(2,1fr)}.iexample{grid-template-columns:1fr}.mtx-head{display:none}.mtx-row summary{grid-template-columns:1fr auto}.mtx-q{grid-column:1/-1}}
+.srcs{margin-top:26px;border-top:1px solid var(--line);padding-top:18px}
+.srcs-t{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.srcs ol{margin:12px 0 0;padding-left:20px}
+.srcs li{font-size:12px;color:#4B453B;font-weight:300;margin-bottom:6px;line-height:1.5}
+.srcs-note{font-size:11px;color:var(--muted);font-weight:300;margin-top:12px;line-height:1.55}
+@media(max-width:860px){.carto{grid-template-columns:1fr}.cmp-row{grid-template-columns:1fr}}
+
+/* ---- Parcours interactif ---- */
+.journey{margin-top:26px}
+.jrn-tabs{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);border-radius:10px 10px 0 0;overflow:hidden}
+.jrn-tab{display:flex;align-items:center;gap:10px;padding:16px 18px;background:#fff;border:none;border-right:1px solid var(--line);font-family:inherit;cursor:pointer;color:var(--navy);text-align:left;font-size:14px}
+.jrn-tab:last-child{border-right:none}
+.jrn-tab span{font-family:'Cormorant Garamond',serif;color:#A5824C;font-size:15px}
+.jrn-tab.active{background:var(--navy);color:#fff}
+.jrn-tab.active span{color:var(--gold)}
+.jrn-body{border:1px solid var(--line);border-top:none;border-radius:0 0 10px 10px;padding:24px}
+.jrn-zones{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+.jrn-zbtn{padding:9px 16px;border:1px solid var(--line);border-radius:8px;background:var(--paper);font-family:inherit;font-size:13px;cursor:pointer;color:var(--navy)}
+.jrn-zbtn.active{border-color:var(--gold);background:#fff;box-shadow:0 0 0 1px var(--gold)}
+.jrn-detail{display:grid;grid-template-columns:1.15fr 1fr;gap:36px}
+.jz-n{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#A5824C}
+.jz-tag{display:inline-block;margin:9px 0;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:3px 9px}
+.jz-left h4{font-family:'Cormorant Garamond',serif;font-size:27px;color:var(--navy);margin:6px 0 10px;font-weight:500;line-height:1.1}
+.jz-q{font-size:15px;color:#4B453B;font-weight:300;line-height:1.5}
+.jz-rt{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#A5824C;font-weight:600}
+.jz-right ul{list-style:none;margin:12px 0 0;padding:0}
+.jz-right li{font-size:13px;color:#4B453B;font-weight:300;padding-left:15px;position:relative;margin-bottom:9px;line-height:1.45}
+.jz-right li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.jz-lim{margin-top:16px;border-top:1px solid var(--line);padding-top:12px;font-size:12px;color:var(--muted);font-weight:300;line-height:1.5}
+.jz-lim b{color:var(--navy);font-weight:600}
+@media(max-width:860px){.jrn-tabs{grid-template-columns:repeat(2,1fr)}.jrn-detail{grid-template-columns:1fr;gap:22px}}
 </style>
 </head>
 <body>
@@ -689,6 +786,33 @@ function render(c){
 /* ============================================================
    RENDU 3 — PAGE INVITATION (accès profil apporteur d'affaires)
    ============================================================ */
+/* ---------- Parcours interactif (étude préalable) ---------- */
+var JRN=null;
+function initJourney(){
+  var el=document.getElementById('jrnData'); if(!el) return;
+  try{ JRN=JSON.parse(el.textContent); }catch(e){ return; }
+  if(JRN && JRN.phases && JRN.phases.length) selJPhase(JRN.phases[0].id);
+}
+function selJPhase(pid){
+  if(!JRN) return;
+  var tabs=document.querySelectorAll('.jrn-tab');
+  tabs.forEach(function(t){ t.classList.toggle('active', t.getAttribute('data-phase')===pid); });
+  var ph=JRN.phases.filter(function(p){return p.id===pid;})[0]; if(!ph) return;
+  var zc=document.getElementById('jrnZones');
+  zc.innerHTML=ph.zones.map(function(z,i){ return '<button type="button" class="jrn-zbtn'+(i===0?' active':'')+'" onclick="selJZone(\''+pid+'\',\''+z.n+'\',this)">'+z.name+'</button>'; }).join('');
+  selJZone(pid, ph.zones[0].n, null);
+}
+function selJZone(pid, zid, btn){
+  if(!JRN) return;
+  var ph=JRN.phases.filter(function(p){return p.id===pid;})[0]; if(!ph) return;
+  var z=ph.zones.filter(function(x){return x.n===zid;})[0]; if(!z) return;
+  if(btn){ document.querySelectorAll('.jrn-zbtn').forEach(function(b){b.classList.remove('active');}); btn.classList.add('active'); }
+  var traces=(z.traces||[]).map(function(t){return '<li>'+t+'</li>';}).join('');
+  document.getElementById('jrnDetail').innerHTML=
+    '<div class="jz-left"><span class="jz-n">Zone '+z.n+' / 12</span><span class="jz-tag">'+(z.code||'H')+' · '+(z.tag||"Hypoth\u00e8se d'observation")+'</span><h4>'+z.title+'</h4><p class="jz-q">'+z.q+'</p></div>'+
+    '<div class="jz-right"><span class="jz-rt">Traces \u00e0 documenter</span><ul>'+traces+'</ul><p class="jz-lim"><b>Limite de lecture.</b> '+z.limite+'</p></div>';
+}
+
 /* ============================================================
    RENDU 3bis — PAGE INVITATION SUR MESURE (sections libres)
    ============================================================ */
@@ -730,6 +854,17 @@ function renderInviteFlex(c){
     bigcta:x=>`<div class="bigcta"><a class="cta-btn big" href="mailto:${x.email||'contact@namelessadvisory.com'}"><span class="cc-ic">${icon('calendar')}</span>${x.label}</a>${x.note?`<div class="cta-note">${x.note}</div>`:''}</div>`,
     tiers:x=>`<div class="tiers">${x.map(t=>`<div class="tier${t.featured?' featured':''}">${t.featured?`<span class="t-badge">${t.badge||'Recommandé'}</span>`:''}<span class="t-name">${t.name}</span><span class="t-tag">${t.tag}</span><div class="t-price">${t.price}</div><div class="t-meta">${t.meta}</div><ul>${t.features.map(f=>`<li>${f}</li>`).join('')}</ul><div class="t-besoin"><span class="bl">Pour quel besoin&nbsp;?</span><p>${t.besoin}</p></div></div>`).join('')}</div>`,
     conditions:x=>`<div class="conditions"><span class="c-eyebrow">${x.eyebrow||'Conditions'}</span>${P(x.paras)}<div class="c-terms">${x.terms}</div></div>`,
+    stats:x=>`<div class="stats">${x.map(o=>`<div class="stat"><div class="s-n">${o.n}</div><div class="s-l">${o.label}</div>${o.ref?`<span class="s-ref">${o.ref}</span>`:''}</div>`).join('')}</div>`,
+    split:x=>`<div class="split"><div class="sp-col"><span class="sp-eyebrow">${x.left.eyebrow}</span><h4>${x.left.title}</h4><p>${x.left.text}</p></div><div class="sp-mid"><span class="sp-n">N</span><p>${x.center}</p></div><div class="sp-col"><span class="sp-eyebrow">${x.right.eyebrow}</span><h4>${x.right.title}</h4><p>${x.right.text}</p></div></div>`,
+    timeline:x=>`<div class="etl">${x.map(o=>`<div class="etl-row"><span class="etl-dot"></span><div class="etl-c"><span class="etl-period">${o.period}</span><h4>${o.name}</h4><p>${o.note}</p></div></div>`).join('')}</div>`,
+    cartography:x=>`<div class="carto">${x.map(o=>`<div class="carto-card"><span class="carto-k">${o.n} · ${o.kind}</span><div class="carto-p"><span class="cp-name">${o.from.name}</span><span class="cp-role">${o.from.role}</span></div><div class="carto-link">${o.link}<span class="carto-arr"> ↓</span></div><div class="carto-p"><span class="cp-name">${o.to.name}</span><span class="cp-role">${o.to.role}</span></div></div>`).join('')}</div>`,
+    comparison:x=>`<div class="cmp">${x.map(r=>`<div class="cmp-row"><div class="cmp-cell"><span class="cmp-eyebrow">${r.a.eyebrow}</span><h4>${r.a.title}</h4><p>${r.a.text}</p></div><div class="cmp-cell"><span class="cmp-eyebrow">${r.b.eyebrow}</span><p>${r.b.text}</p></div><div class="cmp-cell"><span class="cmp-eyebrow">Ce qu'il ne prouve pas</span><p>${r.c}</p></div>${r.q?`<div class="cmp-q">${r.q}</div>`:''}</div>`).join('')}</div>`,
+    matrix:x=>`<div class="mtx"><div class="mtx-head"><span>Dimension</span><span>Question opérationnelle</span><span>Lecture</span></div>${x.map((o,i)=>`<details class="mtx-row"><summary><span class="mtx-name"><small>${String(i+1).padStart(2,'0')}</small>${o.dim}</span><span class="mtx-q">${o.q}</span><span class="mtx-exp">+</span></summary><div class="mtx-d"><p><b>Trace :</b> ${o.trace}</p><p><b>Limite :</b> ${o.limite}</p></div></details>`).join('')}</div>`,
+    chain:x=>`<ol class="ichain">${x.map(o=>`<li><span class="ic-n">${o.n}</span><strong>${o.label}</strong><p>${o.sub}</p></li>`).join('')}</ol>`,
+    example:x=>`<div class="iexample"><div class="iex-l"><span class="eyebrow">${x.eyebrow}</span><h3>${x.title}</h3>${x.sub?`<p class="iex-sub">${x.sub}</p>`:''}</div><div class="iex-r">${(x.paras||[]).map(p=>`<p>${p}</p>`).join('')}${x.trace?`<p class="iex-trace"><b>Trace recherchée —</b> ${x.trace}</p>`:''}</div></div>`,
+    subhead:x=>`<div class="isubhead">${x.eyebrow?`<span class="eyebrow">${x.eyebrow}</span>`:''}<h3>${x.title}</h3>${x.text?`<p>${x.text}</p>`:''}</div>`,
+    sources:x=>`<div class="srcs"><span class="srcs-t">${x.title||'Sources & références'}</span><ol>${(x.items||[]).map(i=>`<li>${i}</li>`).join('')}</ol>${x.note?`<p class="srcs-note">${x.note}</p>`:''}</div>`,
+    journey:x=>`<div class="journey"><div class="jrn-tabs">${x.phases.map((p,i)=>`<button type="button" class="jrn-tab" data-phase="${p.id}" onclick="selJPhase('${p.id}')"><span>${String(i+1).padStart(2,'0')}</span>${p.label}</button>`).join('')}</div><div class="jrn-body"><div class="jrn-zones" id="jrnZones"></div><div class="jrn-detail" id="jrnDetail"></div></div><script type="application/json" id="jrnData">${JSON.stringify(x)}<\/script></div>`,
     centernote:x=>`<p class="centernote">${Array.isArray(x)?x.join(' '):x}</p>`,
     confid:x=>`<div class="confid"><span class="c-t">Document strictement confidentiel</span><p>${x}</p></div>`
   };
@@ -751,6 +886,7 @@ function renderInviteFlex(c){
   document.getElementById('clientChip').innerHTML=`<span class="ref">ACCÈS PRIVÉ</span><span>${v.to}</span><button class="logout" onclick="logout()">Quitter</button>`;
   document.getElementById('footRef').textContent=v.footRef||`Document confidentiel · Destiné à ${v.to} · Ne pas diffuser`;
   const ft=document.getElementById('footTag'); if(ft&&v.tagline) ft.textContent=v.tagline;
+  if(document.getElementById('jrnData')) initJourney();
 }
 
 function renderInvite(c){
