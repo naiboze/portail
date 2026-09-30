@@ -835,12 +835,13 @@ function bZone(pid,n,btn){
 }
 function renderDoc(c){
   var tpl=(c.doc&&c.doc.tpl)||'bristol';
-  var css=document.getElementById(tpl+'CSS'), t=document.getElementById(tpl+'HTML');
+  var cssId=(c.doc&&c.doc.css)||tpl;
+  var css=document.getElementById(cssId+'CSS'), t=document.getElementById(tpl+'HTML');
   if(!css||!t) return;
   var prev=document.querySelector('style[data-doc]'); if(prev)prev.remove();
-  var st=document.createElement('style');st.setAttribute('data-doc',tpl);st.textContent=css.textContent;document.head.appendChild(st);
-  var uri=(c.doc&&c.doc.heroImage)||'';
-  var html=t.innerHTML.split('__HERO__').join(uri);
+  var st=document.createElement('style');st.setAttribute('data-doc',cssId);st.textContent=css.textContent;document.head.appendChild(st);
+  var d=c.doc||{};
+  var html=t.innerHTML.split('__HERO__').join(d.heroImage||'').split('__IMG2__').join(d.img2||'').split('__IMG3__').join(d.img3||'');
   document.body.className=tpl+'-mode';
   document.body.style.overflow='auto';
   document.body.innerHTML=html;
@@ -1505,7 +1506,7 @@ main{margin-left:var(--side)}
 .src-item i{font-style:normal;color:var(--gold);font-size:11px}
 .src-close{position:absolute;top:16px;right:20px;font-size:26px;color:var(--muted);cursor:pointer;line-height:1}
 
-@media(max-width:1100px){:root{--side:196px}.axes,.two-col,.pillars,.levels{grid-template-columns:1fr 1fr}.iflow,.apps{grid-template-columns:1fr}}
+.stack-lines{margin:8px 0 4px}.stack-lines p{font-family:var(--display);font-size:clamp(22px,2.4vw,32px);line-height:1.5;color:var(--ink);border-bottom:1px solid var(--line);padding:14px 0}.stack-lines p:last-child{border-bottom:none;color:var(--muted);font-size:clamp(18px,1.8vw,22px)}.split-vg{display:grid;grid-template-columns:.85fr 1.15fr;gap:44px;margin:24px 0 8px;align-items:start}@media(max-width:1100px){.split-vg{grid-template-columns:1fr;gap:26px}}.ghost-words{position:absolute;top:38%;left:0;right:0;text-align:center;font-family:var(--display);font-size:clamp(26px,4.6vw,60px);color:rgba(211,181,128,.06);letter-spacing:.04em;pointer-events:none;z-index:0;padding:0 6.5%}.sr-schema{display:grid;grid-template-columns:1fr 96px 1fr;gap:2px;border:1px solid var(--line);margin:22px 0;align-items:stretch}.sr-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:rgba(211,181,128,.06)}.sr-open{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600}.sr-arrow{color:var(--gold);font-size:20px}.sr-result{text-align:center;margin:18px 0 6px}.frieze .stop small{display:block;font-family:var(--sans);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-top:5px;font-weight:600}.gold-stop{color:var(--gold)!important}.receive-line{font-size:15px;color:var(--ink);margin:26px 0 10px;line-height:1.7}.receive-line b{font-family:var(--display);font-size:18px;color:var(--gold);font-weight:400}.srcmodal{position:fixed;inset:0;z-index:120;background:rgba(10,11,9,.9);display:none;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(4px)}.srcmodal.open{display:flex}@media(max-width:1100px){.sr-schema{grid-template-columns:1fr}.sr-mid{padding:16px;flex-direction:row}}.scr-bg{position:absolute;inset:0;z-index:0;pointer-events:none}.scr-bg img{width:100%;height:100%;object-fit:cover}.s-dark .scr-bg img{opacity:.30}.s-light .scr-bg img{opacity:.5}.s-dark .scr-bg:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--black) 8%,rgba(16,18,15,.55) 45%,rgba(16,18,15,.15) 70%,var(--black) 100%)}.s-dark .scr-bg:before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,var(--black) 0%,transparent 30%,transparent 62%,var(--black) 100%)}.s-light .scr-bg:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--paper) 10%,rgba(244,241,233,.5) 48%,rgba(244,241,233,.1) 72%,var(--paper) 100%)}.s-light .scr-bg:before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,var(--paper) 0%,transparent 32%,transparent 60%,var(--paper) 100%)}@media(max-width:1100px){:root{--side:196px}.axes,.two-col,.pillars,.levels{grid-template-columns:1fr 1fr}.iflow,.apps{grid-template-columns:1fr}}
 @media(max-width:760px){
 :root{--side:0px}
 .sidebar{position:sticky;top:0;width:auto;height:auto;inset:auto;flex-direction:row;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid #2b2f26}
@@ -1787,5 +1788,382 @@ main{margin-left:0}
     <p class="si" style="margin:20px 0 0">Preliminary study prepared from public information. Not to be presented as an official Luxury Istanbul document.</p>
   </div>
 </div></template>
+<template id="nicoleHTML"><aside class="sidebar" aria-label="Study navigation">
+  <a href="#s01" class="brand" aria-label="NewVision Insight"><svg viewBox="0 0 48 48" fill="none" stroke="var(--gold-light)" stroke-width="1.3" aria-hidden="true"><circle cx="24" cy="24" r="21"/><circle cx="24" cy="24" r="6" fill="var(--gold-light)" stroke="none"/></svg><span>NEWVISION<small>INSIGHT</small></span></a>
+  <div class="side-title"><span class="eyebrow">Private experience study</span><p>Nicole Beasley</p><small>Bespoke Luxury Travel · Australia</small></div>
+  <button class="menu-toggle" aria-expanded="false" onclick="var s=this.closest('.sidebar');s.classList.toggle('open')">Contents +</button>
+  <nav id="nav">
+    <a href="#s01"><span>00</span>Cover</a>
+    <a href="#s02"><span>01</span>The Advisor</a>
+    <a href="#s03"><span>02</span>What She Builds</a>
+    <a href="#s04"><span>—</span>The Opportunity</a>
+    <a href="#s05"><span>03</span>Two Uses for NVI</a>
+    <a href="#s06"><span>04</span>What NVI Does</a>
+    <a href="#s07"><span>—</span>Illustrative Case</a>
+    <a href="#s08"><span>05</span>Methodology</a>
+    <a href="#s09"><span>—</span>Application</a>
+  </nav>
+  <div class="side-foot"><span class="tiny"></span><span>Prepared for<br>Nicole Beasley</span><small>NEWVISION INSIGHT · PRIVATE STUDY</small><a href="#" class="leave" onclick="location.reload();return false;">↩ Leave this space</a></div>
+</aside>
+
+<main>
+
+<!-- 01 COVER -->
+<section id="s01" class="scr">
+  <div class="cover-photo"><img src="__HERO__" alt="A traveller looking out over a Mediterranean coastline at sunset."></div>
+  <div class="cover-top"><span>NEWVISION INSIGHT</span><span>PRIVATE EXPERIENCE STUDY</span></div>
+  <div class="cover-mid">
+    <div class="cover-kicker">Bespoke Luxury Travel · Australia</div>
+    <h1>Nicole Beasley</h1>
+    <p class="cover-sub">From a journey carefully designed<br>to an experience confidently recommended.</p>
+  </div>
+  <div class="cover-foot">
+    <span>An independent traveller-side perspective on the journeys Nicole Beasley designs and recommends.</span>
+    <a href="#s02" class="read-link">Enter the study <b>↓</b></a>
+  </div>
+</section>
+
+<!-- 02 THE ADVISOR -->
+<section id="s02" class="scr s-light">
+  <div class="ghost-num">01</div>
+  <div class="s-label"><span>01</span> THE ADVISOR</div>
+  <h2 class="big-line">Four decades of travel.<br><em>A recommendation built on experience.</em></h2>
+  <p class="lead">Nicole Beasley has spent more than four decades creating personalised travel experiences for individuals and groups.</p>
+  <div class="rows">
+    <div class="row-line"><div class="rk">Knowledge</div><p>Experience narrows the choices. The value is not in presenting every possibility, but in knowing what genuinely belongs in a particular journey.</p></div>
+    <div class="row-line"><div class="rk">Care</div><p>Every detail carries the recommendation. Hotels, transfers, guides and experiences become part of the standard attached to Nicole’s name.</p></div>
+    <div class="row-line"><div class="rk">Trust</div><p>The client is buying more than an itinerary. They are relying on the judgement behind it.</p></div>
+  </div>
+  <p class="exit-line">When your name sits behind the journey,<br><em>every selected element becomes part of your promise.</em></p>
+</section>
+
+<!-- 03 WHAT SHE ACTUALLY BUILDS -->
+<section id="s03" class="scr s-dark">
+  <div class="scr-bg"><img src="__IMG2__" alt=""></div>
+  <div class="ghost-num">02</div>
+  <div class="s-label"><span>02</span> BESPOKE TRAVEL</div>
+  <h2 class="big-line">The itinerary is designed on paper.<br><em>The client experiences it in sequence.</em></h2>
+  <div class="frieze">
+    <span class="stop">Arrival</span><span class="arw">→</span><span class="stop">Transfer</span><span class="arw">→</span><span class="stop">Hotel</span><span class="arw">→</span><span class="stop">Private experience</span><span class="arw">→</span><span class="stop">Dining</span><span class="arw">→</span><span class="stop">Guide</span><span class="arw">→</span><span class="stop">Next destination</span>
+  </div>
+  <div class="meta-row"><span>timing</span><span>pace</span><span>local partners</span><span>preferences</span><span>logistics</span><span>context</span></div>
+  <p class="exit-line">Each component can be excellent individually.<br><em>The real product is what happens when they become one journey.</em></p>
+</section>
+
+<!-- 04 THE OPPORTUNITY -->
+<section id="s04" class="scr s-light">
+  <div class="s-label"><span>—</span> FROM SELECTION TO EXPERIENCE</div>
+  <h2 class="big-line">How do you independently verify<br><em>what your client will actually experience?</em></h2>
+  <div class="stack-lines">
+    <p>Hotels evolve.</p>
+    <p>Guides change.</p>
+    <p>Transfers operate differently.</p>
+    <p>Experiences become busier.</p>
+    <p>A timetable that works on paper may feel different after a long-haul arrival.</p>
+  </div>
+  <p class="big-line mid" style="margin-top:36px">A journey is a living product.</p>
+  <p class="lead">The experience available today is not automatically identical to the experience originally selected.</p>
+</section>
+
+<!-- 05 TWO USES FOR NVI -->
+<section id="s05" class="scr s-dark">
+  <div class="ghost-num">03</div>
+  <div class="s-label"><span>03</span> WHERE NVI COULD FIT</div>
+  <h2 class="big-line">Before recommendation.<br><em>Or after a journey has been in market.</em></h2>
+  <div class="two-col">
+    <div class="col"><div class="ch">01 — Validate · A new journey</div>
+      <p style="font-size:15px;color:var(--muted);font-weight:300;margin-bottom:16px">Experience a newly designed itinerary under real conditions before it is introduced to clients.</p>
+      <ul><li>Does the pace work?</li><li>Do the transitions feel natural?</li><li>Does the complete journey justify the recommendation?</li></ul></div>
+    <div class="col gold-col"><div class="ch">02 — Revalidate · An existing journey</div>
+      <p style="font-size:15px;color:var(--muted);font-weight:300;margin-bottom:16px">Return independently to an itinerary already recommended and establish what the current traveller experience has become.</p>
+      <ul><li>What has changed?</li><li>What should be preserved?</li><li>Does the experience still reflect the intended standard?</li></ul></div>
+  </div>
+  <p class="exit-line">You do not need another itinerary.<br><em>You need an independent view of what the itinerary has become.</em></p>
+</section>
+
+<!-- 06 WHAT NVI DOES -->
+<section id="s06" class="scr s-light">
+  <div class="ghost-num">04</div>
+  <div class="s-label"><span>04</span> NEWVISION INSIGHT</div>
+  <h2 class="big-line mid">We experience the journey <em>from the client’s side.</em></h2>
+  <p class="lead">NewVision Insight places specifically sensitised observers in the position of real clients to document how a premium journey actually unfolds under normal operating conditions.</p>
+  <div class="split-vg">
+    <div class="vflow" style="margin-top:6px">
+      <div class="step"><div class="k">Nicole</div><p>designs &amp; selects</p></div>
+      <div class="conn"></div>
+      <div class="step"><div class="k">Partners</div><p>deliver</p></div>
+      <div class="conn"></div>
+      <div class="step"><div class="k">The client</div><p>experiences the complete journey</p></div>
+      <div class="conn"></div>
+      <div class="step accent"><div class="k">NVI</div><p>documents what that journey becomes</p></div>
+    </div>
+    <div class="rows" style="margin-top:6px">
+      <div class="row-line"><div class="rk">Continuity</div><p>Does one experience naturally lead into the next?</p></div>
+      <div class="row-line"><div class="rk">Pacing</div><p>Does the itinerary still feel right once lived?</p></div>
+      <div class="row-line"><div class="rk">Effort</div><p>What does the client still have to manage?</p></div>
+      <div class="row-line"><div class="rk">Transmission</div><p>Does useful information move between partners?</p></div>
+      <div class="row-line"><div class="rk">Consistency</div><p>Does the expected level survive the complete route?</p></div>
+      <div class="row-line"><div class="rk">Appropriateness</div><p>Does the experience fit this client, at this moment?</p></div>
+      <div class="row-line"><div class="rk">Resilience</div><p>What happens when reality changes the plan?</p></div>
+    </div>
+  </div>
+  <p class="exit-line">We analyse the journey as a whole —<br><em>not a collection of isolated bookings.</em></p>
+</section>
+
+<!-- 07 ILLUSTRATIVE CASE -->
+<section id="s07" class="scr s-dark">
+  <div class="s-label"><span>—</span> ILLUSTRATIVE CASE · NOT OBSERVED ON A NICOLE BEASLEY ITINERARY</div>
+  <h2 class="big-line">Every supplier can perform well<br><em>and the journey can still feel wrong.</em></h2>
+  <div class="frieze">
+    <span class="stop">Long-haul arrival</span><span class="arw">→</span><span class="stop">Driver on time</span><span class="arw">→</span><span class="stop">55-minute transfer</span><span class="arw">→</span><span class="stop">Hotel</span><span class="arw">→</span><span class="stop">Room not ready</span><span class="arw">→</span><span class="stop">Lunch delayed</span><span class="arw">→</span><span class="stop">Guide arrives</span><span class="arw">→</span><span class="stop">First experience begins under pressure</span>
+  </div>
+  <div class="two-col">
+    <div class="col"><div class="ch">Individually</div><ul><li>Driver — correct</li><li>Hotel — high quality</li><li>Guide — professional</li><li>Bookings — confirmed</li></ul></div>
+    <div class="col gold-col"><div class="ch">As a journey</div><ul><li>Recovery time disappears</li><li>Lunch moves</li><li>Guide timing compresses</li><li>The first experience begins rushed</li></ul></div>
+  </div>
+  <p class="exit-line">Nothing is necessarily wrong.<br><em>But the journey designed is no longer the journey being experienced.</em></p>
+  <p class="lead" style="margin-top:20px">This is the level at which NVI works.</p>
+</section>
+
+<!-- 08 METHODOLOGY -->
+<section id="s08" class="scr s-light">
+  <div class="ghost-num">05</div>
+  <div class="s-label"><span>05</span> METHODOLOGY</div>
+  <h2 class="big-line mid">Observation before interpretation.</h2>
+  <p class="lead">NVI observers are sensitised to structured observation with the contribution of a private-investigation professional with 25 years of field experience. This does not turn the journey into an investigation of people. It strengthens the discipline applied to context, sequence and evidence.</p>
+  <div class="frieze" style="margin-top:22px">
+    <span class="stop">01 — Contextualise</span><span class="arw">→</span><span class="stop">02 — Describe</span><span class="arw">→</span><span class="stop">03 — Cross-check</span><span class="arw">→</span><span class="stop">04 — Establish</span>
+  </div>
+  <p class="lead" style="max-width:840px">What happened before? What can actually be observed? Is it isolated, recurrent or explained differently? And finally: what does the evidence genuinely support?</p>
+  <div class="levels">
+    <div class="level"><div class="lk">Fact</div><p>Directly documented or observable.</p></div>
+    <div class="level"><div class="lk">Signal</div><p>Relevant, but insufficient alone.</p></div>
+    <div class="level"><div class="lk">Hypothesis</div><p>Still requires verification.</p></div>
+    <div class="level"><div class="lk">Established finding</div><p>Supported by sufficient converging evidence.</p></div>
+  </div>
+  <div class="videonote"><span class="eyebrow">Video as supporting evidence</span><p>Where legally and operationally appropriate.</p><div class="rules">No continuous recording · No audio · No employee scoring · Strong anonymisation</div></div>
+  <p class="exit-line">The unit of analysis is the experience sequence.<br><em>Not the individual.</em></p>
+</section>
+
+<!-- 09 APPLICATION + DELIVERABLE + CLOSING -->
+<section id="s09" class="scr s-light">
+  <div class="scr-bg"><img src="__IMG3__" alt=""></div>
+  <div class="s-label"><span>—</span> BESPOKE JOURNEY EXPERIENCE REVIEW</div>
+  <h2 class="big-line">An independent validation layer<br><em>behind Nicole’s recommendation.</em></h2>
+  <p class="lead">A tailored application of the NVI methodology to a journey designed or recommended by Nicole Beasley.</p>
+  <div class="two-col" style="--line:#d4cfc1">
+    <div class="col" style="background:#efeade"><div class="ch">Nicole already knows</div><ul>
+      <li>Why this destination.</li><li>Why this hotel.</li><li>Why this partner.</li><li>Why this timing.</li><li>What the journey is intended to create.</li></ul></div>
+    <div class="col gold-col"><div class="ch">NVI could reveal</div><ul>
+      <li>Whether the pace works when lived.</li><li>Where the client still carries effort.</li><li>Which transitions work exceptionally well.</li><li>Where consistency weakens.</li><li>What should be preserved.</li><li>What deserves adjustment before recommendation.</li></ul></div>
+  </div>
+  <div class="delivs">
+    <div class="deliv"><div class="dn">01</div><div><h4>Journey map</h4><p>The journey reconstructed from the traveller’s side.</p></div></div>
+    <div class="deliv"><div class="dn">02</div><div><h4>Evidence-based findings</h4><p>Conclusions separated by strength of evidence.</p></div></div>
+    <div class="deliv"><div class="dn">03</div><div><h4>Preserve / adjust / anticipate</h4><p>What works, what deserves attention and what could become more intuitive.</p></div></div>
+    <div class="deliv"><div class="dn">04</div><div><h4>Selected supporting evidence</h4><p>Only where relevant and legally appropriate.</p></div></div>
+    <div class="deliv"><div class="dn">05</div><div><h4>Executive synthesis</h4><p>A concise decision-oriented reading.</p></div></div>
+  </div>
+  <div class="cta-wrap">
+    <a class="cta-btn" href="mailto:contact@newvisioninsight.com">Speak with NewVision Insight <span>→</span></a>
+    <p class="cta-note">Confidential conversation · 20 minutes</p>
+  </div>
+  <div class="closing">
+    <span class="eyebrow">NEWVISION INSIGHT</span>
+    <p class="cbig">A recommendation is built before the client leaves.</p>
+    <p>Its value is proven when the client lives it. NewVision Insight provides an independent view of what happens between those two moments.</p>
+    <p class="final">You design the journey.<br><em>We independently validate what your client will encounter.</em></p>
+    <p style="font-size:11px;color:#7f7d70;margin-top:30px;letter-spacing:.04em">Also applicable, where relevant, to selected group and hosted journeys.</p>
+  </div>
+</section>
+
+</main>
+</template>
+<template id="ahmetHTML"><aside class="sidebar" aria-label="Study navigation">
+  <a href="#s01" class="brand" aria-label="NewVision Insight"><svg viewBox="0 0 48 48" fill="none" stroke="var(--gold-light)" stroke-width="1.3" aria-hidden="true"><circle cx="24" cy="24" r="21"/><circle cx="24" cy="24" r="6" fill="var(--gold-light)" stroke="none"/></svg><span>NEWVISION<small>INSIGHT</small></span></a>
+  <div class="side-title"><span class="eyebrow">Independent experience study</span><p>Ahmet Bilgin</p><small>Bilgin Consulting · Türkiye</small></div>
+  <button class="menu-toggle" aria-expanded="false" onclick="var s=this.closest('.sidebar');s.classList.toggle('open')">Contents +</button>
+  <nav id="nav">
+    <a href="#s01"><span>00</span>Cover</a>
+    <a href="#s02"><span>01</span>What Bilgin Shapes</a>
+    <a href="#s03"><span>—</span>Hotel Value</a>
+    <a href="#s04"><span>02</span>Strategy Meets Reality</a>
+    <a href="#s05"><span>03</span>Where NVI Fits</a>
+    <a href="#s06"><span>04</span>Evidence</a>
+    <a href="#s07"><span>05</span>Application</a>
+  </nav>
+  <div class="side-foot"><span class="tiny"></span><span>Prepared for<br>Ahmet Bilgin</span><small>NEWVISION INSIGHT · PRIVATE STUDY</small><a href="#" class="leave" onclick="location.reload();return false;">↩ Leave this space</a></div>
+</aside>
+
+<main>
+
+<!-- 01 COVER -->
+<section id="s01" class="scr">
+  <div class="cover-photo"><img src="__HERO__" alt="A contemporary luxury hotel lobby."></div>
+  <div class="cover-top"><span>NEWVISION INSIGHT</span><span>INDEPENDENT EXPERIENCE STUDY</span></div>
+  <div class="cover-mid">
+    <div class="cover-kicker">Bilgin Consulting · Türkiye</div>
+    <h1>Ahmet Bilgin</h1>
+    <p class="cover-sub">From hotel strategy<br>to lived experience.</p>
+  </div>
+  <div class="cover-foot">
+    <span>An independent guest-side evidence layer for hotel projects entering real operating conditions.</span>
+    <a href="#s02" class="read-link">Enter the study <b>↓</b></a>
+  </div>
+</section>
+
+<!-- 02 WHAT BILGIN SHAPES -->
+<section id="s02" class="scr s-light">
+  <div class="ghost-num">01</div>
+  <div class="s-label"><span>01</span> FROM INVESTMENT TO OPERATION</div>
+  <h2 class="big-line mid">The guest experience begins <em>long before the guest arrives.</em></h2>
+  <div class="frieze">
+    <span class="stop">Market &amp; feasibility</span><span class="arw">→</span><span class="stop">Positioning</span><span class="arw">→</span><span class="stop">Brand selection</span><span class="arw">→</span><span class="stop">Owner / brand relationship</span><span class="arw">→</span><span class="stop">Design &amp; development</span><span class="arw">→</span><span class="stop">Pre-opening</span><span class="arw">→</span><span class="stop">Operations</span>
+  </div>
+  <p class="lead">Bilgin Consulting works across the decisions that determine what a hotel is intended to become — commercially, operationally and experientially: from investor-brand relationships to project management, construction, branding, pre-opening and operations.</p>
+  <div class="rows">
+    <div class="row-line"><div class="rk">Positioning</div><p>defines the promise.</p></div>
+    <div class="row-line"><div class="rk">Design</div><p>gives the promise a physical form.</p></div>
+    <div class="row-line"><div class="rk">Operations</div><p>translate it into daily reality.</p></div>
+    <div class="row-line"><div class="rk">The guest</div><p>experiences the result of all three.</p></div>
+  </div>
+  <p class="exit-line">The guest is where <em>every strategic decision finally meets.</em></p>
+</section>
+
+<!-- 03 HIS OWN VIEW OF HOTEL VALUE -->
+<section id="s03" class="scr s-dark">
+  <div class="ghost-words">VALUE · PERCEPTION · EXPERIENCE · OPERATION</div>
+  <div class="s-label"><span>—</span> A DOCUMENTED POINT OF CONVERGENCE</div>
+  <h2 class="big-line">A hotel is more than <em>the physical asset that was built.</em></h2>
+  <p class="lead">In his March 2026 analysis of hotel investment through the experience-economy lens, Ahmet Bilgin describes the hotel not simply as physical capacity, but as an experience-based operating platform shaped by brand perception, design language, emotional touchpoints and operational discipline.</p>
+  <div class="levels">
+    <div class="level"><div class="lk">The asset</div><p>What was financed and developed.</p></div>
+    <div class="level"><div class="lk">The concept</div><p>What the owner and brand intended.</p></div>
+    <div class="level"><div class="lk">The operation</div><p>What the organisation delivers.</p></div>
+    <div class="level"><div class="lk">The experience</div><p>What the guest actually encounters.</p></div>
+  </div>
+  <p class="big-line mid" style="margin-top:34px">Connected layers.<br><em>Not identical realities.</em></p>
+  <p class="exit-line">The final layer cannot be experienced from inside the project <em>in exactly the same way as it is experienced by the guest.</em></p>
+</section>
+
+<!-- 04 WHEN STRATEGY MEETS REALITY -->
+<section id="s04" class="scr s-light">
+  <div class="ghost-num">02</div>
+  <div class="s-label"><span>02</span> AFTER IMPLEMENTATION</div>
+  <h2 class="big-line mid">Opening changes <em>the nature of the project.</em></h2>
+  <div class="sr-schema">
+    <div class="col"><div class="ch">Designed conditions</div><ul><li>Concept</li><li>Brand standards</li><li>Organisation</li><li>Recruitment</li><li>Training</li><li>Operating procedures</li><li>Service intentions</li></ul></div>
+    <div class="sr-mid"><span class="sr-open">Opening</span><span class="sr-arrow">→</span></div>
+    <div class="col gold-col"><div class="ch">Real conditions</div><ul><li>Occupancy</li><li>Peak periods</li><li>Guest behaviour</li><li>Staff handovers</li><li>Competing priorities</li><li>Unexpected requests</li><li>Operating pressure</li></ul></div>
+  </div>
+  <p class="sr-result"><span class="eyebrow">The lived experience</span></p>
+  <p class="lead">A difference between intention and lived experience does not automatically mean the strategy was wrong or that a department failed. It is what happens when a designed system begins interacting with real operating conditions.</p>
+  <p class="exit-line">Bilgin can establish how the hotel was conceived and implemented.<br><em>NVI can independently document what that system produces from the guest’s side.</em></p>
+</section>
+
+<!-- 05 WHERE NVI FITS -->
+<section id="s05" class="scr s-dark">
+  <div class="ghost-num">03</div>
+  <div class="s-label"><span>03</span> COMPLEMENTARITY</div>
+  <h2 class="big-line">Not another hotel audit.<br><em>A guest-side evidence layer.</em></h2>
+  <div class="two-col">
+    <div class="col"><div class="ch">Bilgin Consulting</div><ul>
+      <li><b>Develops</b> what should exist.</li><li><b>Positions</b> what the hotel should represent.</li><li><b>Structures</b> how the operation should work.</li><li><b>Implements</b> how strategy enters reality.</li><li><b>Advises / operates</b> how performance is sustained.</li></ul></div>
+    <div class="col gold-col"><div class="ch">NewVision Insight</div><ul>
+      <li><b>Observes</b> what actually happens.</li><li><b>Documents</b> what can be established.</li><li><b>Contextualises</b> why a sequence matters.</li><li><b>Cross-checks</b> what is isolated and what converges.</li><li><b>Establishes</b> what the evidence genuinely supports.</li></ul></div>
+  </div>
+  <div class="frieze" style="justify-content:center;margin:26px 0"><span class="stop">Intention</span><span class="arw">→</span><span class="stop">Operation</span><span class="arw">→</span><span class="stop">Lived experience</span></div>
+  <p class="lead">NewVision Insight places specifically sensitised observers in the position of real clients to document how the intended experience unfolds under normal operating conditions. We do not replace operational expertise, brand standards or management controls. We add an independent perspective at the point where all of them become one guest experience.</p>
+  <div class="rows" style="margin-top:20px">
+    <div class="row-line"><div class="rk">Continuity</div><p>Do departments become one hotel from the guest’s perspective?</p></div>
+    <div class="row-line"><div class="rk">Transmission</div><p>Does useful information move between teams?</p></div>
+    <div class="row-line"><div class="rk">Anticipation</div><p>Does the hotel act before the guest must reconstruct the request?</p></div>
+    <div class="row-line"><div class="rk">Effort</div><p>Where does the guest still have to manage the organisation?</p></div>
+    <div class="row-line"><div class="rk">Positioning consistency</div><p>Does the lived experience remain coherent with the experience the project was designed to create?</p></div>
+  </div>
+  <p class="exit-line">The question is not whether each department performs.<br><em>It is what their combined performance becomes for the guest.</em></p>
+</section>
+
+<!-- 06 EVIDENCE -->
+<section id="s06" class="scr s-light">
+  <div class="ghost-num">04</div>
+  <div class="s-label"><span>04</span> EVIDENCE</div>
+  <h2 class="big-line mid">Observation before interpretation.</h2>
+  <p class="lead">An independent perspective only has value if the way it reaches a conclusion is disciplined.</p>
+  <div class="frieze" style="margin-top:22px">
+    <span class="stop">01 — Contextualise</span><span class="arw">→</span><span class="stop">02 — Describe</span><span class="arw">→</span><span class="stop">03 — Cross-check</span><span class="arw">→</span><span class="stop">04 — Establish</span>
+  </div>
+  <p class="lead" style="max-width:860px">What was known before the sequence? What actually happened? Is it isolated, recurrent or explained differently? And finally: what does the available evidence genuinely support?</p>
+  <div class="levels">
+    <div class="level"><div class="lk">Fact</div><p>Directly documented or observable.</p></div>
+    <div class="level"><div class="lk">Signal</div><p>Relevant enough to examine further.</p></div>
+    <div class="level"><div class="lk">Hypothesis</div><p>Still requires verification.</p></div>
+    <div class="level"><div class="lk">Established finding</div><p>Supported by sufficient converging evidence.</p></div>
+  </div>
+  <div class="pillars" style="margin-top:26px">
+    <div class="pillar"><div class="pn">01</div><h4>Observe without interfering</h4></div>
+    <div class="pillar"><div class="pn">02</div><h4>Separate fact from assumption</h4></div>
+    <div class="pillar"><div class="pn">03</div><h4>Reconstruct sequences</h4></div>
+    <div class="pillar"><div class="pn">04</div><h4>Cross-check before concluding</h4></div>
+  </div>
+  <p class="lead" style="margin-top:20px">NVI observers are sensitised to structured observation with the contribution of a private-investigation professional with 25 years of field experience. This does not turn the hotel into an investigation of people. It strengthens the discipline applied to observation and evidence.</p>
+  <div class="videonote"><span class="eyebrow">Video as supporting evidence — where appropriate</span><p>Short sequences may preserve timing, waiting or physical transitions that are difficult to reconstruct afterwards.</p><div class="rules">No continuous recording · No audio · No employee scoring · No provoked incidents · Strong anonymisation · Subject to legal validation</div></div>
+  <p class="exit-line">The unit of analysis is the experience sequence.<br><em>Not the employee.</em></p>
+</section>
+
+<!-- 07 APPLICATION (climax) -->
+<section id="s07" class="scr s-dark">
+  <div class="ghost-num">05</div>
+  <div class="s-label"><span>05</span> APPLICATION</div>
+  <h2 class="big-line">Extend the project lifecycle<br><em>into lived-experience evidence.</em></h2>
+  <div class="frieze">
+    <span class="stop">Development<small>Bilgin</small></span><span class="arw">→</span><span class="stop">Positioning / Brand<small>Bilgin</small></span><span class="arw">→</span><span class="stop">Pre-opening<small>Bilgin</small></span><span class="arw">→</span><span class="stop">Opening</span><span class="arw">→</span><span class="stop gold-stop">Guest-side evidence<small>NVI</small></span><span class="arw">→</span><span class="stop">Stabilisation / Decision<small>Bilgin · Owner · Management</small></span>
+  </div>
+  <div class="rows" style="margin-top:22px">
+    <div class="row-line"><div class="rk">01 · Post-opening</div><p><b>What did the project actually become?</b> Observe the hotel once real guests, occupancy and operating pressure replace pre-opening assumptions.</p></div>
+    <div class="row-line"><div class="rk">02 · Stabilisation</div><p><b>What should be preserved or strengthened?</b> Distinguish what already translates the original intention successfully from what becomes less consistent under real conditions.</p></div>
+    <div class="row-line"><div class="rk">03 · Repositioning</div><p><b>Did the strategic change become a guest-side change?</b> Compare the lived experience before and after transformation to establish whether the intended repositioning became perceptible to the guest.</p></div>
+  </div>
+
+  <div class="closing" style="margin-top:56px;background:var(--paper);color:var(--ink)">
+    <span class="eyebrow" style="color:var(--gold)">THE BENEFIT FOR BILGIN — NOT ONLY FOR THE HOTEL</span>
+    <p class="cbig" style="color:var(--ink)">What this adds to Bilgin Consulting</p>
+    <div class="rows" style="border-top-color:var(--line)">
+      <div class="row-line"><div class="rk" style="color:var(--ink)">Extend the consultancy</div><p>Add an independent guest-side reading once the project enters real operation.</p></div>
+      <div class="row-line"><div class="rk" style="color:var(--ink)">Strengthen owner reporting</div><p>Complement operational and financial information with documented evidence of what the project is producing from the guest’s perspective.</p></div>
+      <div class="row-line"><div class="rk" style="color:var(--ink)">Support stabilisation decisions</div><p>Help distinguish isolated incidents from recurring experience patterns before recommending adjustments.</p></div>
+      <div class="row-line"><div class="rk" style="color:var(--ink)">Document repositioning outcomes</div><p>Establish whether a strategic transformation genuinely became a different experience for the guest.</p></div>
+    </div>
+    <p class="final" style="color:var(--ink)">NVI does not replace Bilgin’s expertise.<br><em style="color:#886735">It can extend the point at which that expertise becomes independently observable.</em></p>
+    <p class="receive-line"><b>What Bilgin receives —</b> Guest journey map · Evidence-based findings · Preserve / strengthen / adjust · Selected supporting evidence · Executive synthesis</p>
+    <p class="lead" style="color:var(--muted)">A concise decision-oriented layer that can be shared with owners and management without turning the exercise into an employee evaluation.</p>
+    <div class="insert" style="margin-top:30px"><span class="eyebrow">A position already between owner, brand and operation</span><p>Bilgin Consulting publicly documents projects involving international brands including Hilton, Marriott, Accor, IHG and Wyndham, with mandates ranging from investor-brand contract consultancy to development, pre-opening and operations. In 2024, IHG specifically credited AB Consulting led by Ahmet Bilgin, describing his strategic insight and hands-on approach as important to the introduction of Garner in Türkiye.</p></div>
+    <button class="src-btn" onclick="document.getElementById('srcModalA').classList.add('open')" style="margin-top:22px">Documentary sources ↗</button>
+  </div>
+
+  <div class="closing" style="margin-top:0">
+    <span class="eyebrow">NEWVISION INSIGHT</span>
+    <p class="cbig">The project defines what the hotel should become.</p>
+    <p>The guest reveals what it has become. NewVision Insight provides an independent evidence layer between those two realities.</p>
+    <p class="final">You shape the hotel from strategy to operation.<br><em>We independently establish what it becomes from the guest’s side.</em></p>
+  </div>
+</section>
+
+</main>
+
+<div id="srcModalA" class="srcmodal">
+  <div class="src-card">
+    <span class="src-close" onclick="document.getElementById('srcModalA').classList.remove('open')">×</span>
+    <h3>Documentary sources</h3>
+    <p class="si">Public sources consulted for this preliminary reading.</p>
+    <div class="src-item"><b>[01] Ahmet Bilgin — Professional profile</b><span>Career across Conrad Istanbul, Eresin, Mövenpick, Dedeman and hotel investment leadership; hotel management, development, construction, pre-opening and operations.</span><i>Bilgin Consulting</i></div>
+    <div class="src-item"><b>[02] Bilgin Consulting — Projects</b><span>Owner-brand contract consultancy, project management, business development, investment and operational consultancy across multiple hotel projects.</span><i>Bilgin Consulting</i></div>
+    <div class="src-item"><b>[03] Bilgin Consulting — About</b><span>Company founded in 2011 to provide end-to-end hotel development, operations and consultancy services.</span><i>Bilgin Consulting</i></div>
+    <div class="src-item"><b>[04] Ahmet Bilgin — Experience Economy, March 2026</b><span>Hotel investment considered beyond the physical asset through experience, perception, design, emotional touchpoints, operational discipline and lifecycle management.</span><i>Bilgin Consulting</i></div>
+    <div class="src-item"><b>[05] IHG — Garner Türkiye, September 2024</b><span>First Garner Türkiye signing supported by AB Consulting led by Ahmet Bilgin.</span><i>InterContinental Hotels Group PLC</i></div>
+    <p class="si" style="margin-top:20px">Preliminary study prepared from public information. Not to be presented as an official document of Bilgin Consulting or of any named brand.</p>
+  </div>
+</div>
+</template>
 </body>
 </html>
