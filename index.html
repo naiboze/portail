@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nameless Advisory — Portail confidentiel</title>
+<title>NewVision Insight — Private access</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=DM+Sans:wght@400;500;600;700&family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --navy:#15120E;--navy-deep:#100D0A;--navy-soft:#221C15;
@@ -25,29 +25,37 @@ button{font-family:inherit;cursor:pointer}
 .logo{font-family:'Inter';font-weight:200;letter-spacing:.34em;font-size:16px;text-transform:uppercase}
 .logo .dot{color:var(--gold)}
 
-/* ACCESS */
-#access{position:fixed;inset:0;z-index:100;background:radial-gradient(120% 90% at 50% -10%, #1f3864 0%, var(--navy) 45%, var(--navy-deep) 100%);color:#ECE6D9;display:flex;align-items:center;justify-content:center;padding:24px;transition:opacity .8s ease, visibility .8s;overflow-y:auto}
+/* ACCESS — NewVision Insight */
+#access{position:fixed;inset:0;z-index:100;background:radial-gradient(130% 100% at 50% -12%,#1C1E1A 0%,#111210 58%,#0c0d0b 100%);color:#F0EEE6;display:flex;align-items:center;justify-content:center;padding:24px;transition:opacity .8s ease,visibility .8s;overflow-y:auto;font-family:'DM Sans',sans-serif}
 #access.hidden{opacity:0;visibility:hidden}
-.access-frame{width:100%;max-width:440px;text-align:center;position:relative;z-index:2;padding:30px 0}
-.access-frame .logo{font-size:26px;color:#fff;margin-bottom:6px}
-.access-tag{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:40px}
-.lock-ring{width:64px;height:64px;border:1px solid rgba(195,169,123,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 26px;color:var(--gold)}
-.access-frame h1{font-size:30px;color:#fff;margin-bottom:10px}
-.access-frame p.sub{font-size:14px;color:#BDB5A4;margin-bottom:30px;font-weight:300}
-.key-field input{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(195,169,123,.35);border-radius:10px;padding:16px 18px;color:#fff;font-size:15px;letter-spacing:.18em;text-align:center;font-family:'Inter';transition:.25s;margin-bottom:14px}
-.key-field input::placeholder{color:#8A8275}
-.key-field input:focus{outline:none;border-color:var(--gold);background:rgba(255,255,255,.07)}
-.btn-access{width:100%;background:var(--gold);color:var(--navy-deep);border:none;border-radius:10px;padding:16px;font-weight:600;font-size:14px;letter-spacing:.05em;transition:.25s}
-.btn-access:hover{background:#d8bd83;transform:translateY(-1px)}
-#keyError{color:#e6a4a4;font-size:12.5px;margin-top:12px;min-height:18px}
-.demo-box{margin-top:26px;border:1px dashed rgba(195,169,123,.4);border-radius:12px;padding:16px 18px;text-align:left}
-.demo-box .dt{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:10px}
-.demo-key{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;cursor:pointer;transition:.18s}
-.demo-key:hover{background:rgba(255,255,255,.05)}
-.demo-key .dk-name{font-size:12.5px;color:#CFC7B7;flex:1}
-.demo-key .dk-code{font-size:11px;color:var(--gold-soft);letter-spacing:.1em}
-.confidential-note{margin-top:34px;font-size:11.5px;color:#9A9184;line-height:1.7;border-top:1px solid rgba(255,255,255,.08);padding-top:22px;font-weight:300}
-.confidential-note strong{color:#C7BFAE;font-weight:500}
+.access-frame{width:100%;max-width:432px;text-align:center;position:relative;z-index:2;padding:46px 38px}
+.access-frame::before,.access-frame::after{content:'';position:absolute;width:20px;height:20px;border:1px solid rgba(183,160,121,.5);pointer-events:none}
+.access-frame::before{top:0;left:0;border-right:0;border-bottom:0}
+.access-frame::after{bottom:0;right:0;border-left:0;border-top:0}
+.nvi-mono{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;letter-spacing:.16em;color:#F0EEE6;padding-left:.16em}
+.nvi-word{font-family:'DM Sans',sans-serif;font-size:10.5px;letter-spacing:.42em;text-transform:uppercase;color:#B7A079;margin-top:11px;padding-left:.42em}
+.access-tag{font-family:'Courier New',Courier,monospace;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#AAA99F;margin:36px 0 30px;display:flex;align-items:center;justify-content:center;gap:12px}
+.access-tag::before,.access-tag::after{content:'';height:1px;width:24px;background:rgba(183,160,121,.5)}
+.access-frame h1{font-family:'DM Sans',sans-serif;font-weight:500;font-size:25px;color:#F0EEE6;margin-bottom:12px;letter-spacing:-.01em;line-height:1.25}
+.access-frame h1 em{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;color:#B7A079}
+.access-frame p.sub{font-size:13.5px;color:#AAA99F;margin-bottom:28px;font-weight:300;line-height:1.65}
+.key-field input{width:100%;background:rgba(240,238,230,.03);border:1px solid rgba(183,160,121,.35);border-radius:4px;padding:15px 18px;color:#F0EEE6;font-size:15px;letter-spacing:.14em;text-align:center;font-family:'DM Sans',sans-serif;transition:.25s;margin-bottom:16px}
+.key-field input::placeholder{color:#6d6c62}
+.key-field input:focus{outline:none;border-color:#B7A079;background:rgba(240,238,230,.06)}
+.consent{display:flex;gap:10px;align-items:flex-start;text-align:left;font-size:12px;color:#AAA99F;line-height:1.5;margin-bottom:18px;font-weight:300;cursor:pointer}
+.consent input{margin-top:3px;accent-color:#B7A079;flex-shrink:0}
+.consent a{color:#B7A079;border-bottom:1px solid rgba(183,160,121,.4)}
+.btn-access{width:100%;background:#B7A079;color:#111210;border:none;border-radius:4px;padding:15px;font-weight:600;font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;font-family:'DM Sans',sans-serif;transition:.25s}
+.btn-access:hover{background:#c9b48d}
+#keyError{color:#c98d84;font-size:12.5px;margin-top:12px;min-height:18px}
+.demo-box{margin-top:26px;border:1px dashed rgba(183,160,121,.4);border-radius:8px;padding:16px 18px;text-align:left}
+.demo-box .dt{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#B7A079;margin-bottom:10px}
+.demo-key{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:6px;cursor:pointer;transition:.18s}
+.demo-key:hover{background:rgba(240,238,230,.05)}
+.demo-key .dk-name{font-size:12.5px;color:#CFCDC2;flex:1}
+.demo-key .dk-code{font-size:11px;color:#B7A079;letter-spacing:.1em}
+.confidential-note{margin-top:30px;font-size:11px;color:#86857b;line-height:1.7;border-top:1px solid rgba(240,238,230,.08);padding-top:20px;font-weight:300}
+.confidential-note strong{color:#AAA99F;font-weight:500}
 
 /* APP */
 #app{opacity:0;transition:opacity .8s ease .2s;display:none}
@@ -641,16 +649,16 @@ body.inv-dark .side-confid .sc-lock{color:var(--gold-soft)}
 <!-- ACCÈS -->
 <div id="access">
   <div class="access-frame">
-    <div class="logo"><span class="seal"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3"><circle cx="50" cy="50" r="45"/><path d="M35 68V32"/><path d="M65 32V68"/><path d="M35 32 44 42.8"/><path d="M56 57.2 65 68"/></svg></span><span class="wm"><span class="wm-name">Nameless</span><span class="wm-desc">Advisory</span></span></div>
-    <div class="access-tag">Audit d'expérience · Hôtellerie d'exception</div>
-    <div class="lock-ring"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
-    <h1>Portail confidentiel</h1>
-    <p class="sub">Accès réservé. Saisissez la clé unique transmise à votre établissement pour consulter votre rapport.</p>
-    <div class="key-field"><input id="keyInput" type="text" placeholder="Saisissez votre clé d'accès"></div>
-    <label class="consent"><input type="checkbox" id="consent"><span>J'ai lu et j'accepte les <a href="#" onclick="openTerms();return false;">conditions de confidentialité</a> de Nameless Advisory.</span></label>
-    <button class="btn-access" onclick="tryEnter()">Accéder</button>
+    <div class="nvi-mono">NVI</div>
+    <div class="nvi-word">NewVision Insight</div>
+    <div class="access-tag">Private Experience Study</div>
+    <h1>A private space, <em>opened for you.</em></h1>
+    <p class="sub">Enter the unique key you were given to open your confidential study.</p>
+    <div class="key-field"><input id="keyInput" type="text" placeholder="NVI — • • • • — • • • • — • • • •" autocomplete="off"></div>
+    <label class="consent"><input type="checkbox" id="consent"><span>I have read and accept the <a href="#" onclick="openTerms();return false;">confidentiality terms</a> of NewVision Insight.</span></label>
+    <button class="btn-access" onclick="tryEnter()">Enter the study</button>
     <div id="keyError"></div>
-    <div class="confidential-note"><strong>Confidentialité absolue.</strong> Les contenus de cet espace sont strictement personnels à leur destinataire et à la seule finalité convenue. Toute diffusion à un tiers est interdite. L'accès requiert l'acceptation de nos conditions de confidentialité.</div>
+    <div class="confidential-note"><strong>Strictly confidential.</strong> The contents of this space are personal to their named recipient and to the sole agreed purpose. Any disclosure to a third party is prohibited. Access requires acceptance of our confidentiality terms.</div>
   </div>
 </div>
 
@@ -741,10 +749,10 @@ function initScrollSpy(){
 /* ---------- Accès ---------- */
 function tryEnter(){
   const consent=document.getElementById('consent');
-  if(consent && !consent.checked){document.getElementById('keyError').textContent='Merci d\'accepter les conditions de confidentialité pour accéder.';return;}
+  if(consent && !consent.checked){document.getElementById('keyError').textContent='Please accept the confidentiality terms to continue.';return;}
   const k=document.getElementById('keyInput').value.trim().toUpperCase();
   const c=CLIENTS[k];
-  if(!c){document.getElementById('keyError').textContent='Clé non reconnue. Vérifiez la clé transmise à votre établissement.';return;}
+  if(!c){document.getElementById('keyError').textContent='Key not recognised. Please check the key you were given.';return;}
   document.getElementById('keyError').textContent='';
   recordConsent(k);
   render(c);
@@ -761,7 +769,7 @@ function openTerms(){document.getElementById('termsOverlay').classList.add('show
 function closeTerms(){document.getElementById('termsOverlay').classList.remove('show');}
 function recordConsent(key){
   const rec={portail:key,version:TERMS_VERSION,acceptationUTC:new Date().toISOString(),agent:navigator.userAgent};
-  try{const log=JSON.parse(localStorage.getItem('nameless_consent')||'[]');log.push(rec);localStorage.setItem('nameless_consent',JSON.stringify(log));}catch(e){}
+  try{const log=JSON.parse(localStorage.getItem('nvi_consent')||'[]');log.push(rec);localStorage.setItem('nvi_consent',JSON.stringify(log));}catch(e){}
   if(CONSENT_ENDPOINT){try{fetch(CONSENT_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(rec),keepalive:true});}catch(e){}}
 }
 
@@ -833,6 +841,14 @@ function bZone(pid,n,btn){
     '<div><span class="zone-number">ZONE '+z.n+' / 12</span><span class="tag" style="margin-bottom:11px"><b>H</b> HYPOTH\u00c8SE D\u2019OBSERVATION</span><h3>'+z.title+'</h3><p class="zone-question">'+z.q+'</p></div>'+
     '<div><span class="eyebrow gold" style="font-size:10px;color:var(--gold)">TRACES \u00c0 DOCUMENTER</span><ul>'+tr+'</ul><p class="zone-limit"><b>Limite de lecture.</b> '+z.limite+'</p></div>';
 }
+function gSit(n,btn){
+  var tabs=document.querySelectorAll('.gx-tab'); tabs.forEach(function(t){t.setAttribute('aria-selected', t===btn?'true':'false');});
+  document.querySelectorAll('.gx-pane').forEach(function(p){p.classList.toggle('on', p.getAttribute('data-sit')===n);});
+}
+function gInit(){
+  var first=document.querySelector('.gx-tab'); if(first){var n=first.getAttribute('data-sit');first.setAttribute('aria-selected','true');var p=document.querySelector('.gx-pane[data-sit="'+n+'"]');if(p)p.classList.add('on');}
+}
+
 function renderDoc(c){
   var tpl=(c.doc&&c.doc.tpl)||'bristol';
   var cssId=(c.doc&&c.doc.css)||tpl;
@@ -846,6 +862,7 @@ function renderDoc(c){
   document.body.style.overflow='auto';
   document.body.innerHTML=html;
   if(tpl==='bristol' && typeof bPhase==='function'){ try{bPhase('avant');}catch(e){} }
+  if(tpl==='gensui' && typeof gInit==='function'){ try{gInit();}catch(e){} }
   var mt=document.querySelector('.menu-toggle');
   if(mt && !mt.getAttribute('onclick')){mt.addEventListener('click',function(){var sb=document.querySelector('.sidebar');var o=sb.classList.toggle('open');mt.setAttribute('aria-expanded',o?'true':'false');});}
   try{
@@ -1173,20 +1190,20 @@ document.body.style.overflow='hidden';
 </script>
   <div class="terms-overlay" id="termsOverlay">
     <div class="terms-modal">
-      <div class="terms-head"><span class="eyebrow">Conditions de confidentialité</span><button class="terms-close" onclick="closeTerms()">Fermer</button></div>
+      <div class="terms-head"><span class="eyebrow">Confidentiality terms</span><button class="terms-close" onclick="closeTerms()">Close</button></div>
       <div class="terms-body">
-        <h4>1. Confidentialité</h4>
-        <p>L'ensemble des contenus accessibles via cet espace — rapports, observations, preuves, méthodologie et supports associés — sont strictement confidentiels et demeurent la propriété exclusive de Nameless Advisory.</p>
-        <h4>2. Usage restreint</h4>
-        <p>Ces contenus vous sont communiqués pour votre seul usage interne. Toute reproduction, diffusion, publication ou communication à un tiers, totale ou partielle, est interdite sans l'accord écrit préalable de Nameless Advisory.</p>
-        <h4>3. Méthodologie</h4>
-        <p>Les méthodes, protocoles et savoir-faire de Nameless Advisory constituent des informations confidentielles protégées. Vous vous engagez à ne pas les divulguer ni les exploiter en dehors du cadre convenu.</p>
-        <h4>4. Durée</h4>
-        <p>Cet engagement s'applique dès l'accès et se poursuit sans limitation de durée.</p>
-        <h4>5. Acceptation</h4>
-        <p>En cochant la case puis en accédant à l'espace, vous formez un engagement de confidentialité que vous reconnaissez opposable. À défaut d'acceptation, l'accès n'est pas autorisé.</p>
+        <h4>1. Confidentiality</h4>
+        <p>All content accessible through this space — studies, observations, evidence, methodology and associated materials — is strictly confidential and remains the exclusive property of NewVision Insight.</p>
+        <h4>2. Restricted use</h4>
+        <p>This content is provided for your internal use only. Any reproduction, distribution, publication or communication to a third party, in whole or in part, is prohibited without the prior written agreement of NewVision Insight.</p>
+        <h4>3. Methodology</h4>
+        <p>The methods, protocols and know-how of NewVision Insight are protected confidential information. You undertake not to disclose or use them outside the agreed scope.</p>
+        <h4>4. Duration</h4>
+        <p>This undertaking applies from the moment of access and continues without limitation of time.</p>
+        <h4>5. Acceptance</h4>
+        <p>By ticking the box and entering the space, you form a confidentiality undertaking that you acknowledge to be binding. Without acceptance, access is not authorised.</p>
       </div>
-      <div class="terms-foot">Version v1 — 2026 · Votre acceptation est enregistrée avec la date et l'heure au moment de l'accès.</div>
+      <div class="terms-foot">Version v1 — 2026 · Your acceptance is recorded with the date and time at the moment of access.</div>
     </div>
   </div>
 <script type="text/plain" id="bristolCSS">@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..700&family=DM+Sans:wght@400;450;500;600&family=Italiana&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap');
@@ -1210,6 +1227,36 @@ body{background:linear-gradient(to right,var(--black) 0 var(--side),var(--paper)
 @media(max-width:1100px) and (min-width:761px){.timeline{grid-template-columns:1fr 1fr;gap:34px 0}.timeline li:nth-child(even){padding-right:0}}
 @media(max-width:760px){.timeline li{padding-right:20px}.timeline li:nth-child(even){padding-right:0}.timeline .timeline-phrase{font-size:21px}.timeline h4{font-size:28px}.time-date{min-height:38px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+
+/* ===== GENSUI (direction Bristol) ===== */
+.gx-cover .cover-main{grid-template-columns:1fr}
+.jp-kanji{position:absolute;top:150px;right:4.5%;font-family:var(--serif);font-size:200px;line-height:.88;color:rgba(161,123,64,.15);writing-mode:vertical-rl;letter-spacing:.04em;pointer-events:none;z-index:0}
+.jp-wave{display:block;width:100%;max-width:520px;margin:30px 0 0;color:var(--gold);opacity:.55}
+.jp-pair{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin:44px 0 10px}
+.jp-pair .k{font-family:var(--serif);font-size:46px;color:var(--gold);line-height:1}
+.jp-pair .kl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:12px 0 8px}
+.jp-pair p{font-size:14px;color:var(--muted);font-weight:300}
+.gx{border:1px solid var(--line);margin:30px 0 12px;background:#fff}
+.gx-tabs{display:grid;grid-template-columns:repeat(3,1fr)}
+.gx-tab{background:transparent;border:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 20px;text-align:left;cursor:pointer;color:var(--muted);font:inherit;transition:background .2s}
+.gx-tab:last-child{border-right:0}
+.gx-tab small{display:block;font-family:var(--serif);font-size:17px;color:var(--gold);margin-bottom:6px}
+.gx-tab b{font-weight:500;color:var(--ink);font-size:13.5px;letter-spacing:.02em;line-height:1.3;display:block}
+.gx-tab[aria-selected=true]{background:var(--ink);color:var(--paper);border-bottom-color:var(--ink)}
+.gx-tab[aria-selected=true] small{color:var(--gold-light)}
+.gx-tab[aria-selected=true] b{color:#fff}
+.gx-pane{display:none;padding:30px 32px}
+.gx-pane.on{display:block}
+.gx-concept{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.gx-pane h3{font-size:28px;color:var(--ink);margin:10px 0 24px;line-height:1.2}
+.gx-cols{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.gx-col .l{font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-bottom:9px}
+.gx-col.ctrl .l{color:var(--muted)}
+.gx-col.nvi .l{color:var(--gold)}
+.gx-col p{font-size:15px;color:#4a473f;font-weight:300;line-height:1.55}
+.jp-thanks{font-family:var(--serif);font-size:27px;color:var(--ink);line-height:1.5;margin:6px 0 6px}
+.jp-romaji{font-size:12.5px;color:var(--muted);letter-spacing:.04em;margin-bottom:6px}
+@media(max-width:760px){.gx-tabs{grid-template-columns:1fr}.gx-tab{border-right:0}.gx-cols{grid-template-columns:1fr;gap:20px}.jp-kanji{font-size:110px;top:90px}.jp-pair{grid-template-columns:1fr;gap:24px}}
 </script>
 <template id="bristolHTML"><a href="#dossier" class="skip-link">Aller au dossier</a>
 <aside class="sidebar" aria-label="Navigation du dossier">
@@ -2164,6 +2211,166 @@ main{margin-left:0}
     <p class="si" style="margin-top:20px">Preliminary study prepared from public information. Not to be presented as an official document of Bilgin Consulting or of any named brand.</p>
   </div>
 </div>
+</template>
+<template id="gensuiHTML"><aside class="sidebar" aria-label="Study navigation">
+  <a href="#ouverture" class="brand" aria-label="NewVision Insight"><svg viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="32" rx="19" ry="26" fill="none" stroke="var(--gold-light)" stroke-width="1.1"/><path d="M24 44V22l16 20V22" fill="none" stroke="var(--gold-light)" stroke-width="1.4"/></svg><span>NEWVISION</span><small>INSIGHT</small></a>
+  <div class="sidebar-title"><span class="eyebrow">Private reading</span><p>GENSUI</p><small>玄水 · Osaka, Japan · October 2026</small></div>
+  <button class="menu-toggle" aria-expanded="false" onclick="var s=this.closest('.sidebar');var o=s.classList.toggle('open');this.setAttribute('aria-expanded',o?'true':'false')">Contents <span>+</span></button>
+  <nav id="sommaire">
+    <a class="active" href="#ouverture"><span>00</span>Opening</a>
+    <a href="#maison"><span>01</span>The Identity</a>
+    <a href="#evolution"><span>02</span>The Evolution</a>
+    <a href="#passages"><span>03</span>The Passages</a>
+    <a href="#lecture"><span>04</span>Our Reading</a>
+    <a href="#suite"><span>05</span>What Follows</a>
+  </nav>
+  <div class="sidebar-foot"><span class="tiny-rule"></span><span>Prepared for<br>GENSUI · Osaka</span><small>NEWVISION INSIGHT · PRIVATE STUDY</small><a href="#" class="leave" style="display:block;margin-top:16px;color:var(--gold-light);font-size:11px" onclick="location.reload();return false;">↩ Leave this space</a></div>
+</aside>
+
+<main id="dossier">
+
+<!-- 00 COVER -->
+<section id="ouverture" class="cover gx-cover">
+  <div class="jp-kanji" aria-hidden="true">玄水</div>
+  <div class="topline"><span>NVI / EXPERIENCE INTELLIGENCE</span><span>ENGLISH EDITION</span></div>
+  <div class="cover-main"><div class="cover-copy">
+    <div class="eyebrow"><span class="gold">00</span> — PRIVATE PERSPECTIVE</div>
+    <h1>GENSUI<br><em>Osaka.</em></h1>
+    <p class="cover-subtitle">At the heart of Osaka,<br>a place designed to change<br>the way time is perceived.</p>
+    <span class="gold-rule"></span>
+    <p class="cover-thesis">But how can we know whether this intention — written into its spaces, its gestures and its rituals — becomes an experience the guest actually feels?</p>
+    <svg class="jp-wave" viewBox="0 0 520 44" fill="none" stroke="currentColor" stroke-width="1.1" aria-hidden="true"><path d="M2 30 C 60 10, 110 10, 168 24 S 290 44, 350 26 S 470 8, 518 22"/><path d="M2 38 C 60 18, 110 18, 168 32 S 290 52, 350 34 S 470 16, 518 30" opacity=".5"/></svg>
+  </div></div>
+  <div class="cover-bottom"><p>EXPLORATORY STUDY · NO AUDIT CONDUCTED<br><span>A reading of the moments that connect the contemporary ryokan to Four Seasons hospitality.</span></p><a href="#maison" class="read-link">Enter the study <span>↓</span></a></div>
+</section>
+
+<!-- 01 THE IDENTITY -->
+<section id="maison" class="section">
+  <div class="section-label"><span>01</span> THE PLACE <span class="section-meta">THE ORIGINAL INTENTION</span></div>
+  <div class="section-heading"><h2>The depth of black.<br><em>The movement of water.</em></h2><p>Two characters, one identity — and a promise already written into the name of the place.</p></div>
+  <p class="lead" style="max-width:720px;font-size:16px;color:var(--muted);font-weight:300">The name 玄水 already carries the meaning of the place: 玄 <b style="color:var(--ink);font-weight:500">(GEN)</b> evokes the colours hidden within a deep black; 水 <b style="color:var(--ink);font-weight:500">(SUI)</b> refers to the movement of water and to Osaka, the city of water.</p>
+  <div class="jp-pair">
+    <div><div class="k">玄</div><div class="kl">GEN · The depth</div><p>Dark corridors and details inspired by ink, then rooms that open onto the light.</p></div>
+    <div><div class="k">水</div><div class="kl">SUI · The movement</div><p>Curves, materials and perspectives that recall the waterways of Osaka.</p></div>
+  </div>
+  <div class="stats" style="margin-top:40px">
+    <div><strong>28<small>th</small></strong><span>Floor dedicated to the contemporary ryokan</span></div>
+    <div><strong>21</strong><span>Rooms and suites with tatami</span></div>
+    <div><strong>SABO</strong><span>Private salon reserved for GENSUI guests</span></div>
+  </div>
+  <div class="insight"><span class="code code-n">N</span><p>A concept is not summed up by what it shows. It is confirmed in what it brings to life.</p><span class="eyebrow">NVI READING</span></div>
+</section>
+
+<!-- 02 THE EVOLUTION -->
+<section id="evolution" class="section people-section">
+  <div class="section-label"><span>02</span> JUNE 2026 <span class="section-meta">A PROMISE THAT DEEPENS</span></div>
+  <div class="section-heading"><h2>New rituals.<br><em>A new question.</em></h2><p>Since 1 June, SABO has offered new highlights — a Japanese afternoon tea and an evening aperitif, with selections that are renewed regularly. Cultural activities and wellness complete the journey.</p></div>
+  <div class="rows" style="border-top:1px solid var(--line);margin-top:10px">
+    <div class="row-line" style="display:grid;grid-template-columns:90px 1fr;gap:28px;padding:24px 2px;border-bottom:1px solid var(--line);align-items:baseline">
+      <div class="gx-rn" style="font-family:var(--serif);font-size:30px;color:var(--gold)">01</div>
+      <div><h4 style="font-size:23px;color:var(--ink);margin-bottom:6px">The threshold — arrival</h4><p style="font-size:15px;color:var(--muted);font-weight:300">Private check-in, Japanese tea and wagashi. At what moment does the guest mentally leave the rhythm of travel?</p></div>
+    </div>
+    <div class="row-line" style="display:grid;grid-template-columns:90px 1fr;gap:28px;padding:24px 2px;border-bottom:1px solid var(--line);align-items:baseline">
+      <div class="gx-rn" style="font-family:var(--serif);font-size:30px;color:var(--gold)">02</div>
+      <div><h4 style="font-size:23px;color:var(--ink);margin-bottom:6px">The return — the rituals</h4><p style="font-size:15px;color:var(--muted);font-weight:300">A selection that changes over the days. How does this renewal become a personal attention?</p></div>
+    </div>
+    <div class="row-line" style="display:grid;grid-template-columns:90px 1fr;gap:28px;padding:24px 2px;border-bottom:1px solid var(--line);align-items:baseline">
+      <div class="gx-rn" style="font-family:var(--serif);font-size:30px;color:var(--gold)">03</div>
+      <div><h4 style="font-size:23px;color:var(--ink);margin-bottom:6px">The passage — wellness</h4><p style="font-size:15px;color:var(--muted);font-weight:300">From the 28th to the 36th floor, guests may move about in yukata and slippers. Does the sense of continuity follow the same movement?</p></div>
+    </div>
+  </div>
+  <div class="archive-note" style="margin-top:42px">
+    <div><span class="eyebrow">WHAT NVI PROPOSES TO EXAMINE</span></div>
+    <div><h3 style="font-size:28px;line-height:1.2;margin-bottom:14px;color:var(--paper)">The more the stay deepens,<br>the more its transitions matter.</h3><p>This is a study hypothesis, not an observed shortcoming. Nothing here has been audited on site.</p></div>
+  </div>
+</section>
+
+<!-- 03 THE PASSAGES (interactive) -->
+<section id="passages" class="section observation-section">
+  <div class="section-label"><span>03</span> MICRO-TRANSITIONS <span class="section-meta">OBSERVATION HYPOTHESES</span></div>
+  <div class="section-heading"><h2>Three moments.<br><em>One experience.</em></h2><p>The following examples have not been observed. They illustrate the difference between validating an action and understanding what it means for the guest. Select a moment to explore it.</p></div>
+  <div class="gx">
+    <div class="gx-tabs" role="tablist">
+      <button class="gx-tab" role="tab" data-sit="1" aria-selected="false" onclick="gSit('1',this)"><small>01</small><b>The threshold — Ma (間)</b></button>
+      <button class="gx-tab" role="tab" data-sit="2" aria-selected="false" onclick="gSit('2',this)"><small>02</small><b>The return — Kisetsukan (季節感)</b></button>
+      <button class="gx-tab" role="tab" data-sit="3" aria-selected="false" onclick="gSit('3',this)"><small>03</small><b>The passage — Omotenashi (おもてなし)</b></button>
+    </div>
+    <div class="gx-pane" data-sit="1">
+      <div class="gx-concept">01 / THE THRESHOLD — MA (間) · RHYTHM</div>
+      <h3>The tea is served. But when is the right moment to speak?</h3>
+      <div class="gx-cols">
+        <div class="gx-col ctrl"><div class="l">A control could confirm</div><p>Tea offered, a smooth check-in, accurate information.</p></div>
+        <div class="gx-col nvi"><div class="l">NVI would seek to understand</div><p>Did this sequence leave the guest the time to settle — the interval, the pause, the 間 between two gestures?</p></div>
+      </div>
+    </div>
+    <div class="gx-pane" data-sit="2">
+      <div class="gx-concept">02 / THE RETURN — KISETSUKAN (季節感) · THE SEASON</div>
+      <h3>The ritual changes. And the relationship, too?</h3>
+      <div class="gx-cols">
+        <div class="gx-col ctrl"><div class="l">A control could confirm</div><p>Seasonal offer compliant, presentation carefully done.</p></div>
+        <div class="gx-col nvi"><div class="l">NVI would seek to understand</div><p>Was an earlier preference taken up again with precision — if the guest wishes it — so that the seasonal sense becomes a personal attention?</p></div>
+      </div>
+    </div>
+    <div class="gx-pane" data-sit="3">
+      <div class="gx-concept">03 / THE PASSAGE — OMOTENASHI (おもてなし)</div>
+      <h3>Another floor. Still the same stay?</h3>
+      <div class="gx-cols">
+        <div class="gx-col ctrl"><div class="l">A control could confirm</div><p>Wellness access made easy, relays and guidance in order.</p></div>
+        <div class="gx-col nvi"><div class="l">NVI would seek to understand</div><p>Do the rhythm, the discretion and the known preferences stay coherent from one team to the next, across the floors?</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="archive-note" style="margin-top:38px;background:#e7e2d7;color:var(--ink)">
+    <div><span class="eyebrow" style="color:var(--gold)">A CULTURAL READING, NEVER A STEREOTYPE</span></div>
+    <div><p style="color:var(--muted)">These notions illuminate the questions raised. They never presume a guest's expectations on the basis of nationality.</p></div>
+  </div>
+</section>
+
+<!-- 04 OUR READING -->
+<section id="lecture" class="section reveal-section">
+  <div class="section-label"><span>04</span> WHAT NVI MAKES VISIBLE <span class="section-meta">SERVICE / FEELING</span></div>
+  <div class="reveal-statement"><span class="eyebrow">OUR DISTINCTION</span><h2>Service is delivered.<br><em>Experience is felt.</em><br>NVI reveals the gap<br>between the two.</h2><p>We do not claim to measure an emotion by intuition. We seek to connect it to verifiable elements: the sequence of gestures, the context, preferences and the feedback the guest expresses.</p></div>
+  <div class="legend-grid" style="grid-template-columns:repeat(3,1fr)">
+    <article><span class="code">01</span><h3>Establish</h3><p>Documented facts and the promise that was expected.</p></article>
+    <article><span class="code">02</span><h3>Confront</h3><p>Observed signals and the perceptions gathered.</p></article>
+    <article><span class="code">03</span><h3>Decide</h3><p>A precise action — only if the findings confirm it.</p></article>
+  </div>
+  <div class="example" style="margin-top:14px">
+    <div><span class="eyebrow">AN EXAMPLE OF REPORTING · ENTIRELY FICTIONAL</span><h3>« The tea was served as intended. The rhythm of the welcome remains to be tested. »</h3></div>
+    <div>
+      <p><strong>Controlled standard —</strong> the gesture did take place.</p>
+      <p style="margin-top:12px"><strong>Possible decision —</strong> if a gap is confirmed, adjust the welcome sequence to the expectations expressed by the guest.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 05 WHAT FOLLOWS -->
+<section id="suite" class="section methodology-section">
+  <div class="section-label"><span>05</span> A POSSIBLE NEXT STEP <span class="section-meta">INDEPENDENT PERSPECTIVE</span></div>
+  <div class="section-heading"><h2>What has been imagined<br><em>deserves to be tested with precision.</em></h2><p>An independent perspective, offered with the same care the concept itself was given.</p></div>
+  <p class="lead" style="font-size:16px;color:var(--muted);font-weight:300;max-width:720px">Our proposal is not to look for presumed faults. It is to identify the moments where the GENSUI promise confirms itself — and those that could gain from being better understood.</p>
+  <p class="lead" style="font-size:16px;color:var(--muted);font-weight:300;max-width:720px;margin-top:16px">A focused conversation would help determine which transitions would genuinely be worth measuring for management.</p>
+  <span class="gold-rule" style="margin:32px 0"></span>
+  <p class="jp-thanks">本資料をご覧いただき、誠にありがとうございます。</p>
+  <p class="jp-romaji">Hon shiryō o goran itadaki, makoto ni arigatō gozaimasu.</p>
+  <p style="font-size:15px;color:var(--muted);font-weight:300">We sincerely thank you for taking the time to read this document.</p>
+
+  <div style="margin-top:46px">
+    <span class="eyebrow">OFFICIAL AND CULTURAL SOURCES</span>
+    <div class="gx-sources" style="margin-top:16px;border-top:1px solid var(--line)">
+      <div style="padding:14px 0;border-bottom:1px solid var(--line);font-size:13.5px;color:#4a473f">01 — Four Seasons, GENSUI announcement of 27 May 2026</div>
+      <div style="padding:14px 0;border-bottom:1px solid var(--line);font-size:13.5px;color:#4a473f">02 — Four Seasons, GENSUI / SABO offerings and concept</div>
+      <div style="padding:14px 0;border-bottom:1px solid var(--line);font-size:13.5px;color:#4a473f">03 — Four Seasons, ryokan experience and wellness</div>
+      <div style="padding:14px 0;border-bottom:1px solid var(--line);font-size:13.5px;color:#4a473f">04 — Japan House, the notion of Ma (間)</div>
+      <div style="padding:14px 0;border-bottom:1px solid var(--line);font-size:13.5px;color:#4a473f">05 — JNTO, Japanese hospitality / Omotenashi</div>
+      <div style="padding:14px 0;border-bottom:1px solid var(--line);font-size:13.5px;color:#4a473f">06 — Kotobank, the meaning of Kisetsukan (季節感)</div>
+    </div>
+    <p class="footnote" style="margin-top:22px;font-size:11.5px;color:var(--muted);max-width:820px;line-height:1.6">English edition for private review. Hypotheses only — no on-site audit and no real results. This document is neither approved nor commissioned by Four Seasons. A final cultural review is recommended before any external sharing.</p>
+  </div>
+</section>
+
+<footer class="closing"><span class="eyebrow">NEWVISION INSIGHT</span><p>Everything above can be read from the outside.<br><em>What follows is understood from the guest's place.</em></p><div><span>NEWVISION INSIGHT</span><small>GENSUI · OSAKA · EXPLORATORY STUDY · OCTOBER 2026</small><a href="#ouverture" aria-label="Back to the opening">↑</a></div></footer>
+</main>
 </template>
 </body>
 </html>
