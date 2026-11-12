@@ -1,4 +1,10 @@
 const CLIENTS = {
+  "NVI-AY7S-MFWS-87PV": {
+    ref: "ETU-KEY-2026",
+    kind: "doc",
+    name: "NewVision Insight — KeyUrla (Urla)",
+    doc: { tpl: "keyurla", css: "keyurla", to: "KeyUrla · Urla" }
+  },
   "BRI-35RY-PZJD-9TEZ": {
     ref: "ETU-BRI-2026",
     kind: "doc",
